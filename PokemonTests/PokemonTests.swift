@@ -34,6 +34,12 @@ final class PokemonTests: XCTestCase {
         
     }
     
+    func testPokemonImageURL() throws {
+        let pokemon = Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")
+        let testImageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+        XCTAssertEqual(testImageURL, pokemon.imageURL)
+    }
+    
     func testPokemonsDecode() throws {
         let json = """
         {"count":2,"next":null,"previous":null,"results":[{"name":"bulbasaur","url":"https://pokeapi.co/api/v2/pokemon/1/"},{"name":"ivysaur","url":"https://pokeapi.co/api/v2/pokemon/2/"}]}
