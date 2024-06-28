@@ -13,7 +13,7 @@ struct PokemonListView: View {
     var body: some View {
         NavigationStack(path: $viewModel.navigationPath) {
             List{
-                ForEach(viewModel.searchedPokemon){ pokemon in
+                ForEach(viewModel.searchedPokemons){ pokemon in
                     NavigationLink(value: pokemon) {
                         PokemonCellView(pokemon: pokemon)
                     }
