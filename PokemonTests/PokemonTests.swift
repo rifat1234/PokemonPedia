@@ -17,7 +17,7 @@ final class PokemonTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testPokemonDecode() throws {
         let json = """
         {"name":"bulbasaur","url":"https://pokeapi.co/api/v2/pokemon/1/"}
         """
@@ -32,6 +32,26 @@ final class PokemonTests: XCTestCase {
             XCTAssertTrue(true, "Failed to decode JSON")
         }
         
+    }
+    
+    func testPokemonsDecode() throws {
+        let json = """
+        {"count":2,"next":null,"previous":null,"results":[{"name":"bulbasaur","url":"https://pokeapi.co/api/v2/pokemon/1/"},{"name":"ivysaur","url":"https://pokeapi.co/api/v2/pokemon/2/"}]}
+        """
+        
+        let data = Data(json.utf8)
+        let decoder = JSONDecoder()
+
+        do {
+            let pokemons = try decoder.decode(Pokemons.self, from: data)
+            let testPokemons = Pokemons(count: 2, next: nil, previous: nil, results: [
+                Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/"),
+                Pokemon(name: "ivysaur", url: "https://pokeapi.co/api/v2/pokemon/2/")
+            ])
+            XCTAssertEqual(testPokemons, pokemons)
+        } catch {
+            XCTAssertTrue(true, "Failed to decode JSON")
+        }
     }
 
 }

@@ -14,6 +14,8 @@
 		35D2955C2C2F65A3007301FC /* PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D2955B2C2F65A3007301FC /* PokemonTests.swift */; };
 		35D295652C2F66D1007301FC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D295642C2F66D1007301FC /* Pokemon.swift */; };
 		35D295662C2F66D1007301FC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D295642C2F66D1007301FC /* Pokemon.swift */; };
+		35D295692C2F6968007301FC /* Pokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D295682C2F6968007301FC /* Pokemons.swift */; };
+		35D2956A2C2F6968007301FC /* Pokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D295682C2F6968007301FC /* Pokemons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 		35D295592C2F65A3007301FC /* PokemonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D2955B2C2F65A3007301FC /* PokemonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTests.swift; sourceTree = "<group>"; };
 		35D295642C2F66D1007301FC /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		35D295682C2F6968007301FC /* Pokemons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				35D295642C2F66D1007301FC /* Pokemon.swift */,
+				35D295682C2F6968007301FC /* Pokemons.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35D2954A2C2F63C6007301FC /* ContentView.swift in Sources */,
+				35D295692C2F6968007301FC /* Pokemons.swift in Sources */,
 				35D295482C2F63C6007301FC /* PokemonApp.swift in Sources */,
 				35D295652C2F66D1007301FC /* Pokemon.swift in Sources */,
 			);
@@ -228,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35D2955C2C2F65A3007301FC /* PokemonTests.swift in Sources */,
+				35D2956A2C2F6968007301FC /* Pokemons.swift in Sources */,
 				35D295662C2F66D1007301FC /* Pokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
