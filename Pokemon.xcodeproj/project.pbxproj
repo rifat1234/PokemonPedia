@@ -16,6 +16,8 @@
 		35D295662C2F66D1007301FC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D295642C2F66D1007301FC /* Pokemon.swift */; };
 		35D295692C2F6968007301FC /* Pokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D295682C2F6968007301FC /* Pokemons.swift */; };
 		35D2956A2C2F6968007301FC /* Pokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D295682C2F6968007301FC /* Pokemons.swift */; };
+		35D2956C2C2F6BE0007301FC /* PokemonCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D2956B2C2F6BE0007301FC /* PokemonCellView.swift */; };
+		35D295702C2F6CA0007301FC /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 35D2956F2C2F6CA0007301FC /* NukeUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,7 @@
 		35D2955B2C2F65A3007301FC /* PokemonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTests.swift; sourceTree = "<group>"; };
 		35D295642C2F66D1007301FC /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		35D295682C2F6968007301FC /* Pokemons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemons.swift; sourceTree = "<group>"; };
+		35D2956B2C2F6BE0007301FC /* PokemonCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D295702C2F6CA0007301FC /* NukeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +68,7 @@
 				35D295462C2F63C6007301FC /* Pokemon */,
 				35D2955A2C2F65A3007301FC /* PokemonTests */,
 				35D295452C2F63C6007301FC /* Products */,
+				35D2956E2C2F6CA0007301FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,8 +122,16 @@
 			isa = PBXGroup;
 			children = (
 				35D295492C2F63C6007301FC /* ContentView.swift */,
+				35D2956B2C2F6BE0007301FC /* PokemonCellView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		35D2956E2C2F6CA0007301FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +150,9 @@
 			dependencies = (
 			);
 			name = Pokemon;
+			packageProductDependencies = (
+				35D2956F2C2F6CA0007301FC /* NukeUI */,
+			);
 			productName = Pokemon;
 			productReference = 35D295442C2F63C6007301FC /* Pokemon.app */;
 			productType = "com.apple.product-type.application";
@@ -187,6 +203,9 @@
 				Base,
 			);
 			mainGroup = 35D2953B2C2F63C6007301FC;
+			packageReferences = (
+				35D2956D2C2F6C7F007301FC /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = 35D295452C2F63C6007301FC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -224,6 +243,7 @@
 				35D2954A2C2F63C6007301FC /* ContentView.swift in Sources */,
 				35D295692C2F6968007301FC /* Pokemons.swift in Sources */,
 				35D295482C2F63C6007301FC /* PokemonApp.swift in Sources */,
+				35D2956C2C2F6BE0007301FC /* PokemonCellView.swift in Sources */,
 				35D295652C2F66D1007301FC /* Pokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +513,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		35D2956D2C2F6C7F007301FC /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.7.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		35D2956F2C2F6CA0007301FC /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35D2956D2C2F6C7F007301FC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 35D2953C2C2F63C6007301FC /* Project object */;
 }
