@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-struct APIManager: APIManagerProtocol {
+struct APIManager: APIManagerProtocol { 
     private struct Const {
         static let allListURL = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
     }
@@ -17,6 +17,12 @@ struct APIManager: APIManagerProtocol {
         let response = await makeRequest(with: Const.allListURL, convertTo: Pokemons.self)
         return try response.result.get().results
     }
+    
+    func fetchPokemonDetails(url: String) async throws -> PokemonDetails {
+        let response = await makeRequest(with: url, convertTo: PokemonDetails.self)
+        return try response.result.get()
+    }
+    
     
     private func makeRequest<T: Decodable> (with url:String, convertTo type: T.Type) async -> DataResponse<T, AFError> {
         await AF.request(url, interceptor: .retryPolicy)
