@@ -10,7 +10,7 @@ struct PokemonDetails: Codable {
     let abilities: [Ability]?
     let baseExperience: Int?
     let cries: Cries?
-    let forms: [Species]?
+    let forms: [Info]?
     let gameIndices: [GameIndex]?
     let height: Int?
     let heldItems: [HeldItem]?
@@ -21,7 +21,7 @@ struct PokemonDetails: Codable {
     let name: String?
     let order: Int?
     let pastAbilities, pastTypes: [JSONAny]?
-    let species: Species?
+    let species: Info?
     //let sprites: Sprites?
     let stats: [Stat]?
     let types: [TypeElement]?
@@ -46,7 +46,7 @@ struct PokemonDetails: Codable {
 
 // MARK: - Ability
 struct Ability: Codable, Hashable {
-    let ability: Species?
+    let ability: Info?
     let isHidden: Bool?
     let slot: Int?
 
@@ -58,7 +58,7 @@ struct Ability: Codable, Hashable {
 }
 
 // MARK: - Species
-struct Species: Codable, Hashable {
+struct Info: Codable, Hashable {
     let name: String?
     let url: String?
 }
@@ -71,7 +71,7 @@ struct Cries: Codable {
 // MARK: - GameIndex
 struct GameIndex: Codable {
     let gameIndex: Int?
-    let version: Species?
+    let version: Info?
 
     enum CodingKeys: String, CodingKey {
         case gameIndex = "game_index"
@@ -81,7 +81,7 @@ struct GameIndex: Codable {
 
 // MARK: - HeldItem
 struct HeldItem: Codable, Hashable {
-    let item: Species?
+    let item: Info?
     let versionDetails: [VersionDetail]?
 
     enum CodingKeys: String, CodingKey {
@@ -93,7 +93,7 @@ struct HeldItem: Codable, Hashable {
 // MARK: - VersionDetail
 struct VersionDetail: Codable, Hashable {
     let rarity: Int?
-    let version: Species?
+    let version: Info?
 }
 
 // MARK: - Move
@@ -102,7 +102,7 @@ struct Move: Codable, Hashable{
         lhs.move?.name == rhs.move?.name
     }
     
-    let move: Species?
+    let move: Info?
     let versionGroupDetails: [VersionGroupDetail]?
 
     enum CodingKeys: String, CodingKey {
@@ -114,7 +114,7 @@ struct Move: Codable, Hashable{
 // MARK: - VersionGroupDetail
 struct VersionGroupDetail: Codable, Hashable {
     let levelLearnedAt: Int?
-    let moveLearnMethod, versionGroup: Species?
+    let moveLearnMethod, versionGroup: Info?
 
     enum CodingKeys: String, CodingKey {
         case levelLearnedAt = "level_learned_at"
@@ -351,7 +351,7 @@ struct GenerationViii: Codable {
 // MARK: - Stat
 struct Stat: Codable {
     let baseStat, effort: Int?
-    let stat: Species?
+    let stat: Info?
 
     enum CodingKeys: String, CodingKey {
         case baseStat = "base_stat"
@@ -360,9 +360,9 @@ struct Stat: Codable {
 }
 
 // MARK: - TypeElement
-struct TypeElement: Codable {
+struct TypeElement: Codable, Hashable {
     let slot: Int?
-    let type: Species?
+    let type: Info?
 }
 
 // MARK: - Encode/decode helpers

@@ -7,48 +7,15 @@
 
 import SwiftUI
 
-struct InfoView: View {
-    let infos:[Species]
-    let title:String
-    var body: some View {
-        List {
-            ForEach(infos, id: \.self) { info in
-                Text(info.name ?? "")
-            }
-        }
-        .navigationTitle(title)
-    }
-}
-
-struct MoreInfoCell<T>: View where T:Hashable  {
-    let label:String
-    let items:[T]?
-    var body: some View {
-        if let items = items, items.count > 0 {
-            NavigationLink(value: items) {
-                Text(label)
-            }
-        } else {
-            EmptyView()
-        }
-    }
-}
-
 struct PokemonDetailsView: View {
     @Bindable var viewModel:ViewModel
     
     var body: some View {
         VStack{
-            if let pokemonDetails = viewModel.pokemonDetails{
+            if let pokemonDetails = viewModel.pokemonDetails {
                 List {
                     BasicSection(pokemonDetails: pokemonDetails)
-                    Section {
-                        MoreInfoCell(label:"Moves", items: pokemonDetails.moves)
-                        MoreInfoCell(label:"Forms", items: pokemonDetails.forms)
-                        MoreInfoCell(label:"Held Items", items: pokemonDetails.heldItems)
-                        MoreInfoCell(label:"Abilities", items: pokemonDetails.abilities)
-                    }
-                    
+                    MoreInfoSection(pokemonDetails: pokemonDetails)
                 }
             } else {
                 ProgressView()
@@ -58,7 +25,7 @@ struct PokemonDetailsView: View {
         .navigationDestination(for: [Move].self) { moves in
             InfoView(infos:moves.compactMap{$0.move} , title: "Moves")
         }
-        .navigationDestination(for: [Species].self) { forms in
+        .navigationDestination(for: [Info].self) { forms in
             InfoView(infos:forms , title: "Forms")
         }
         .navigationDestination(for: [HeldItem].self) { heldItems in
@@ -66,6 +33,9 @@ struct PokemonDetailsView: View {
         }
         .navigationDestination(for: [Ability].self) { abilities in
             InfoView(infos:abilities.compactMap{$0.ability} , title: "Abilities")
+        }
+        .navigationDestination(for: [TypeElement].self) { types in
+            InfoView(infos:types.compactMap{$0.type} , title: "Types")
         }
         .task {
             await viewModel.fetchPokemonDetails()
