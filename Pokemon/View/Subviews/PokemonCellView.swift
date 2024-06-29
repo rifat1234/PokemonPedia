@@ -18,8 +18,7 @@ struct PokemonCellView: View {
         HStack{
             LazyImage(
                 url: URL(string: pokemon.imageURL)
-            ){
-                state in
+            ){ state in
                     if let image = state.image {
                         image.resizable().aspectRatio(contentMode: .fit)
                     } else if state.error != nil {

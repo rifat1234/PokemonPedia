@@ -12,6 +12,7 @@ extension PokemonDetailsView {
     @Observable class ViewModel {
         private let apiManager: APIManagerProtocol
         let pokemon: Pokemon
+        var navigationPath = NavigationPath()
         var pokemonDetails: PokemonDetails?
         
         init(_ pokemon: Pokemon, apiManager: APIManagerProtocol = APIManager()) {

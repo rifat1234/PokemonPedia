@@ -7,63 +7,32 @@
 
 import SwiftUI
 
-struct AbilitySections: View {
-    let abilities: [Ability]
+struct InfoView: View {
+    let infos:[Species]
+    let title:String
     var body: some View {
-        Section("Ability") {
-            ForEach(abilities, id: \.ability?.name) { ability in
-                Text(ability.ability?.name ?? "")
+        List {
+            ForEach(infos, id: \.self) { info in
+                Text(info.name ?? "")
             }
         }
+        .navigationTitle(title)
     }
 }
 
-struct HeldItemSections: View {
-    let heldItems: [HeldItem]
+struct MoreInfoCell<T>: View where T:Hashable  {
+    let label:String
+    let items:[T]?
     var body: some View {
-        if heldItems.isEmpty {
-            EmptyView()
+        if let items = items, items.count > 0 {
+            NavigationLink(value: items) {
+                Text(label)
+            }
         } else {
-            Section("HeldItems") {
-                ForEach(heldItems, id: \.item?.name) { heldItem in
-                    Text(heldItem.item?.name ?? "")
-                }
-                
-            }
-        }
-    }
-}
-
-struct MoveSection: View {
-    let moves: [Move]
-    var body: some View {
-        if moves.isEmpty {
             EmptyView()
-        } else {
-            Section("Moves") {
-                ForEach(moves, id: \.move?.name) { move in
-                    Text(move.move?.name ?? "")
-                }
-            }
         }
     }
 }
-
-struct FormSection: View {
-    let forms: [Species]
-    var body: some View {
-        if forms.isEmpty {
-            EmptyView()
-        } else {
-            Section("Forms") {
-                ForEach(forms, id: \.name) { form in
-                    Text(form.name ?? "")
-                }
-            }
-        }
-    }
-}
-
 
 struct PokemonDetailsView: View {
     @Bindable var viewModel:ViewModel
@@ -73,27 +42,31 @@ struct PokemonDetailsView: View {
             if let pokemonDetails = viewModel.pokemonDetails{
                 List {
                     BasicSection(pokemonDetails: pokemonDetails)
-                    if let abilities = pokemonDetails.abilities {
-                        AbilitySections(abilities: abilities)
+                    Section {
+                        MoreInfoCell(label:"Moves", items: pokemonDetails.moves)
+                        MoreInfoCell(label:"Forms", items: pokemonDetails.forms)
+                        MoreInfoCell(label:"Held Items", items: pokemonDetails.heldItems)
+                        MoreInfoCell(label:"Abilities", items: pokemonDetails.abilities)
                     }
                     
-                    if let heldItems = pokemonDetails.heldItems {
-                        HeldItemSections(heldItems: heldItems)
-                    }
-                    
-                    if let moves = pokemonDetails.moves {
-                        MoveSection(moves: moves)
-                    }
-                    
-                    if let forms = pokemonDetails.forms {
-                        FormSection(forms: forms)
-                    }
                 }
             } else {
                 ProgressView()
             }
         }
         .navigationTitle(viewModel.pokemon.name)
+        .navigationDestination(for: [Move].self) { moves in
+            InfoView(infos:moves.compactMap{$0.move} , title: "Moves")
+        }
+        .navigationDestination(for: [Species].self) { forms in
+            InfoView(infos:forms , title: "Forms")
+        }
+        .navigationDestination(for: [HeldItem].self) { heldItems in
+            InfoView(infos:heldItems.compactMap{$0.item} , title: "Held Items")
+        }
+        .navigationDestination(for: [Ability].self) { abilities in
+            InfoView(infos:abilities.compactMap{$0.ability} , title: "Abilities")
+        }
         .task {
             await viewModel.fetchPokemonDetails()
         }

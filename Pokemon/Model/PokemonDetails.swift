@@ -45,7 +45,7 @@ struct PokemonDetails: Codable {
 }
 
 // MARK: - Ability
-struct Ability: Codable {
+struct Ability: Codable, Hashable {
     let ability: Species?
     let isHidden: Bool?
     let slot: Int?
@@ -58,7 +58,7 @@ struct Ability: Codable {
 }
 
 // MARK: - Species
-struct Species: Codable {
+struct Species: Codable, Hashable {
     let name: String?
     let url: String?
 }
@@ -80,7 +80,7 @@ struct GameIndex: Codable {
 }
 
 // MARK: - HeldItem
-struct HeldItem: Codable {
+struct HeldItem: Codable, Hashable {
     let item: Species?
     let versionDetails: [VersionDetail]?
 
@@ -91,13 +91,17 @@ struct HeldItem: Codable {
 }
 
 // MARK: - VersionDetail
-struct VersionDetail: Codable {
+struct VersionDetail: Codable, Hashable {
     let rarity: Int?
     let version: Species?
 }
 
 // MARK: - Move
-struct Move: Codable {
+struct Move: Codable, Hashable{
+    static func == (lhs: Move, rhs: Move) -> Bool {
+        lhs.move?.name == rhs.move?.name
+    }
+    
     let move: Species?
     let versionGroupDetails: [VersionGroupDetail]?
 
@@ -108,7 +112,7 @@ struct Move: Codable {
 }
 
 // MARK: - VersionGroupDetail
-struct VersionGroupDetail: Codable {
+struct VersionGroupDetail: Codable, Hashable {
     let levelLearnedAt: Int?
     let moveLearnMethod, versionGroup: Species?
 
