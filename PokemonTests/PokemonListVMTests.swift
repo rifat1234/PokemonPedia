@@ -42,5 +42,24 @@ final class PokemonListVMTests: XCTestCase {
         
         XCTAssertEqual(testResult2, viewModel.searchedPokemons)
     }
+    
+    func testSearchResultAlphabeticalOrder() async throws {
+        let apiManager = MockAPIManager(allPokemon: [
+            Pokemon(name: "abc", url: "url2"),
+            Pokemon(name: "aab", url: "url1"),
+            Pokemon(name: "pika", url: "url3"),
+        ])
+        
+        let viewModel = PokemonListView.ViewModel(apiManger: apiManager)
+        await viewModel.fetchAllPokemons()
+        
+        let testResult = [
+            Pokemon(name: "aab", url: "url1"),
+            Pokemon(name: "abc", url: "url2"),
+            Pokemon(name: "pika", url: "url3"),
+        ]
+        
+        XCTAssertEqual(testResult, viewModel.searchedPokemons)
+    }
 
 }

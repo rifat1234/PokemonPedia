@@ -31,7 +31,7 @@ extension PokemonListView {
         
         func fetchAllPokemons() async {
             do {
-                self.allPokemons = try await apiManager.fetchAllPokemon()
+                self.allPokemons = try await apiManager.fetchAllPokemon().sorted{$0.name < $1.name}
             } catch {
                 debugPrint(error)
             }
