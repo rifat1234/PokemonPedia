@@ -34,9 +34,9 @@ extension PokemonDetailsView {
             if let value = value {
                 VStack(alignment:.leading) {
                     Text(label)
-                        .font(.subheadline)
+                        .font(.headline)
                     Text(value)
-                        .font(.title)
+                        .font(.title3)
                 }
             } else {
                 EmptyView()
