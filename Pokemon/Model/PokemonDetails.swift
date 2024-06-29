@@ -22,7 +22,7 @@ struct PokemonDetails: Codable {
     let order: Int?
     let pastAbilities, pastTypes: [JSONAny]?
     let species: Info?
-    //let sprites: Sprites?
+    let sprites: Sprites?
     let stats: [Stat]?
     let types: [TypeElement]?
     let weight: Int?
@@ -40,7 +40,7 @@ struct PokemonDetails: Codable {
         case moves, name, order
         case pastAbilities = "past_abilities"
         case pastTypes = "past_types"
-        case species, stats, types, weight //sprites
+        case species, stats, types, weight, sprites
     }
 }
 
@@ -195,16 +195,16 @@ struct Other: Codable {
 // MARK: - Sprites
 class Sprites: Codable {
     let backDefault: String?
-    let backFemale: JSONNull?
+    let backFemale: String?
     let backShiny: String?
-    let backShinyFemale: JSONNull?
+    let backShinyFemale: String?
     let frontDefault: String?
-    let frontFemale: JSONNull?
+    let frontFemale: String?
     let frontShiny: String?
-    let frontShinyFemale: JSONNull?
-    let other: Other?
-    let versions: Versions?
-    let animated: Sprites?
+    let frontShinyFemale: String?
+//    let other: Other?
+//    let versions: Versions?
+//    let animated: Sprites?
 
     enum CodingKeys: String, CodingKey {
         case backDefault = "back_default"
@@ -215,22 +215,22 @@ class Sprites: Codable {
         case frontFemale = "front_female"
         case frontShiny = "front_shiny"
         case frontShinyFemale = "front_shiny_female"
-        case other, versions, animated
+        //case other, versions, animated
     }
 
-    init(backDefault: String?, backFemale: JSONNull?, backShiny: String?, backShinyFemale: JSONNull?, frontDefault: String?, frontFemale: JSONNull?, frontShiny: String?, frontShinyFemale: JSONNull?, other: Other?, versions: Versions?, animated: Sprites?) {
-        self.backDefault = backDefault
-        self.backFemale = backFemale
-        self.backShiny = backShiny
-        self.backShinyFemale = backShinyFemale
-        self.frontDefault = frontDefault
-        self.frontFemale = frontFemale
-        self.frontShiny = frontShiny
-        self.frontShinyFemale = frontShinyFemale
-        self.other = other
-        self.versions = versions
-        self.animated = animated
-    }
+//    init(backDefault: String?, backFemale: JSONNull?, backShiny: String?, backShinyFemale: JSONNull?, frontDefault: String?, frontFemale: JSONNull?, frontShiny: String?, frontShinyFemale: JSONNull?, other: Other?, versions: Versions?, animated: Sprites?) {
+//        self.backDefault = backDefault
+//        self.backFemale = backFemale
+//        self.backShiny = backShiny
+//        self.backShinyFemale = backShinyFemale
+//        self.frontDefault = frontDefault
+//        self.frontFemale = frontFemale
+//        self.frontShiny = frontShiny
+//        self.frontShinyFemale = frontShinyFemale
+//        self.other = other
+//        self.versions = versions
+//        self.animated = animated
+//    }
 }
 
 // MARK: - GenerationI
