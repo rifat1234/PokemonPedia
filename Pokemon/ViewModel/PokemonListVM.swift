@@ -21,7 +21,7 @@ extension PokemonListView {
                 return allPokemons
             }
             
-            return allPokemons.filter{$0.name.starts(with: searchText.lowercased())}
+            return allPokemons.filter{$0.name.lowercased().starts(with: searchText.lowercased())}
         }
         
         

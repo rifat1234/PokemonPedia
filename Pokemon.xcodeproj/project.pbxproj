@@ -41,6 +41,9 @@
 		35FFB06C2C30BF9700449536 /* MoreInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFB06B2C30BF9700449536 /* MoreInfoSection.swift */; };
 		35FFB06E2C30C10D00449536 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFB06D2C30C10D00449536 /* InfoView.swift */; };
 		35FFB0702C30C3FF00449536 /* StatSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFB06F2C30C3FF00449536 /* StatSection.swift */; };
+		35FFB0712C30CEE800449536 /* StatSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFB06F2C30C3FF00449536 /* StatSection.swift */; };
+		35FFB0722C30CEEC00449536 /* MoreInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFB06B2C30BF9700449536 /* MoreInfoSection.swift */; };
+		35FFB0732C30CEF700449536 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFB06D2C30C10D00449536 /* InfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -372,6 +375,7 @@
 			files = (
 				35D295792C2F778D007301FC /* PokemonListView.swift in Sources */,
 				35D295852C2F79E4007301FC /* APIManagerProtocol.swift in Sources */,
+				35FFB0722C30CEEC00449536 /* MoreInfoSection.swift in Sources */,
 				3561A39B2C305B1D00441896 /* PokemonDetailsTests.swift in Sources */,
 				35D295882C2F7E04007301FC /* APIManager.swift in Sources */,
 				3561A39E2C305E7300441896 /* PokemonDetailsView.swift in Sources */,
@@ -383,7 +387,9 @@
 				35D295842C2F79CD007301FC /* MockAPIManager.swift in Sources */,
 				3561A3A42C3069A100441896 /* BasicSection.swift in Sources */,
 				35D2957C2C2F77CB007301FC /* PokemonCellView.swift in Sources */,
+				35FFB0712C30CEE800449536 /* StatSection.swift in Sources */,
 				35D295662C2F66D1007301FC /* Pokemon.swift in Sources */,
+				35FFB0732C30CEF700449536 /* InfoView.swift in Sources */,
 				3561A3A12C30610D00441896 /* PokemonDetailsVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
