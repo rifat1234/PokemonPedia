@@ -7,33 +7,23 @@
 
 import SwiftUI
 
-struct ListView: View {
-    let label: String
-    let value: String
-    var body: some View {
-        VStack(alignment:.leading) {
-            Text(label)
-                .font(.subheadline)
-            Text(value)
-                .font(.title)
-        }
-    }
-    
-    
-}
-
 struct PokemonDetailsView: View {
     @Bindable var viewModel:ViewModel
     
     var body: some View {
-        List {
-            Section {
-                ListView(label: "Base Experience", value: String(42))
-                ListView(label: "Height", value: String(50))
-                ListView(label: "Weight", value: String(3))
+        VStack{
+            if let pokemonDetails = viewModel.pokemonDetails{
+                List {
+                    BasicSection(pokemonDetails: pokemonDetails)
+                }
+            } else {
+                ProgressView()
             }
         }
-        .navigationTitle("Pokemon")
+        .navigationTitle(viewModel.pokemon.name)
+        .task {
+            await viewModel.fetchPokemonDetails()
+        }
     }
 }
 

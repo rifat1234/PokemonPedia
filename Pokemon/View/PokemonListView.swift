@@ -23,7 +23,7 @@ struct PokemonListView: View {
             .searchable(text: $viewModel.searchText, prompt: Text("Search"))
             .navigationTitle(Text("Pokemon"))
             .navigationDestination(for: Pokemon.self){ pokemon in
-                Text(pokemon.name)
+                PokemonDetailsView(viewModel: PokemonDetailsView.ViewModel(pokemon))
             }
             .task {
                 await viewModel.fetchAllPokemons()

@@ -11,7 +11,7 @@ import Observation
 extension PokemonDetailsView {
     @Observable class ViewModel {
         private let apiManager: APIManagerProtocol
-        private let pokemon: Pokemon
+        let pokemon: Pokemon
         var pokemonDetails: PokemonDetails?
         
         init(_ pokemon: Pokemon, apiManager: APIManagerProtocol = APIManager()) {
