@@ -30,7 +30,7 @@ struct Pokemon: Codable, Equatable, Hashable, Identifiable {
     
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decode(String.self, forKey: .name)
+        self.name = try container.decode(String.self, forKey: .name).capitalized.replacingOccurrences(of: "-", with: " ")
         self.url = try container.decode(String.self, forKey: .url)
         self.imageURL = Pokemon.getImageURL(from: url)
     }
