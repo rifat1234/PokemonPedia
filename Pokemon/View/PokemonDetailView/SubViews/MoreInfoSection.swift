@@ -18,6 +18,7 @@ extension PokemonDetailsView {
                 MoreInfoCell(label:"Held Items", items: pokemonDetails.heldItems)
                 MoreInfoCell(label:"Forms", items: pokemonDetails.forms)
                 MoreInfoCell(label:"Types", items: pokemonDetails.types)
+                MoreInfoCell(label:"Game Indices", items: pokemonDetails.gameIndices)
             }
         }
     }

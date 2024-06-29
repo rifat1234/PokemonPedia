@@ -69,7 +69,7 @@ struct Cries: Codable {
 }
 
 // MARK: - GameIndex
-struct GameIndex: Codable {
+struct GameIndex: Codable, Hashable {
     let gameIndex: Int?
     let version: Info?
 

@@ -17,7 +17,6 @@ struct PokemonDetailsView: View {
                     BasicSection(pokemonDetails: pokemonDetails)
                     StatsSection(pokemonDetails: pokemonDetails)
                     MoreInfoSection(pokemonDetails: pokemonDetails)
-                    
                 }
             } else {
                 ProgressView()
@@ -38,6 +37,9 @@ struct PokemonDetailsView: View {
         }
         .navigationDestination(for: [TypeElement].self) { types in
             InfoView(infos:types.compactMap{$0.type} , title: "Types")
+        }
+        .navigationDestination(for: [GameIndex].self) { gameIndices in
+            InfoView(infos:gameIndices.compactMap{$0.version} , title: "Game Indices")
         }
         .task {
             await viewModel.fetchPokemonDetails()
