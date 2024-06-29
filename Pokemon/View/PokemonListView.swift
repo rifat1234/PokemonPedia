@@ -25,6 +25,9 @@ struct PokemonListView: View {
             .navigationDestination(for: Pokemon.self){ pokemon in
                 Text(pokemon.name)
             }
+            .task {
+                await viewModel.fetchAllPokemons()
+            }
         }
     }
 }

@@ -33,7 +33,7 @@ extension PokemonListView {
             do {
                 self.allPokemons = try await apiManager.fetchAllPokemon()
             } catch {
-                
+                debugPrint(error)
             }
         }
     }
