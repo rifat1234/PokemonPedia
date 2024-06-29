@@ -61,6 +61,17 @@ struct Ability: Codable, Hashable {
 struct Info: Codable, Hashable {
     let name: String?
     let url: String?
+    
+    init(name: String, url: String?) {
+        self.name = name
+        self.url = url
+    }
+    
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name).capitalized.replacingOccurrences(of: "-", with: " ")
+        self.url = try container.decode(String.self, forKey: .url)
+    }
 }
 
 // MARK: - Cries
