@@ -23,6 +23,8 @@ struct ListView: View {
 }
 
 struct PokemonDetailsView: View {
+    @Bindable var viewModel:ViewModel
+    
     var body: some View {
         List {
             Section {
@@ -36,5 +38,5 @@ struct PokemonDetailsView: View {
 }
 
 #Preview {
-    PokemonDetailsView()
+    PokemonDetailsView(viewModel: PokemonDetailsView.ViewModel(Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")))
 }
