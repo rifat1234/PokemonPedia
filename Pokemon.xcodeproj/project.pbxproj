@@ -142,8 +142,8 @@
 		35D295672C2F68C2007301FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				35D2956B2C2F6BE0007301FC /* PokemonCellView.swift */,
 				35D295712C2F6F43007301FC /* PokemonListView.swift */,
+				35D295892C2F8D02007301FC /* Subviews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +170,14 @@
 				35D295862C2F7CE5007301FC /* APIManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		35D295892C2F8D02007301FC /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				35D2956B2C2F6BE0007301FC /* PokemonCellView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
