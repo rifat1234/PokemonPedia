@@ -15,7 +15,6 @@ struct APIManager: APIManagerProtocol {
     
     func fetchAllPokemon() async throws -> [Pokemon] {
         let response = await makeRequest(with: Const.allListURL, convertTo: Pokemons.self)
-        
         return try response.result.get().results
     }
     

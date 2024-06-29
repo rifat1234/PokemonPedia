@@ -20,8 +20,8 @@ struct PokemonListView: View {
                     
                 }
             }
-            .searchable(text: $viewModel.searchText, prompt: Text("Search by name"))
-            .navigationTitle("Pokemon")
+            .searchable(text: $viewModel.searchText, prompt: Text("Search"))
+            .navigationTitle(Text("Pokemon"))
             .navigationDestination(for: Pokemon.self){ pokemon in
                 Text(pokemon.name)
             }
