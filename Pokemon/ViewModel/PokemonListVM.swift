@@ -12,7 +12,6 @@ import SwiftUI
 extension PokemonListView {
     @Observable class ViewModel {
         let apiManager:APIManagerProtocol
-        var navigationPath = NavigationPath()
         var searchText:String = ""
         private var allPokemons:[Pokemon] = []
         

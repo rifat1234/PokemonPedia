@@ -11,7 +11,7 @@ struct PokemonListView: View {
     @Bindable var viewModel:ViewModel
     
     var body: some View {
-        NavigationStack(path: $viewModel.navigationPath) {
+        NavigationStack {
             List{
                 ForEach(viewModel.searchedPokemons){ pokemon in
                     NavigationLink(value: pokemon) {
