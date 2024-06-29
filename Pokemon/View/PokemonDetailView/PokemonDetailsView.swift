@@ -15,7 +15,9 @@ struct PokemonDetailsView: View {
             if let pokemonDetails = viewModel.pokemonDetails {
                 List {
                     BasicSection(pokemonDetails: pokemonDetails)
+                    StatsSection(pokemonDetails: pokemonDetails)
                     MoreInfoSection(pokemonDetails: pokemonDetails)
+                    
                 }
             } else {
                 ProgressView()

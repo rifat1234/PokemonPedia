@@ -12,7 +12,7 @@ extension PokemonDetailsView {
     struct MoreInfoSection: View {
         let pokemonDetails: PokemonDetails
         var body: some View {
-            Section("Infos") {
+            Section("More Infos") {
                 MoreInfoCell(label:"Abilities", items: pokemonDetails.abilities)
                 MoreInfoCell(label:"Moves", items: pokemonDetails.moves)
                 MoreInfoCell(label:"Held Items", items: pokemonDetails.heldItems)

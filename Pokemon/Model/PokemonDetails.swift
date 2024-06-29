@@ -349,7 +349,7 @@ struct GenerationViii: Codable {
 }
 
 // MARK: - Stat
-struct Stat: Codable {
+struct Stat: Codable, Hashable {
     let baseStat, effort: Int?
     let stat: Info?
 
