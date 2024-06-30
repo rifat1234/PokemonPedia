@@ -11,13 +11,19 @@ import NukeUI
 
 struct PokemonImage: View {
     let url:String
+    var imageLabel:String?
     
     var body: some View {
         LazyImage(
             url: URL(string: url)
         ){ state in
             if let image = state.image {
-                image.resizable().aspectRatio(contentMode: .fit)
+                VStack {
+                    image.resizable().aspectRatio(contentMode: .fit)
+                    if let imageLabel = imageLabel {
+                        Text(imageLabel)
+                    }
+                }
             } else if state.error != nil {
                 Image(systemName: "questionmark.circle")
                     .tint(.red)

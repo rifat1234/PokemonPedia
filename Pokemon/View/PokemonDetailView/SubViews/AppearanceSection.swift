@@ -50,9 +50,9 @@ extension PokemonDetailsView {
         
         var body: some View {
             VStack {
-                PokemonImage(url: url)
-                Text(label)
+                PokemonImage(url: url, imageLabel: label)
                     .font(.callout)
+                    .frame(width: 100)
             }
         }
     }
