@@ -14,24 +14,7 @@ struct PokemonDetailsView: View {
         VStack{
             if let pokemonDetails = viewModel.pokemonDetails {
                 List {
-                    if let sprites = pokemonDetails.sprites {
-                        Section("Appearance") {
-                            HStack(alignment: .center) {
-                                if let front = sprites.frontDefault {
-                                    PokemonImage(url: front)
-                                        .frame(height: 90)
-                                }
-                                
-                                
-                                
-                                if let back = sprites.backDefault {
-                                    Spacer()
-                                    PokemonImage(url: back)
-                                        .frame(height: 90)
-                                }
-                            }
-                        }
-                    }
+                    AppearanceSection(pokemonDetails: pokemonDetails)
                     BasicSection(pokemonDetails: pokemonDetails)
                     StatsSection(pokemonDetails: pokemonDetails)
                     MoreInfoSection(pokemonDetails: pokemonDetails)

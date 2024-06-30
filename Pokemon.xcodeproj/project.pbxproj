@@ -46,6 +46,8 @@
 		35FFB0732C30CEF700449536 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFB06D2C30C10D00449536 /* InfoView.swift */; };
 		35FFB0752C30DA1200449536 /* PokemonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFB0742C30DA1200449536 /* PokemonImage.swift */; };
 		35FFB0762C30DCC500449536 /* PokemonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFB0742C30DA1200449536 /* PokemonImage.swift */; };
+		35FFB0782C30E15E00449536 /* AppearanceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFB0772C30E15E00449536 /* AppearanceSection.swift */; };
+		35FFB0792C30E15E00449536 /* AppearanceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFB0772C30E15E00449536 /* AppearanceSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,7 @@
 		35FFB06D2C30C10D00449536 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		35FFB06F2C30C3FF00449536 /* StatSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatSection.swift; sourceTree = "<group>"; };
 		35FFB0742C30DA1200449536 /* PokemonImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonImage.swift; sourceTree = "<group>"; };
+		35FFB0772C30E15E00449536 /* AppearanceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +243,7 @@
 		35FFB06A2C30BF2F00449536 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				35FFB0772C30E15E00449536 /* AppearanceSection.swift */,
 				3561A3A22C3069A100441896 /* BasicSection.swift */,
 				35FFB06F2C30C3FF00449536 /* StatSection.swift */,
 				35FFB06B2C30BF9700449536 /* MoreInfoSection.swift */,
@@ -360,6 +364,7 @@
 				3561A3A02C30610D00441896 /* PokemonDetailsVM.swift in Sources */,
 				35D295692C2F6968007301FC /* Pokemons.swift in Sources */,
 				35D295482C2F63C6007301FC /* PokemonApp.swift in Sources */,
+				35FFB0782C30E15E00449536 /* AppearanceSection.swift in Sources */,
 				35D295762C2F6FF5007301FC /* PokemonListVM.swift in Sources */,
 				35FFB06E2C30C10D00449536 /* InfoView.swift in Sources */,
 				3561A3A32C3069A100441896 /* BasicSection.swift in Sources */,
@@ -397,6 +402,7 @@
 				35D295662C2F66D1007301FC /* Pokemon.swift in Sources */,
 				35FFB0732C30CEF700449536 /* InfoView.swift in Sources */,
 				3561A3A12C30610D00441896 /* PokemonDetailsVM.swift in Sources */,
+				35FFB0792C30E15E00449536 /* AppearanceSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

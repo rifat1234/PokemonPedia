@@ -32,9 +32,10 @@ extension PokemonDetailsView {
         
         var body: some View {
             if let value = value {
-                VStack(alignment:.leading) {
+                HStack {
                     Text(label)
                         .font(.headline)
+                    Spacer()
                     Text(value)
                         .font(.title3)
                 }
