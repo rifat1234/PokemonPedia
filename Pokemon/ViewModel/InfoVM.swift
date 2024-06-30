@@ -18,7 +18,7 @@ extension InfoView {
         }
         
         var navigationTitle:String {
-            title
+            title.capitalized
         }
         
         init(infos: [Info], title: String) {
