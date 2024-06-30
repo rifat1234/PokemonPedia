@@ -14,10 +14,12 @@ struct PokemonListView: View {
         NavigationStack {
             List{
                 ForEach(viewModel.searchedPokemons){ pokemon in
-                    NavigationLink(value: pokemon) {
-                        PokemonCellView(pokemon: pokemon)
+                    ZStack {
+                        Button(""){}
+                        NavigationLink(value: pokemon) {
+                            PokemonCellView(pokemon: pokemon)
+                        }
                     }
-                    
                 }
             }
             .searchable(text: $viewModel.searchText, prompt: Text("Search"))
