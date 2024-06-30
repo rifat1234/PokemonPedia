@@ -8,23 +8,23 @@
 import XCTest
 
 final class PokemonListVMTests: XCTestCase {
+    var viewModel:PokemonListView.ViewModel!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testSearchResult() async throws {
-        let apiManager = MockAPIManager(allPokemon: [
+        let apiManager =  MockAPIManager(allPokemon: [
             Pokemon(name: "aab", url: "url1"),
             Pokemon(name: "abc", url: "url2"),
             Pokemon(name: "pika", url: "url3"),
         ])
         
-        let viewModel = PokemonListView.ViewModel(apiManger: apiManager)
+        viewModel = PokemonListView.ViewModel(apiManger: apiManager)
+    }
+
+    override func tearDownWithError() throws {
+        
+    }
+
+    func testSearchResult() async throws {
         await viewModel.fetchAllPokemons()
         
         viewModel.searchText = "a"
@@ -44,13 +44,6 @@ final class PokemonListVMTests: XCTestCase {
     }
     
     func testSearchResultAlphabeticalOrder() async throws {
-        let apiManager = MockAPIManager(allPokemon: [
-            Pokemon(name: "abc", url: "url2"),
-            Pokemon(name: "aab", url: "url1"),
-            Pokemon(name: "pika", url: "url3"),
-        ])
-        
-        let viewModel = PokemonListView.ViewModel(apiManger: apiManager)
         await viewModel.fetchAllPokemons()
         
         let testResult = [
@@ -60,6 +53,12 @@ final class PokemonListVMTests: XCTestCase {
         ]
         
         XCTAssertEqual(testResult, viewModel.searchedPokemons)
+    }
+    
+    func testViewStateChange() async throws {
+        XCTAssertEqual(viewModel.viewState, .dataLoading)
+        await viewModel.fetchAllPokemons()
+        XCTAssertEqual(viewModel.viewState, .dataLoaded)
     }
 
 }
