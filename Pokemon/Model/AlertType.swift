@@ -32,3 +32,9 @@ enum AlertType {
         }
     }
 }
+
+protocol AlertHandler {
+    var alertType:AlertType { get }
+    func showAlert(_ alertType: AlertType)
+    var showAlert:Bool  { get set }
+}

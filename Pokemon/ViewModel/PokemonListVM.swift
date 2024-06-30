@@ -14,7 +14,7 @@ extension PokemonListView {
         case dataLoading,dataLoaded
     }
     
-    @Observable class ViewModel {
+    @Observable class ViewModel: AlertHandler {
         let apiManager:APIManagerProtocol
         var searchText:String = ""
         var showAlert:Bool = false
