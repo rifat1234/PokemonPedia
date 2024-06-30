@@ -12,18 +12,31 @@ struct PokemonDetailsView: View {
     
     var body: some View {
         VStack{
-            if let pokemonDetails = viewModel.pokemonDetails {
-                List {
-                    AppearanceSection(pokemonDetails: pokemonDetails)
-                    BasicSection(pokemonDetails: pokemonDetails)
-                    StatsSection(pokemonDetails: pokemonDetails)
-                    MoreInfoSection(pokemonDetails: pokemonDetails)
-                }
-            } else {
+            switch viewModel.viewState {
+            case .dataLoading:
                 ProgressView()
+                
+            case .dataLoaded:
+                List {
+                    AppearanceSection(front: viewModel.defaultFrontSprite,
+                                      back: viewModel.defaultBackSprite,
+                                      frontShiny: viewModel.defaultShinyFrontSprite,
+                                      backShiny: viewModel.defaultShinyBackSprite)
+                    BasicSection(baseExperience: viewModel.baseExperience,
+                                 height:viewModel.height,
+                                 weight: viewModel.weight)
+                    StatsSection(stats: viewModel.stats)
+                    MoreInfoSection(abilities: viewModel.abilities,
+                                    moves: viewModel.moves,
+                                    heldItems: viewModel.heldItems,
+                                    forms: viewModel.forms,
+                                    types: viewModel.types,
+                                    gameIndices: viewModel.gameIndices)
+                    
+                }
             }
         }
-        .navigationTitle(viewModel.pokemon.name)
+        .navigationTitle(viewModel.navigationTitle)
         .navigationDestination(for: [Move].self) { moves in
             InfoView(viewModel: InfoView.ViewModel( infos:moves.compactMap{$0.move} , title: "Moves"))
         }

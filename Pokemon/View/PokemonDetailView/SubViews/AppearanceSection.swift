@@ -9,20 +9,23 @@ import SwiftUI
 
 extension PokemonDetailsView {
     struct AppearanceSection: View {
-        let pokemonDetails:PokemonDetails
+        let front:String?
+        let back:String?
+        let frontShiny:String?
+        let backShiny:String?
         @State private var showShiny = false
         
         var body: some View {
-            if let sprites = pokemonDetails.sprites, let front = sprites.frontDefault {
-                let shinyURLs = [sprites.frontShiny, sprites.backShiny].compactMap{$0}
+            if let front = front {
+                let shinyURLs = [frontShiny, backShiny].compactMap{$0}
                 
                 Section("Appearance") {
                     HStack {
                         Spacer()
-                        PokemonAppearance(url: showShiny ? shinyURLs[0]: front, label: "Front")
-                        if let back = sprites.backDefault {
+                        PokemonAppearance(url: showShiny ? (frontShiny ?? "") : front, label: "Front")
+                        if let back = back {
                             Spacer()
-                            PokemonAppearance(url: showShiny ? shinyURLs[1]: back, label: "Back")
+                            PokemonAppearance(url: showShiny ? (backShiny ?? "") : back, label: "Back")
                         }
                         Spacer()
                     }

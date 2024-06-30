@@ -9,9 +9,9 @@ import SwiftUI
 
 extension PokemonDetailsView {
     struct StatsSection: View {
-        let pokemonDetails: PokemonDetails
+        let stats: [Stat]?
         var body: some View {
-            if let stats = pokemonDetails.stats {
+            if let stats = stats {
                 Section("Stats") {
                     ForEach(stats, id: \.self) { stat in
                         HStack {

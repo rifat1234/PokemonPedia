@@ -10,15 +10,21 @@ import SwiftUI
 
 extension PokemonDetailsView {
     struct MoreInfoSection: View {
-        let pokemonDetails: PokemonDetails
+        let abilities:[Ability]?
+        let moves:[Move]?
+        let heldItems:[HeldItem]?
+        let forms:[Info]?
+        let types:[TypeElement]?
+        let gameIndices:[GameIndex]?
+        
         var body: some View {
             Section("More Infos") {
-                MoreInfoCell(label:"Abilities", items: pokemonDetails.abilities)
-                MoreInfoCell(label:"Moves", items: pokemonDetails.moves)
-                MoreInfoCell(label:"Held Items", items: pokemonDetails.heldItems)
-                MoreInfoCell(label:"Forms", items: pokemonDetails.forms)
-                MoreInfoCell(label:"Types", items: pokemonDetails.types)
-                MoreInfoCell(label:"Game Indices", items: pokemonDetails.gameIndices)
+                MoreInfoCell(label:"Abilities", items: abilities)
+                MoreInfoCell(label:"Moves", items: moves)
+                MoreInfoCell(label:"Held Items", items: heldItems)
+                MoreInfoCell(label:"Forms", items: forms)
+                MoreInfoCell(label:"Types", items: types)
+                MoreInfoCell(label:"Game Indices", items: gameIndices)
             }
         }
     }
