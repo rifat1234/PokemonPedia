@@ -31,10 +31,7 @@ extension PokemonDetailsView {
                     }
                     .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
                     
-                }
-                
-                if shinyURLs.count > 0 {
-                    Section {
+                    if shinyURLs.count > 0 {
                         HStack {
                             Toggle("Shiny", isOn: $showShiny)
                         }
@@ -56,4 +53,5 @@ extension PokemonDetailsView {
             }
         }
     }
+    
 }
