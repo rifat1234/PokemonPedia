@@ -16,6 +16,7 @@
 		3561A3A12C30610D00441896 /* PokemonDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3561A39F2C30610D00441896 /* PokemonDetailsVM.swift */; };
 		3561A3A32C3069A100441896 /* BasicSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3561A3A22C3069A100441896 /* BasicSection.swift */; };
 		3561A3A42C3069A100441896 /* BasicSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3561A3A22C3069A100441896 /* BasicSection.swift */; };
+		3573195E2C31E71900ED6B25 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0BD052C31A6E9005ED91F /* AlertType.swift */; };
 		35C0BD062C31A6E9005ED91F /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0BD052C31A6E9005ED91F /* AlertType.swift */; };
 		35D295482C2F63C6007301FC /* PokemonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D295472C2F63C6007301FC /* PokemonApp.swift */; };
 		35D2954C2C2F63C9007301FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35D2954B2C2F63C9007301FC /* Assets.xcassets */; };
@@ -402,6 +403,7 @@
 				3561A3992C305A3D00441896 /* PokemonDetails.swift in Sources */,
 				35D2955C2C2F65A3007301FC /* PokemonTests.swift in Sources */,
 				35D2956A2C2F6968007301FC /* Pokemons.swift in Sources */,
+				3573195E2C31E71900ED6B25 /* AlertType.swift in Sources */,
 				35D295782C2F7787007301FC /* PokemonListVM.swift in Sources */,
 				35D2957B2C2F77A3007301FC /* PokemonListVMTests.swift in Sources */,
 				35D295842C2F79CD007301FC /* MockAPIManager.swift in Sources */,
