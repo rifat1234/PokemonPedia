@@ -33,9 +33,9 @@ extension PokemonDetailsView {
                     
                 }
                 
-                Section {
-                    HStack {
-                        if shinyURLs.count > 0 {
+                if shinyURLs.count > 0 {
+                    Section {
+                        HStack {
                             Toggle("Shiny", isOn: $showShiny)
                         }
                     }
