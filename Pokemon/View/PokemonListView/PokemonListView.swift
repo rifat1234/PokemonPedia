@@ -12,12 +12,19 @@ struct PokemonListView: View {
     
     var body: some View {
         NavigationStack {
-            List{
-                ForEach(viewModel.searchedPokemons){ pokemon in
-                    ZStack {
-                        Button(""){}
-                        NavigationLink(value: pokemon) {
-                            PokemonCellView(pokemon: pokemon)
+            VStack {
+                switch viewModel.viewState {
+                case .dataLoading:
+                    ProgressView()
+                case .dataLoaded:
+                    List {
+                        ForEach(viewModel.searchedPokemons){ pokemon in
+                            ZStack {
+                                Button(""){}
+                                NavigationLink(value: pokemon) {
+                                    PokemonCellView(pokemon: pokemon)
+                                }
+                            }
                         }
                     }
                 }
@@ -27,6 +34,15 @@ struct PokemonListView: View {
             .navigationDestination(for: Pokemon.self){ pokemon in
                 PokemonDetailsView(viewModel: PokemonDetailsView.ViewModel(pokemon))
             }
+            .alert(isPresented: $viewModel.showAlert, content: {
+                Alert(title: Text(viewModel.alertType.title),
+                      message: Text(viewModel.alertType.message),
+                      dismissButton: .default(Text(viewModel.alertType.dismissButtonText)){
+                        Task {
+                            await viewModel.fetchAllPokemons()
+                        }
+                })
+            })
             .task {
                 await viewModel.fetchAllPokemons()
             }
