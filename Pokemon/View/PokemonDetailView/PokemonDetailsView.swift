@@ -25,22 +25,22 @@ struct PokemonDetailsView: View {
         }
         .navigationTitle(viewModel.pokemon.name)
         .navigationDestination(for: [Move].self) { moves in
-            InfoView(infos:moves.compactMap{$0.move} , title: "Moves")
+            InfoView(viewModel: InfoView.ViewModel( infos:moves.compactMap{$0.move} , title: "Moves"))
         }
         .navigationDestination(for: [Info].self) { forms in
-            InfoView(infos:forms , title: "Forms")
+            InfoView(viewModel: InfoView.ViewModel(infos:forms , title: "Forms"))
         }
         .navigationDestination(for: [HeldItem].self) { heldItems in
-            InfoView(infos:heldItems.compactMap{$0.item} , title: "Held Items")
+            InfoView(viewModel: InfoView.ViewModel(infos:heldItems.compactMap{$0.item} , title: "Held Items"))
         }
         .navigationDestination(for: [Ability].self) { abilities in
-            InfoView(infos:abilities.compactMap{$0.ability} , title: "Abilities")
+            InfoView(viewModel: InfoView.ViewModel(infos:abilities.compactMap{$0.ability} , title: "Abilities"))
         }
         .navigationDestination(for: [TypeElement].self) { types in
-            InfoView(infos:types.compactMap{$0.type} , title: "Types")
+            InfoView(viewModel: InfoView.ViewModel(infos:types.compactMap{$0.type} , title: "Types"))
         }
         .navigationDestination(for: [GameIndex].self) { gameIndices in
-            InfoView(infos:gameIndices.compactMap{$0.version} , title: "Game Indices")
+            InfoView(viewModel: InfoView.ViewModel(infos:gameIndices.compactMap{$0.version} , title: "Game Indices"))
         }
         .task {
             await viewModel.fetchPokemonDetails()
