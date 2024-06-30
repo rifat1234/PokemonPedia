@@ -12,12 +12,14 @@ extension PokemonDetailsView {
     enum ViewState {
         case dataLoading, dataLoaded
     }
-    @Observable class ViewModel {
+    @Observable class ViewModel: AlertHandler {
+        var alertType: AlertType = .networkError()
+        var showAlert: Bool = false
+        var viewState: ViewState = .dataLoading
+        
         private let apiManager: APIManagerProtocol
         private let pokemon: Pokemon
         private var pokemonDetails: PokemonDetails?
-        
-        var viewState: ViewState = .dataLoading
         
         var navigationTitle: String {
             pokemon.name
@@ -84,12 +86,18 @@ extension PokemonDetailsView {
             self.pokemon = pokemon
         }
         
+        func showAlert(_ alertType: AlertType) {
+            self.alertType = alertType
+            showAlert = true
+        }
+        
         func fetchPokemonDetails() async {
             do {
                 self.pokemonDetails = try await self.apiManager.fetchPokemonDetails(url: pokemon.url)
                 viewState = .dataLoaded
             } catch {
                 debugPrint(error)
+                showAlert(.networkError(error))
             }
         }
     }

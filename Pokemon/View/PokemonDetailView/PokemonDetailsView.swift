@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PokemonDetailsView: View {
     @Bindable var viewModel:ViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack{
@@ -36,6 +37,19 @@ struct PokemonDetailsView: View {
                 }
             }
         }
+        .alert(isPresented: $viewModel.showAlert, content: {
+            Alert(title: Text(viewModel.alertType.title),
+                message: Text(viewModel.alertType.message),
+                primaryButton:.default(Text(viewModel.alertType.primaryButtonText)){
+                    Task {
+                        await viewModel.fetchPokemonDetails()
+                    }
+                },
+                  secondaryButton: .destructive(Text(viewModel.alertType.secondaryButtonText), action: {
+                    dismiss()
+                })
+            )
+        })
         .navigationTitle(viewModel.navigationTitle)
         .navigationDestination(for: [Move].self) { moves in
             InfoView(viewModel: InfoView.ViewModel( infos:moves.compactMap{$0.move} , title: "Moves"))

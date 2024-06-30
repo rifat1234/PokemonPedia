@@ -37,7 +37,7 @@ struct PokemonListView: View {
             .alert(isPresented: $viewModel.showAlert, content: {
                 Alert(title: Text(viewModel.alertType.title),
                       message: Text(viewModel.alertType.message),
-                      dismissButton: .default(Text(viewModel.alertType.dismissButtonText)){
+                      dismissButton: .default(Text(viewModel.alertType.primaryButtonText)){
                         Task {
                             await viewModel.fetchAllPokemons()
                         }

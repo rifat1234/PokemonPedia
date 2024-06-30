@@ -25,10 +25,17 @@ enum AlertType {
         }
     }
     
-    var dismissButtonText:String {
+    var primaryButtonText:String {
         switch self {
         case .networkError:
             "Retry"
+        }
+    }
+    
+    var secondaryButtonText:String {
+        switch self {
+        case .networkError:
+            "Cancel"
         }
     }
 }
