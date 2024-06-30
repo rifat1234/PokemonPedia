@@ -23,8 +23,10 @@ extension PokemonDetailsView {
                                     Text("Base Stat: \(String(stat.baseStat ?? 0))")
                                     Text("Effort: \(String(stat.effort ?? 0))")
                                 }
-                                .font(.caption)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
                             }
+                            .font(.caption)
+                            
                         }
                     }
                 }
