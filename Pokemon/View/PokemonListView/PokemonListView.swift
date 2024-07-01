@@ -16,6 +16,7 @@ struct PokemonListView: View {
                 switch viewModel.viewState {
                 case .dataLoading:
                     ProgressView()
+                        .controlSize(.extraLarge)
                 case .dataLoaded:
                     List {
                         ForEach(viewModel.searchedPokemons){ pokemon in

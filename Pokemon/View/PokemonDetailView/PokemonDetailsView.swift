@@ -16,6 +16,7 @@ struct PokemonDetailsView: View {
             switch viewModel.viewState {
             case .dataLoading:
                 ProgressView()
+                    .controlSize(.large)
                 
             case .dataLoaded:
                 List {
