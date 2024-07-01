@@ -12,6 +12,7 @@ extension PokemonDetailsView {
     enum ViewState {
         case dataLoading, dataLoaded
     }
+    
     @Observable class ViewModel: AlertHandler {
         var alertType: AlertType = .networkError()
         var showAlert: Bool = false

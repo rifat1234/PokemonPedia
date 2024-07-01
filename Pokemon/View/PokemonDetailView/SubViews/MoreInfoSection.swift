@@ -10,7 +10,7 @@ import SwiftUI
 
 extension PokemonDetailsView {
     struct MoreInfoSection: View {
-        private struct Const {
+        fileprivate struct Const {
             static let sectionTitle = "More"
             static let abilitiesLabel = "Abilities"
             static let movesLabel = "Moves"
@@ -18,6 +18,7 @@ extension PokemonDetailsView {
             static let formsLabel = "Forms"
             static let typesLabel = "Types"
             static let gameIndicesLabel = "Game Indices"
+            static let moreInfoIconSize:CGFloat = PokemonDetailsView.Const.cellIconSize
         }
         
         let abilities:[Ability]?
@@ -58,7 +59,7 @@ extension PokemonDetailsView {
                 NavigationLink(value: items) {
                     HStack {
                         Image(systemName: icon.rawValue)
-                            .frame(width:20)
+                            .frame(width: MoreInfoSection.Const.moreInfoIconSize)
                         Text(label)
                     }
                     

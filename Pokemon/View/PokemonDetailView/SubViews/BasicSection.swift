@@ -9,16 +9,17 @@ import Foundation
 import SwiftUI
 
 extension PokemonDetailsView {
-    private struct Const {
-        static let sectionTitle = "Basic"
-        static let heightLabel = "Height"
-        static let weightLabel = "Weight"
-        static let baseExperienceLabel = "Base Experience"
-        static let heightUnit = "dm"
-        static let weightUnit = "hg"
-    }
-    
     struct BasicSection: View {
+        fileprivate struct Const {
+            static let sectionTitle = "Basic"
+            static let heightLabel = "Height"
+            static let weightLabel = "Weight"
+            static let baseExperienceLabel = "Base Experience"
+            static let heightUnit = "dm"
+            static let weightUnit = "hg"
+            static let cellIconSize:CGFloat = PokemonDetailsView.Const.cellIconSize
+        }
+        
         let baseExperience:Int?
         let height:Int?
         let weight:Int?
@@ -56,7 +57,7 @@ extension PokemonDetailsView {
                 HStack {
                     HStack {
                         Image(systemName: icon.rawValue)
-                            .frame(width: 20)
+                            .frame(width: PokemonDetailsView.Const.cellIconSize)
                         Text(label)
                     }
                     Spacer()

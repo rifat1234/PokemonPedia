@@ -14,6 +14,7 @@ extension PokemonDetailsView {
             static let pokemonFrontLabel = "Front"
             static let pokemonBackLabel = "Back"
             static let imageSectionSize:CGFloat = 100
+            static let shinyToggleIconSize:CGFloat = PokemonDetailsView.Const.cellIconSize
             static let shinyToggleButtonText = "Shiny"
             static let shinyToggleIcon = "wand.and.stars.inverse"
         }
@@ -43,7 +44,7 @@ extension PokemonDetailsView {
                     if shinyURLs.count > 0 {
                         HStack {
                             Image(systemName: Const.shinyToggleIcon)
-                                .frame(width: 20)
+                                .frame(width: Const.shinyToggleIconSize)
                             Toggle(Const.shinyToggleButtonText, isOn: $showShiny)
                         }
                     }

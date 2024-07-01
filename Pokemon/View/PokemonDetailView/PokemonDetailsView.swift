@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct PokemonDetailsView: View {
+    struct Const {
+        static let cellIconSize:CGFloat = 20
+    }
+    
     @Bindable var viewModel:ViewModel
     @Environment(\.dismiss) var dismiss
     

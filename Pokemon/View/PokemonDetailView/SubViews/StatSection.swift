@@ -42,6 +42,7 @@ extension PokemonDetailsView {
             static let sectionTitle = "Stats"
             static let baseStatLabel = "Base Stat"
             static let effortLabel = "Effort"
+            static let cellIconSize:CGFloat = PokemonDetailsView.Const.cellIconSize
         }
         
         let stats: [Stat]?
@@ -53,7 +54,7 @@ extension PokemonDetailsView {
                             HStack {
                                 let icon = Icon(rawValue: stat.stat?.name?.lowercased() ?? Icon.unknown.rawValue ) ?? .unknown
                                 Image(systemName: icon.imageName)
-                                    .frame(width:20)
+                                    .frame(width: Const.cellIconSize)
                                 Text(stat.stat?.name ?? "")
                             }
                             Spacer()
