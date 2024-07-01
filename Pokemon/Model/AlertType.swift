@@ -20,8 +20,8 @@ enum AlertType {
     
     var message:String {
         switch self {
-        case .networkError(let error):
-            error?.asAFError?.localizedDescription ?? "Could not process the request. Please check your internet connection."
+        case .networkError:
+            "Couldn't process the request. Please check your internet connection."
         }
     }
     
