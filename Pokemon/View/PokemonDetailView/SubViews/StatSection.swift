@@ -26,7 +26,7 @@ extension PokemonDetailsView {
             case .defense:
                 "hand.raised"
             case .specialAttack:
-                "figure.barre"
+                "figure.kickboxing"
             case .specialDefense:
                 "hand.raised.fill"
             case .speed:
