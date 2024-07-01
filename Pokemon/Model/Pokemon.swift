@@ -8,12 +8,6 @@
 import Foundation
 
 struct Pokemon: Codable, Equatable, Hashable, Identifiable {
-    private static func getImageURL(from url:String)-> String {
-        let strings =  url.split(separator: "/")
-        let num = strings[strings.count - 1]
-        return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(num).png"
-    }
-    
     let name:String
     let url:String
     let imageURL:String
@@ -33,5 +27,11 @@ struct Pokemon: Codable, Equatable, Hashable, Identifiable {
         self.name = try container.decode(String.self, forKey: .name).capitalized.replacingOccurrences(of: "-", with: " ")
         self.url = try container.decode(String.self, forKey: .url)
         self.imageURL = Pokemon.getImageURL(from: url)
+    }
+    
+    private static func getImageURL(from url:String)-> String {
+        let strings =  url.split(separator: "/")
+        let num = strings[strings.count - 1]
+        return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(num).png"
     }
 }
