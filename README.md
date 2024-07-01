@@ -1,5 +1,5 @@
 # PokemonPedia
-iOS App which shows searchable list of pokemon and show their details
+iOS App which shows searchable list of pokemons and show their details
 ## About the app
 ### What we support ✅
 - iOS 17.0+
@@ -20,9 +20,18 @@ iOS App which shows searchable list of pokemon and show their details
 - [x] Detail screens for each Pokemon that list and visualise their statistics.
 - [x] Landscape and Font Scalling are supported for Accessibility
 
+## App Demo 📺
+
+<p align="row">
+<img src= "https://github.com/rifat1234/Pokemon/blob/dev/demo_light.gif" width="400" >
+</p>
+
 ### How to run this demo
 
 Clone this repo and then run with Xcode
+
+## About me 🧑‍🦲
+You can find all my socials here at [Github](https://github.com/rifat1234). Please feel free to contact me. 🙂
 
 ### Questions? Comments?
 
