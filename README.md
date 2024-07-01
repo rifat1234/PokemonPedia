@@ -30,7 +30,7 @@ iOS App which shows searchable list of pokemons and show their details
 
 Clone this repo and then run with Xcode
 
-## About me 🧑‍🦲
+## About me 
 You can find all my socials here at [Github](https://github.com/rifat1234). Please feel free to contact me. 🙂
 
 ### Questions? Comments?
