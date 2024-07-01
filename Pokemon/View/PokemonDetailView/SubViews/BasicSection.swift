@@ -15,10 +15,10 @@ extension PokemonDetailsView {
         let weight:Int?
         
         var body: some View {
-            Section {
+            Section("Basic") {
                 ListView(label: "Base Experience", value: baseExperience)
-                ListView(label: "Height", value: height, unit: "dm")
-                ListView(label: "Weight", value: weight, unit: "hg")
+                ListView(label: "Height", value: height, unit: " dm")
+                ListView(label: "Weight", value: weight, unit: " hg")
             }
         }
     }
@@ -38,10 +38,8 @@ extension PokemonDetailsView {
             if let value = value {
                 HStack {
                     Text(label)
-                        .font(.headline)
                     Spacer()
                     Text("\(value)\(unit)")
-                        .font(.title3)
                 }
             } else {
                 EmptyView()
