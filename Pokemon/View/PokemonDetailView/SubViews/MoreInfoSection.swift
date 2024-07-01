@@ -10,6 +10,16 @@ import SwiftUI
 
 extension PokemonDetailsView {
     struct MoreInfoSection: View {
+        private struct Const {
+            static let sectionTitle = "More"
+            static let abilitiesLabel = "Abilities"
+            static let movesLabel = "Moves"
+            static let heldItemLabel = "Held Items"
+            static let formsLabel = "Forms"
+            static let typesLabel = "Types"
+            static let gameIndicesLabel = "Game Indices"
+        }
+        
         let abilities:[Ability]?
         let moves:[Move]?
         let heldItems:[HeldItem]?
@@ -18,13 +28,13 @@ extension PokemonDetailsView {
         let gameIndices:[GameIndex]?
         
         var body: some View {
-            Section("More") {
-                MoreInfoCell(label:"Abilities", items: abilities, icon: .ability)
-                MoreInfoCell(label:"Moves", items: moves, icon: .moves)
-                MoreInfoCell(label:"Held Items", items: heldItems, icon: .heldItems)
-                MoreInfoCell(label:"Forms", items: forms, icon: .forms)
-                MoreInfoCell(label:"Types", items: types, icon: .types)
-                MoreInfoCell(label:"Game Indices", items: gameIndices, icon: .game)
+            Section(Const.sectionTitle) {
+                MoreInfoCell(label:Const.abilitiesLabel, items: abilities, icon: .ability)
+                MoreInfoCell(label:Const.movesLabel, items: moves, icon: .moves)
+                MoreInfoCell(label:Const.heldItemLabel, items: heldItems, icon: .heldItems)
+                MoreInfoCell(label:Const.formsLabel, items: forms, icon: .forms)
+                MoreInfoCell(label:Const.typesLabel, items: types, icon: .types)
+                MoreInfoCell(label:Const.gameIndicesLabel, items: gameIndices, icon: .game)
             }
         }
     }

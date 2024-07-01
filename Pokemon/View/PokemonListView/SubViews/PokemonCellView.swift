@@ -17,10 +17,8 @@ extension PokemonListView {
         var body: some View {
             HStack{
                 PokemonImage(url: pokemon.imageURL)
-                .frame(width:Const.pokemonImageSize, height:Const.pokemonImageSize)
-                
+                    .frame(width:Const.pokemonImageSize, height:Const.pokemonImageSize)
                 Text(pokemon.name)
-                
             }
         }
     }

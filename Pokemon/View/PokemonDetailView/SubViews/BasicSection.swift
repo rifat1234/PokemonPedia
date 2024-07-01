@@ -9,16 +9,25 @@ import Foundation
 import SwiftUI
 
 extension PokemonDetailsView {
+    private struct Const {
+        static let sectionTitle = "Basic"
+        static let heightLabel = "Height"
+        static let weightLabel = "Weight"
+        static let baseExperienceLabel = "Base Experience"
+        static let heightUnit = "dm"
+        static let weightUnit = "hg"
+    }
+    
     struct BasicSection: View {
         let baseExperience:Int?
         let height:Int?
         let weight:Int?
         
         var body: some View {
-            Section("Basic") {
-                ListView(label: "Height", value: height, unit: " dm", icon: .figure)
-                ListView(label: "Weight", value: weight, unit: " hg", icon: .weight)
-                ListView(label: "Base Experience", value: baseExperience, icon: .experience)
+            Section(Const.sectionTitle) {
+                ListView(label: Const.heightLabel, value: height, unit: Const.heightUnit, icon: .figure)
+                ListView(label: Const.weightLabel, value: weight, unit: Const.weightUnit, icon: .weight)
+                ListView(label: Const.baseExperienceLabel, value: baseExperience, icon: .experience)
             }
         }
     }
@@ -29,6 +38,7 @@ extension PokemonDetailsView {
             case weight = "scalemass"
             case experience = "hourglass"
         }
+        
         let label: String
         let value: String?
         let unit: String
@@ -50,7 +60,7 @@ extension PokemonDetailsView {
                         Text(label)
                     }
                     Spacer()
-                    Text("\(value)\(unit)")
+                    Text("\(value)\(" " + unit)")
                 }
             } else {
                 EmptyView()

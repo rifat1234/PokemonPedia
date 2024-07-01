@@ -38,22 +38,29 @@ extension PokemonDetailsView {
     }
     
     struct StatsSection: View {
+        private struct Const {
+            static let sectionTitle = "Stats"
+            static let baseStatLabel = "Base Stat"
+            static let effortLabel = "Effort"
+        }
+        
         let stats: [Stat]?
         var body: some View {
             if let stats = stats {
-                Section("Stats") {
+                Section(Const.sectionTitle) {
                     ForEach(stats, id: \.self) { stat in
                         HStack {
                             HStack {
-                                Image(systemName: (Icon(rawValue: stat.stat?.name?.lowercased() ?? "unknown") ?? .unknown).imageName)
+                                let icon = Icon(rawValue: stat.stat?.name?.lowercased() ?? Icon.unknown.rawValue ) ?? .unknown
+                                Image(systemName: icon.imageName)
                                     .frame(width:20)
                                 Text(stat.stat?.name ?? "")
                             }
                             Spacer()
                             VStack {
                                 Group {
-                                    Text("Base Stat: \(String(stat.baseStat ?? 0))")
-                                    Text("Effort: \(String(stat.effort ?? 0))")
+                                    Text("\(Const.baseStatLabel): \(String(stat.baseStat ?? 0))")
+                                    Text("\(Const.effortLabel): \(String(stat.effort ?? 0))")
                                 }
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                             }

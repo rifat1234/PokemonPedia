@@ -10,6 +10,10 @@ import SwiftUI
 import NukeUI
 
 struct PokemonImage: View {
+    private struct Const {
+        static let errorImage = "questionmark.circle"
+    }
+    
     let url:String
     var imageLabel:String?
     
@@ -25,8 +29,7 @@ struct PokemonImage: View {
                     }
                 }
             } else if state.error != nil {
-                Image(systemName: "questionmark.circle")
-                    .tint(.red)
+                Image(systemName: Const.errorImage)
             } else {
                 ProgressView()
             }

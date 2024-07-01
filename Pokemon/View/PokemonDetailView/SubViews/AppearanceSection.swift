@@ -9,6 +9,15 @@ import SwiftUI
 
 extension PokemonDetailsView {
     struct AppearanceSection: View {
+        fileprivate struct Const {
+            static let sectionTitle = "Appearance"
+            static let pokemonFrontLabel = "Front"
+            static let pokemonBackLabel = "Back"
+            static let imageSectionSize:CGFloat = 100
+            static let shinyToggleButtonText = "Shiny"
+            static let shinyToggleIcon = "wand.and.stars.inverse"
+        }
+        
         let front:String?
         let back:String?
         let frontShiny:String?
@@ -19,23 +28,23 @@ extension PokemonDetailsView {
             if let front = front {
                 let shinyURLs = [frontShiny, backShiny].compactMap{$0}
                 
-                Section("Appearance") {
+                Section(Const.sectionTitle) {
                     HStack {
                         Spacer()
-                        PokemonAppearance(url: showShiny ? (frontShiny ?? "") : front, label: "Front")
+                        PokemonAppearance(url: showShiny ? (frontShiny ?? "") : front, label: Const.pokemonFrontLabel)
                         if let back = back {
                             Spacer()
-                            PokemonAppearance(url: showShiny ? (backShiny ?? "") : back, label: "Back")
+                            PokemonAppearance(url: showShiny ? (backShiny ?? "") : back, label: Const.pokemonBackLabel)
                         }
                         Spacer()
                     }
-                    .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .frame(height: Const.imageSectionSize)
                     
                     if shinyURLs.count > 0 {
                         HStack {
-                            Image(systemName: "wand.and.stars.inverse")
+                            Image(systemName: Const.shinyToggleIcon)
                                 .frame(width: 20)
-                            Toggle("Shiny", isOn: $showShiny)
+                            Toggle(Const.shinyToggleButtonText, isOn: $showShiny)
                         }
                     }
                 }
@@ -52,7 +61,7 @@ extension PokemonDetailsView {
                 PokemonImage(url: url, imageLabel: label)
                     .foregroundColor(.gray)
                     .font(.callout)
-                    .frame(width: 100)
+                    .frame(width: AppearanceSection.Const.imageSectionSize)
                     
             }
         }

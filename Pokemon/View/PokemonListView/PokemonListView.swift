@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct PokemonListView: View {
+    private struct Const {
+        static let navigationTitle = Text("Pokemon")
+        static let searchBarPrompt = Text("Search")
+    }
+    
     @Bindable var viewModel:ViewModel
     
     var body: some View {
@@ -30,8 +35,8 @@ struct PokemonListView: View {
                     }
                 }
             }
-            .searchable(text: $viewModel.searchText, prompt: Text("Search"))
-            .navigationTitle(Text("Pokemon"))
+            .searchable(text: $viewModel.searchText, prompt: Const.searchBarPrompt)
+            .navigationTitle(Const.navigationTitle)
             .navigationDestination(for: Pokemon.self){ pokemon in
                 PokemonDetailsView(viewModel: PokemonDetailsView.ViewModel(pokemon))
             }
