@@ -18,24 +18,40 @@ extension PokemonDetailsView {
         let gameIndices:[GameIndex]?
         
         var body: some View {
-            Section("More Infos") {
-                MoreInfoCell(label:"Abilities", items: abilities)
-                MoreInfoCell(label:"Moves", items: moves)
-                MoreInfoCell(label:"Held Items", items: heldItems)
-                MoreInfoCell(label:"Forms", items: forms)
-                MoreInfoCell(label:"Types", items: types)
-                MoreInfoCell(label:"Game Indices", items: gameIndices)
+            Section("More") {
+                MoreInfoCell(label:"Abilities", items: abilities, icon: .ability)
+                MoreInfoCell(label:"Moves", items: moves, icon: .moves)
+                MoreInfoCell(label:"Held Items", items: heldItems, icon: .heldItems)
+                MoreInfoCell(label:"Forms", items: forms, icon: .forms)
+                MoreInfoCell(label:"Types", items: types, icon: .types)
+                MoreInfoCell(label:"Game Indices", items: gameIndices, icon: .game)
             }
         }
     }
     
     private struct MoreInfoCell<T>: View where T:Hashable  {
+        enum Icon: String {
+            case ability = "figure.climbing"
+            case moves = "figure.gymnastics"
+            case heldItems = "figure.hunting"
+            case forms = "figure.stand.line.dotted.figure.stand"
+            case types = "figure.run.square.stack.fill"
+            case game = "gamecontroller"
+        }
+        
         let label:String
         let items:[T]?
+        let icon:Icon
+        
         var body: some View {
             if let items = items, items.count > 0 {
                 NavigationLink(value: items) {
-                    Text(label)
+                    HStack {
+                        Image(systemName: icon.rawValue)
+                            .frame(width:20)
+                        Text(label)
+                    }
+                    
                 }
             } else {
                 EmptyView()
