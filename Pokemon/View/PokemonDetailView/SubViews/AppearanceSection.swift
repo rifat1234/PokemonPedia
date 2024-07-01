@@ -33,6 +33,8 @@ extension PokemonDetailsView {
                     
                     if shinyURLs.count > 0 {
                         HStack {
+                            Image(systemName: "wand.and.stars.inverse")
+                                .frame(width: 20)
                             Toggle("Shiny", isOn: $showShiny)
                         }
                     }
@@ -48,8 +50,10 @@ extension PokemonDetailsView {
         var body: some View {
             VStack {
                 PokemonImage(url: url, imageLabel: label)
+                    .foregroundColor(.gray)
                     .font(.callout)
                     .frame(width: 100)
+                    
             }
         }
     }
