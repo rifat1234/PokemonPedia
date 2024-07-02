@@ -9,19 +9,21 @@ import SwiftUI
 import Observation
 
 extension PokemonDetailsView {
+    /// Help `PokemonDetailsView` to determine which view to show
     enum ViewState {
         case dataLoading, dataLoaded
     }
     
     @Observable class ViewModel: AlertHandler {
-        var alertType: AlertType = .networkError()
-        var showAlert: Bool = false
+        //MARK: - public variables
         var viewState: ViewState = .dataLoading
         
+        //MARK: - private variables
         private let apiManager: APIManagerProtocol
         private let pokemon: Pokemon
         private var pokemonDetails: PokemonDetails?
         
+        //MARK: - computed variables
         var navigationTitle: String {
             pokemon.name
         }
@@ -58,11 +60,17 @@ extension PokemonDetailsView {
             pokemonDetails?.stats
         }
         
+        //MARK: - init
         init(_ pokemon: Pokemon, apiManager: APIManagerProtocol = APIManager()) {
             self.apiManager = apiManager
             self.pokemon = pokemon
         }
         
+        //MARK: - public methods
+        
+        /// Process models which are beyond the scope of `PhotoDetailsView` and require seperate `InfoDataView`
+        /// - Important: All those models process can tranform into `InfoData`
+        /// - Returns: list of non-empty `InfoData`
         func getMoreInfoData()->[InfoData]{
             func getInfoData(type:InfoData.DataType, infos:[Info]?)->InfoData? {
                 guard let infos = infos else {
@@ -82,6 +90,22 @@ extension PokemonDetailsView {
             ].compactMap({$0}).filter({$0.infos.count > 0})
         }
         
+        /// fetch pokemon details from the server
+        func fetchPokemonDetails() async {
+            do {
+                self.pokemonDetails = try await self.apiManager.fetchPokemonDetails(url: pokemon.url)
+                viewState = .dataLoaded
+            } catch {
+                debugPrint(error)
+                showAlert(.networkError(error))
+            }
+        }
+        
+        
+        // MARK: - AlertHandler
+        var alertType: AlertType = .networkError()
+        var showAlert: Bool = false
+        
         func showAlert(_ alertType: AlertType) {
             self.alertType = alertType
             showAlert = true
@@ -91,16 +115,6 @@ extension PokemonDetailsView {
             switch alertType {
             case .networkError(_):
                 await fetchPokemonDetails()
-            }
-        }
-        
-        func fetchPokemonDetails() async {
-            do {
-                self.pokemonDetails = try await self.apiManager.fetchPokemonDetails(url: pokemon.url)
-                viewState = .dataLoaded
-            } catch {
-                debugPrint(error)
-                showAlert(.networkError(error))
             }
         }
     }

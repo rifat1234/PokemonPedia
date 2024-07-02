@@ -10,6 +10,7 @@ import Observation
 import SwiftUI
 
 extension PokemonListView {
+    /// Help `PokemonListView` to determine which view to show
     enum ViewState {
         case dataLoading,dataLoaded
     }
@@ -17,12 +18,11 @@ extension PokemonListView {
     @Observable class ViewModel: AlertHandler {
         let apiManager:APIManagerProtocol
         var searchText:String = ""
-        var showAlert:Bool = false
-        var alertType:AlertType = .networkError()
         var viewState:ViewState = .dataLoading
         
         private var allPokemons:[Pokemon] = []
         
+        /// In case of empty `searchText` return all pokemons else return all the pokemon starts with `searchText`
         var searchedPokemons: [Pokemon] {
             if searchText.isEmpty {
                 return allPokemons
@@ -36,6 +36,21 @@ extension PokemonListView {
             self.apiManager = apiManger
         }
         
+        /// Fetch all pokemons from server and sort by name in alphabatical order
+        func fetchAllPokemons() async {
+            do {
+                self.allPokemons = try await apiManager.fetchAllPokemon().sorted{$0.name < $1.name}
+                viewState = .dataLoaded
+            } catch let error {
+                debugPrint(error)
+                showAlert(.networkError(error))
+            }
+        }
+        
+        // MARK: - AlertHandler
+        var showAlert:Bool = false
+        var alertType:AlertType = .networkError()
+        
         func showAlert(_ alertType: AlertType) {
             self.alertType = alertType
             showAlert = true
@@ -45,16 +60,6 @@ extension PokemonListView {
             switch alertType {
             case .networkError(_):
                 await fetchAllPokemons()
-            }
-        }
-        
-        func fetchAllPokemons() async {
-            do {
-                self.allPokemons = try await apiManager.fetchAllPokemon().sorted{$0.name < $1.name}
-                viewState = .dataLoaded
-            } catch let error {
-                debugPrint(error)
-                showAlert(.networkError(error))
             }
         }
     }
