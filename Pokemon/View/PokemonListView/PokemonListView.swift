@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Show list of `Pokemon` model containing name and image with option to show more details about the pokemon
 struct PokemonListView: View {
     private struct Const {
         static let navigationTitle = Text("Pokemon")
@@ -26,7 +27,7 @@ struct PokemonListView: View {
                     List {
                         ForEach(viewModel.searchedPokemons){ pokemon in
                             ZStack {
-                                Button(""){}
+                                Button(""){} // TODO: Find better solution to deselect selected cell
                                 NavigationLink(value: pokemon) {
                                     PokemonCellView(pokemon: pokemon)
                                 }
@@ -40,17 +41,17 @@ struct PokemonListView: View {
             .navigationDestination(for: Pokemon.self){ pokemon in
                 PokemonDetailsView(viewModel: PokemonDetailsView.ViewModel(pokemon))
             }
-            .alert(isPresented: $viewModel.showAlert, content: {
+            .alert(isPresented: $viewModel.showAlert, content: { 
                 Alert(title: Text(viewModel.alertType.title),
                       message: Text(viewModel.alertType.message),
                       dismissButton: .default(Text(viewModel.alertType.primaryButtonText)){
                         Task {
-                            await viewModel.fetchAllPokemons()
+                            await viewModel.alertPrimaryButtonAction(viewModel.alertType)
                         }
                 })
             })
             .task {
-                await viewModel.fetchAllPokemons()
+                await viewModel.fetchAllPokemons() // start fetching pokemons after view appears
             }
         }
     }

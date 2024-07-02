@@ -9,14 +9,10 @@ import Foundation
 import SwiftUI
 
 extension PokemonDetailsView {
+    /// `BasicSection` show basic details like base experience, height and weight
     struct BasicSection: View {
         fileprivate struct Const {
             static let sectionTitle = "Basic"
-            static let heightLabel = "Height"
-            static let weightLabel = "Weight"
-            static let baseExperienceLabel = "Base Experience"
-            static let heightUnit = "dm"
-            static let weightUnit = "hg"
             static let cellIconSize:CGFloat = PokemonDetailsView.Const.cellIconSize
         }
         
@@ -26,45 +22,65 @@ extension PokemonDetailsView {
         
         var body: some View {
             Section(Const.sectionTitle) {
-                ListView(label: Const.heightLabel, value: height, unit: Const.heightUnit, icon: .figure)
-                ListView(label: Const.weightLabel, value: weight, unit: Const.weightUnit, icon: .weight)
-                ListView(label: Const.baseExperienceLabel, value: baseExperience, icon: .experience)
+                BasicCellView(type: .height, value: height)
+                BasicCellView(type: .weight, value: weight)
+                BasicCellView(type: .experience, value: baseExperience)
             }
         }
     }
     
-    private struct ListView: View {
-        enum Icon: String {
-            case figure
-            case weight = "scalemass"
-            case experience = "hourglass"
-        }
-        
-        let label: String
+    /// `BasicCellView` determine which image and label to choose from `DataType`
+    private struct BasicCellView: View {
         let value: String?
-        let unit: String
-        let icon: Icon
+        let type: DataType
 
-        init(label: String, value: Int?, unit: String = "", icon: Icon = .figure) {
-            self.label = label
+        init(type: DataType, value: Int?) {
+            self.type = type
             self.value = (value != nil) ? String(value ?? 0): nil
-            self.unit = unit
-            self.icon = icon
         }
         
         var body: some View {
             if let value = value {
                 HStack {
                     HStack {
-                        Image(systemName: icon.rawValue)
+                        Image(systemName: type.imageName)
                             .frame(width: PokemonDetailsView.Const.cellIconSize)
-                        Text(label)
+                        Text(type.rawValue)
                     }
                     Spacer()
-                    Text("\(value)\(" " + unit)")
+                    Text("\(value)\(" " + type.unit)")
                 }
             } else {
                 EmptyView()
+            }
+        }
+    }
+    
+    /// `DataType` determine which image and label to choose
+    private enum DataType: String { // rawValue is the `label` of the cell
+        case height = "Height"
+        case weight = "Weight"
+        case experience = "Base Experience"
+        
+        var imageName: String {
+            switch self {
+            case .height:
+                "figure"
+            case .weight:
+                "scalemass"
+            case .experience:
+                "hourglass"
+            }
+        }
+        
+        var unit: String {
+            switch self {
+            case .height:
+                "dm"
+            case .weight:
+                "hg"
+            case .experience:
+                ""
             }
         }
     }

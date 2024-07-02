@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension PokemonDetailsView {
+    /// show pokemon images of both front and back with shiny option (depends on availability)
     struct AppearanceSection: View {
         fileprivate struct Const {
             static let sectionTitle = "Appearance"
@@ -26,14 +27,14 @@ extension PokemonDetailsView {
         @State private var showShiny = false
         
         var body: some View {
-            if let front = front {
+            if let front = front { // Only show image if front default image available
                 let shinyURLs = [frontShiny, backShiny].compactMap{$0}
                 
                 Section(Const.sectionTitle) {
-                    HStack {
+                    HStack { // Shows front and back image
                         Spacer()
                         PokemonAppearance(url: showShiny ? (frontShiny ?? "") : front, label: Const.pokemonFrontLabel)
-                        if let back = back {
+                        if let back = back { // Check if back image available
                             Spacer()
                             PokemonAppearance(url: showShiny ? (backShiny ?? "") : back, label: Const.pokemonBackLabel)
                         }
@@ -44,7 +45,7 @@ extension PokemonDetailsView {
                         return 0
                     })
                     
-                    if shinyURLs.count > 0 {
+                    if shinyURLs.count > 0 { // show toggle button only if shiny image available
                         HStack {
                             Image(systemName: Const.shinyToggleIcon)
                                 .frame(width: Const.shinyToggleIconSize)

@@ -41,6 +41,13 @@ extension PokemonListView {
             showAlert = true
         }
         
+        func alertPrimaryButtonAction(_ alertType: AlertType) async {
+            switch alertType {
+            case .networkError(_):
+                await fetchAllPokemons()
+            }
+        }
+        
         func fetchAllPokemons() async {
             do {
                 self.allPokemons = try await apiManager.fetchAllPokemon().sorted{$0.name < $1.name}

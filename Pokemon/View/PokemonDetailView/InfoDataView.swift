@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct InfoView: View {
+/// Simple view which show title and list of names 
+struct InfoDataView: View {
     @Bindable var viewModel:ViewModel
     var body: some View {
         List {
@@ -20,7 +21,7 @@ struct InfoView: View {
 }
 
 #Preview {
-    InfoView(viewModel: InfoView.ViewModel( infoData:InfoData(type:.forms, infos:[Info(name: "Rifat", url: nil),
+    InfoDataView(viewModel: InfoDataView.ViewModel( infoData:InfoData(type:.forms, infos:[Info(name: "Rifat", url: nil),
                      Info(name: "Adnan", url: nil),
                      Info(name: "Saad", url: nil)])))
 }

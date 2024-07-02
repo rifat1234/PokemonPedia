@@ -87,6 +87,13 @@ extension PokemonDetailsView {
             showAlert = true
         }
         
+        func alertPrimaryButtonAction(_ alertType: AlertType) async {
+            switch alertType {
+            case .networkError(_):
+                await fetchPokemonDetails()
+            }
+        }
+        
         func fetchPokemonDetails() async {
             do {
                 self.pokemonDetails = try await self.apiManager.fetchPokemonDetails(url: pokemon.url)

@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import NukeUI
 
+/// `PokemonImage` download and caches image using NukeUI. In case, it fails, it also determine which image to show.
 struct PokemonImage: View {
     private struct Const {
         static let errorImage = "questionmark.circle"

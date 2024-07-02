@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 extension PokemonDetailsView {
+    /// `MoreInfoSection` gives user option to know about pokemon features like ability, moves, held items and so on
     struct MoreInfoSection: View {
         fileprivate struct Const {
             static let sectionTitle = "More"
@@ -26,6 +27,7 @@ extension PokemonDetailsView {
         }
     }
     
+    /// `MoreInfoCell` determine which image and label to choose from `InfoData`
     private struct MoreInfoCell: View {
         let infoData:InfoData
         

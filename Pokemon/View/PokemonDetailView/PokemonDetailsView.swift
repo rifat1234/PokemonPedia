@@ -7,13 +7,14 @@
 
 import SwiftUI
 
+/// Show details of a Pokemon with an option to show even more information about the pokemon
 struct PokemonDetailsView: View {
     struct Const {
         static let cellIconSize:CGFloat = 20
     }
     
     @Bindable var viewModel:ViewModel
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss // used to dismiss current view from navigation stack
     
     var body: some View {
         VStack{
@@ -24,14 +25,18 @@ struct PokemonDetailsView: View {
                 
             case .dataLoaded:
                 List {
+                    // show pokemon images of both front and back with shiny option (depends on availability)
                     AppearanceSection(front: viewModel.defaultFrontSprite,
                                       back: viewModel.defaultBackSprite,
                                       frontShiny: viewModel.defaultShinyFrontSprite,
                                       backShiny: viewModel.defaultShinyBackSprite)
+                    // show basic details like base experience, height and weight
                     BasicSection(baseExperience: viewModel.baseExperience,
-                                 height:viewModel.height,
+                                 height: viewModel.height,
                                  weight: viewModel.weight)
+                    // show pokemon stats like attack, defence, hit point and so on.
                     StatsSection(stats: viewModel.stats)
+                    // give user option to know about pokemon features like ability, moves, held items and so on
                     MoreInfoSection(infoDatas: viewModel.getMoreInfoData())
                 }
             }
@@ -41,7 +46,7 @@ struct PokemonDetailsView: View {
                 message: Text(viewModel.alertType.message),
                 primaryButton:.default(Text(viewModel.alertType.primaryButtonText)){
                     Task {
-                        await viewModel.fetchPokemonDetails()
+                        await viewModel.alertPrimaryButtonAction(viewModel.alertType)
                     }
                 },
                   secondaryButton: .destructive(Text(viewModel.alertType.secondaryButtonText), action: {
@@ -50,11 +55,11 @@ struct PokemonDetailsView: View {
             )
         })
         .navigationTitle(viewModel.navigationTitle)
-        .navigationDestination(for: InfoData.self) { infoData in
-            InfoView(viewModel: InfoView.ViewModel(infoData: infoData))
+        .navigationDestination(for: InfoData.self) { infoData in // Navigation from MoreInfoSection
+            InfoDataView(viewModel: InfoDataView.ViewModel(infoData: infoData))
         }
         .task {
-            await viewModel.fetchPokemonDetails()
+            await viewModel.fetchPokemonDetails() // start fetching pokemon details after view appears
         }
     }
 }

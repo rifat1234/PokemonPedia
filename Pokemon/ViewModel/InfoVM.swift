@@ -8,7 +8,7 @@
 import Foundation
 import Observation
 
-extension InfoView {
+extension InfoDataView {
     @Observable class ViewModel {
         private let infoData:InfoData
         
