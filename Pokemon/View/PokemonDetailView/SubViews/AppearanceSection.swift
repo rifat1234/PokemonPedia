@@ -40,6 +40,9 @@ extension PokemonDetailsView {
                         Spacer()
                     }
                     .frame(height: Const.imageSectionSize)
+                    .alignmentGuide(.listRowSeparatorLeading, computeValue: { dimension in
+                        return 0
+                    })
                     
                     if shinyURLs.count > 0 {
                         HStack {
