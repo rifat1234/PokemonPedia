@@ -23,7 +23,8 @@ iOS App which shows searchable list of pokemons and show their details
 ## App Demo 📺
 
 <p align="row">
-<img src= "https://github.com/rifat1234/Pokemon/blob/dev/demo_light.gif" width="400" >
+<img src= "https://github.com/rifat1234/Pokemon/blob/main/Demo/demo_dark.gif" width="400" >
+<img src= "https://github.com/rifat1234/Pokemon/blob/main/Demo/demo_light.gif" width="400" >
 </p>
 
 ### How to run this demo
