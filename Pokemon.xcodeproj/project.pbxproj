@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		3542BF452C347013003597DE /* AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542BF442C347013003597DE /* AlertHandler.swift */; };
 		3542BF462C347013003597DE /* AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542BF442C347013003597DE /* AlertHandler.swift */; };
+		354C4B582C349F5100143D90 /* OggDecoder in Frameworks */ = {isa = PBXBuildFile; productRef = 354C4B572C349F5100143D90 /* OggDecoder */; };
+		354C4B5B2C34AF4A00143D90 /* OGGToWavConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C4B5A2C34AF4A00143D90 /* OGGToWavConverter.swift */; };
+		354C4B5C2C34AF4A00143D90 /* OGGToWavConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C4B5A2C34AF4A00143D90 /* OGGToWavConverter.swift */; };
+		354C4B5E2C34B0FE00143D90 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C4B5D2C34B0FE00143D90 /* AudioPlayer.swift */; };
+		354C4B5F2C34B0FE00143D90 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C4B5D2C34B0FE00143D90 /* AudioPlayer.swift */; };
+		354C4B612C34C1D500143D90 /* CriesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C4B602C34C1D500143D90 /* CriesSection.swift */; };
+		354C4B622C34C1D500143D90 /* CriesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354C4B602C34C1D500143D90 /* CriesSection.swift */; };
 		3561A3982C305A3D00441896 /* PokemonDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3561A3972C305A3D00441896 /* PokemonDetails.swift */; };
 		3561A3992C305A3D00441896 /* PokemonDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3561A3972C305A3D00441896 /* PokemonDetails.swift */; };
 		3561A39B2C305B1D00441896 /* PokemonDetailsVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3561A39A2C305B1D00441896 /* PokemonDetailsVMTests.swift */; };
@@ -72,6 +79,9 @@
 
 /* Begin PBXFileReference section */
 		3542BF442C347013003597DE /* AlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHandler.swift; sourceTree = "<group>"; };
+		354C4B5A2C34AF4A00143D90 /* OGGToWavConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OGGToWavConverter.swift; sourceTree = "<group>"; };
+		354C4B5D2C34B0FE00143D90 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		354C4B602C34C1D500143D90 /* CriesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriesSection.swift; sourceTree = "<group>"; };
 		3561A3972C305A3D00441896 /* PokemonDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetails.swift; sourceTree = "<group>"; };
 		3561A39A2C305B1D00441896 /* PokemonDetailsVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsVMTests.swift; sourceTree = "<group>"; };
 		3561A39C2C305E7300441896 /* PokemonDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsView.swift; sourceTree = "<group>"; };
@@ -111,6 +121,7 @@
 			files = (
 				35D295702C2F6CA0007301FC /* NukeUI in Frameworks */,
 				35D295812C2F78EA007301FC /* Alamofire in Frameworks */,
+				354C4B582C349F5100143D90 /* OggDecoder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +142,15 @@
 				3542BF442C347013003597DE /* AlertHandler.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		354C4B592C34AE1500143D90 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				354C4B5A2C34AF4A00143D90 /* OGGToWavConverter.swift */,
+				354C4B5D2C34B0FE00143D90 /* AudioPlayer.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		357319632C31FA2600ED6B25 /* Mock */ = {
@@ -169,6 +189,7 @@
 				35D295672C2F68C2007301FC /* View */,
 				35D295742C2F6F69007301FC /* ViewModel */,
 				35D295822C2F7981007301FC /* Network */,
+				354C4B592C34AE1500143D90 /* Service */,
 				35D2954B2C2F63C9007301FC /* Assets.xcassets */,
 				35D2954D2C2F63C9007301FC /* Preview Content */,
 			);
@@ -282,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				35FFB0772C30E15E00449536 /* AppearanceSection.swift */,
+				354C4B602C34C1D500143D90 /* CriesSection.swift */,
 				3561A3A22C3069A100441896 /* BasicSection.swift */,
 				35FFB06F2C30C3FF00449536 /* StatSection.swift */,
 				35FFB06B2C30BF9700449536 /* MoreInfoSection.swift */,
@@ -308,6 +330,7 @@
 			packageProductDependencies = (
 				35D2956F2C2F6CA0007301FC /* NukeUI */,
 				35D295802C2F78EA007301FC /* Alamofire */,
+				354C4B572C349F5100143D90 /* OggDecoder */,
 			);
 			productName = Pokemon;
 			productReference = 35D295442C2F63C6007301FC /* Pokemon.app */;
@@ -362,6 +385,7 @@
 			packageReferences = (
 				35D2956D2C2F6C7F007301FC /* XCRemoteSwiftPackageReference "Nuke" */,
 				35D2957F2C2F78DB007301FC /* XCRemoteSwiftPackageReference "Alamofire" */,
+				354C4B562C349F0000143D90 /* XCRemoteSwiftPackageReference "OggDecoder" */,
 			);
 			productRefGroup = 35D295452C2F63C6007301FC /* Products */;
 			projectDirPath = "";
@@ -399,9 +423,11 @@
 			files = (
 				35FFB06C2C30BF9700449536 /* MoreInfoSection.swift in Sources */,
 				35D295872C2F7CE5007301FC /* APIManager.swift in Sources */,
+				354C4B5B2C34AF4A00143D90 /* OGGToWavConverter.swift in Sources */,
 				3561A3A02C30610D00441896 /* PokemonDetailsVM.swift in Sources */,
 				35D295692C2F6968007301FC /* Pokemons.swift in Sources */,
 				35FFB07B2C30F90500449536 /* InfoVM.swift in Sources */,
+				354C4B5E2C34B0FE00143D90 /* AudioPlayer.swift in Sources */,
 				35D295482C2F63C6007301FC /* PokemonApp.swift in Sources */,
 				3542BF452C347013003597DE /* AlertHandler.swift in Sources */,
 				35FFB0782C30E15E00449536 /* AppearanceSection.swift in Sources */,
@@ -411,6 +437,7 @@
 				35FFB0752C30DA1200449536 /* PokemonImage.swift in Sources */,
 				35D2956C2C2F6BE0007301FC /* PokemonCellView.swift in Sources */,
 				35C0BD062C31A6E9005ED91F /* AlertType.swift in Sources */,
+				354C4B612C34C1D500143D90 /* CriesSection.swift in Sources */,
 				35D295722C2F6F43007301FC /* PokemonListView.swift in Sources */,
 				35D295652C2F66D1007301FC /* Pokemon.swift in Sources */,
 				3561A39D2C305E7300441896 /* PokemonDetailsView.swift in Sources */,
@@ -430,6 +457,7 @@
 				35D295852C2F79E4007301FC /* APIManagerProtocol.swift in Sources */,
 				35FFB0722C30CEEC00449536 /* MoreInfoSection.swift in Sources */,
 				3561A39B2C305B1D00441896 /* PokemonDetailsVMTests.swift in Sources */,
+				354C4B622C34C1D500143D90 /* CriesSection.swift in Sources */,
 				357319622C31FA1C00ED6B25 /* MockErrorAPIManager.swift in Sources */,
 				35D295882C2F7E04007301FC /* APIManager.swift in Sources */,
 				3561A39E2C305E7300441896 /* PokemonDetailsView.swift in Sources */,
@@ -445,12 +473,14 @@
 				3561A3A42C3069A100441896 /* BasicSection.swift in Sources */,
 				35D2957C2C2F77CB007301FC /* PokemonCellView.swift in Sources */,
 				35FFB0712C30CEE800449536 /* StatSection.swift in Sources */,
+				354C4B5C2C34AF4A00143D90 /* OGGToWavConverter.swift in Sources */,
 				35D295662C2F66D1007301FC /* Pokemon.swift in Sources */,
 				35FFB0732C30CEF700449536 /* InfoDataView.swift in Sources */,
 				3561A3A12C30610D00441896 /* PokemonDetailsVM.swift in Sources */,
 				35FFB07C2C30F90500449536 /* InfoVM.swift in Sources */,
 				35FFB0792C30E15E00449536 /* AppearanceSection.swift in Sources */,
 				3594A4152C3379B400FC02F2 /* InfoData.swift in Sources */,
+				354C4B5F2C34B0FE00143D90 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +555,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -580,6 +611,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -600,6 +632,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -631,6 +664,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -715,6 +749,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		354C4B562C349F0000143D90 /* XCRemoteSwiftPackageReference "OggDecoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/arkasas/OggDecoder";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		35D2956D2C2F6C7F007301FC /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke";
@@ -734,6 +776,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		354C4B572C349F5100143D90 /* OggDecoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 354C4B562C349F0000143D90 /* XCRemoteSwiftPackageReference "OggDecoder" */;
+			productName = OggDecoder;
+		};
 		35D2956F2C2F6CA0007301FC /* NukeUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 35D2956D2C2F6C7F007301FC /* XCRemoteSwiftPackageReference "Nuke" */;

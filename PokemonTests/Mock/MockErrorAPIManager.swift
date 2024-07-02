@@ -19,4 +19,7 @@ struct MockErrorAPIManager: APIManagerProtocol {
     func fetchAllPokemon() async throws -> [Pokemon] {
         throw MockError.mock
     }
+    
+    func downloadFile(url: String, completion: ((URL?) -> ())?) {
+    }
 }

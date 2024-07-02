@@ -30,6 +30,9 @@ struct PokemonDetailsView: View {
                                       back: viewModel.defaultBackSprite,
                                       frontShiny: viewModel.defaultShinyFrontSprite,
                                       backShiny: viewModel.defaultShinyBackSprite)
+                    //Show cries of the pokemon depends on the availability
+                    CriesSection(viewModel: viewModel)
+                    
                     // show basic details like base experience, height and weight
                     BasicSection(baseExperience: viewModel.baseExperience,
                                  height: viewModel.height,

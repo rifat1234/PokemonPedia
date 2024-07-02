@@ -29,6 +29,17 @@ struct APIManager: APIManagerProtocol {
         return try response.result.get()
     }
     
+    func downloadFile(url: String, completion: ((URL?) -> ())?) {
+        AF.download(url).responseURL { response in
+            guard let url = try? response.result.get() else {
+                completion?(nil)
+                return
+            }
+            
+            completion?(url)
+        }
+    }
+    
     // MARK: - private methods
     
     /// Make url request using **Alamofire**. Also cache the url response.
@@ -47,5 +58,4 @@ struct APIManager: APIManagerProtocol {
             .serializingDecodable(type.self) // Automatic Decodable support with background parsing.
             .response // Await the full response with metrics and a parsed body.
     }
-    
 }

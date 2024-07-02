@@ -14,6 +14,10 @@ extension PokemonDetailsView {
         case dataLoading, dataLoaded
     }
     
+    enum CriesType {
+        case latest,legacy
+    }
+    
     @Observable class ViewModel: AlertHandler {
         //MARK: - public variables
         var viewState: ViewState = .dataLoading
@@ -22,6 +26,7 @@ extension PokemonDetailsView {
         private let apiManager: APIManagerProtocol
         private let pokemon: Pokemon
         private var pokemonDetails: PokemonDetails?
+        private var audioPlayer = AudioPlayer()
         
         //MARK: - computed variables
         var navigationTitle: String {
@@ -58,6 +63,14 @@ extension PokemonDetailsView {
         
         var stats: [Stat]? {
             pokemonDetails?.stats
+        }
+        
+        var latestCry: String? {
+            pokemonDetails?.cries?.latest
+        }
+        
+        var legacyCry: String? {
+            pokemonDetails?.cries?.legacy
         }
         
         //MARK: - init
@@ -98,6 +111,36 @@ extension PokemonDetailsView {
             } catch {
                 debugPrint(error)
                 showAlert(.networkError(error))
+            }
+        }
+        
+        
+        // TODO: Convert to Swift Concurrency
+        /// download ogg format audio, then convert it to wav and  play audio
+        /// - Parameter type: which type of cries to play latest or legacy
+        func playCries(_ type: CriesType) {
+            guard let cryURL = type == .latest ? latestCry: legacyCry else {
+                return
+            }
+            
+            apiManager.downloadFile(url: cryURL) { [weak self] url in
+                guard let fileURL = url else {
+                    debugPrint("Download failed")
+                    self?.showAlert(.networkError())
+                    return
+                }
+                
+                let converter = OGGToWavConverter()
+                guard let wavURL = converter.convertToWav(fileURL) else {
+                    debugPrint("Convert to wav failed")
+                    return
+                }
+                
+                do {
+                    try self?.audioPlayer.play(url: wavURL)
+                } catch {
+                    self?.showAlert(.networkError())
+                }
             }
         }
         

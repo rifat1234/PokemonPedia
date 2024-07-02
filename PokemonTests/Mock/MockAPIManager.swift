@@ -20,4 +20,8 @@ struct MockAPIManager: APIManagerProtocol {
     func fetchAllPokemon() async throws -> [Pokemon] {
         allPokemon
     }
+    
+    func downloadFile(url: String, completion: ((URL?) -> ())?) {
+        
+    }
 }
