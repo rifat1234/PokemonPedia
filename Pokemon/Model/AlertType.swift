@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 
+/// `AlertType` contains all the information required to show a type of **alert**
 enum AlertType {
     case networkError(_ error:Error? = nil)
     
@@ -40,8 +41,9 @@ enum AlertType {
     }
 }
 
+/// `AlertHandler` protocol is conformed by ViewModel to show alerts of `AlertType`
 protocol AlertHandler {
     var alertType:AlertType { get }
-    func showAlert(_ alertType: AlertType)
     var showAlert:Bool  { get set }
+    func showAlert(_ alertType: AlertType)
 }

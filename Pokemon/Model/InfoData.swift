@@ -7,7 +7,10 @@
 
 import Foundation
 
+/// `InfoData` model is used by `InfoView` to show data
+/// Since many `PokemonDetails` contains similar type of data containing `Info` array, we can reuse  `InfoView`,  to show them all using `InfoData`
 struct InfoData: Hashable {
+    /// `DataType` address which type of `Infos` array it has.
     enum DataType: Hashable {
         case abilities
         case moves
