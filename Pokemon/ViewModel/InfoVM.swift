@@ -10,20 +10,18 @@ import Observation
 
 extension InfoView {
     @Observable class ViewModel {
-        private let infos:[Info]
-        private let title:String
+        private let infoData:InfoData
         
         var sortedInfo:[Info] {
-            infos.sorted{$0.name ?? "" < $1.name ?? ""}
+            infoData.infos.sorted{$0.name ?? "" < $1.name ?? ""}
         }
         
         var navigationTitle:String {
-            title.capitalized
+            infoData.title.capitalized
         }
         
-        init(infos: [Info], title: String) {
-            self.infos = infos
-            self.title = title
+        init(infoData:InfoData) {
+            self.infoData = infoData
         }
         
     }

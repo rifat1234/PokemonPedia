@@ -20,7 +20,7 @@ struct InfoView: View {
 }
 
 #Preview {
-    InfoView(viewModel: InfoView.ViewModel( infos: [Info(name: "Rifat", url: nil),
+    InfoView(viewModel: InfoView.ViewModel( infoData:InfoData(type:.forms, infos:[Info(name: "Rifat", url: nil),
                      Info(name: "Adnan", url: nil),
-                     Info(name: "Saad", url: nil)], title: "Title"))
+                     Info(name: "Saad", url: nil)])))
 }

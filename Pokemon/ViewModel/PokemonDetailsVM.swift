@@ -58,33 +58,28 @@ extension PokemonDetailsView {
             pokemonDetails?.stats
         }
         
-        var abilities: [Ability]? {
-            pokemonDetails?.abilities
-        }
-        
-        var moves: [Move]? {
-            pokemonDetails?.moves
-        }
-        
-        var heldItems: [HeldItem]? {
-            pokemonDetails?.heldItems
-        }
-        
-        var forms: [Info]? {
-            pokemonDetails?.forms
-        }
-        
-        var types: [TypeElement]? {
-            pokemonDetails?.types
-        }
-        
-        var gameIndices: [GameIndex]? {
-            pokemonDetails?.gameIndices
-        }
-        
         init(_ pokemon: Pokemon, apiManager: APIManagerProtocol = APIManager()) {
             self.apiManager = apiManager
             self.pokemon = pokemon
+        }
+        
+        func getMoreInfoData()->[InfoData]{
+            func getInfoData(type:InfoData.DataType, infos:[Info]?)->InfoData? {
+                guard let infos = infos else {
+                    return nil
+                }
+                
+                return InfoData(type: type, infos: infos)
+            }
+            
+            return [
+                getInfoData(type:.abilities, infos: pokemonDetails?.abilities?.compactMap({ $0.ability })),
+                getInfoData(type:.moves, infos: pokemonDetails?.moves?.compactMap({ $0.move })),
+                getInfoData(type:.heldItems, infos: pokemonDetails?.heldItems?.compactMap({ $0.item })),
+                getInfoData(type:.forms, infos: pokemonDetails?.forms?.compactMap({ $0 })),
+                getInfoData(type:.types, infos: pokemonDetails?.types?.compactMap({ $0.type })),
+                getInfoData(type:.gameIndices, infos: pokemonDetails?.gameIndices?.compactMap({ $0.version })),
+            ].compactMap({$0}).filter({$0.infos.count > 0})
         }
         
         func showAlert(_ alertType: AlertType) {

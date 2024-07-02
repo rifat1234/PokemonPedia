@@ -32,13 +32,7 @@ struct PokemonDetailsView: View {
                                  height:viewModel.height,
                                  weight: viewModel.weight)
                     StatsSection(stats: viewModel.stats)
-                    MoreInfoSection(abilities: viewModel.abilities,
-                                    moves: viewModel.moves,
-                                    heldItems: viewModel.heldItems,
-                                    forms: viewModel.forms,
-                                    types: viewModel.types,
-                                    gameIndices: viewModel.gameIndices)
-                    
+                    MoreInfoSection(infoDatas: viewModel.getMoreInfoData())
                 }
             }
         }
@@ -56,23 +50,8 @@ struct PokemonDetailsView: View {
             )
         })
         .navigationTitle(viewModel.navigationTitle)
-        .navigationDestination(for: [Move].self) { moves in
-            InfoView(viewModel: InfoView.ViewModel( infos:moves.compactMap{$0.move} , title: "Moves"))
-        }
-        .navigationDestination(for: [Info].self) { forms in
-            InfoView(viewModel: InfoView.ViewModel(infos:forms , title: "Forms"))
-        }
-        .navigationDestination(for: [HeldItem].self) { heldItems in
-            InfoView(viewModel: InfoView.ViewModel(infos:heldItems.compactMap{$0.item} , title: "Held Items"))
-        }
-        .navigationDestination(for: [Ability].self) { abilities in
-            InfoView(viewModel: InfoView.ViewModel(infos:abilities.compactMap{$0.ability} , title: "Abilities"))
-        }
-        .navigationDestination(for: [TypeElement].self) { types in
-            InfoView(viewModel: InfoView.ViewModel(infos:types.compactMap{$0.type} , title: "Types"))
-        }
-        .navigationDestination(for: [GameIndex].self) { gameIndices in
-            InfoView(viewModel: InfoView.ViewModel(infos:gameIndices.compactMap{$0.version} , title: "Game Indices"))
+        .navigationDestination(for: InfoData.self) { infoData in
+            InfoView(viewModel: InfoView.ViewModel(infoData: infoData))
         }
         .task {
             await viewModel.fetchPokemonDetails()
