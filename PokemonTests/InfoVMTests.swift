@@ -12,10 +12,10 @@ final class InfoVMTests: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        infoVM = InfoView.ViewModel(infos: [Info(name: "B", url: "url2"),
+        infoVM = InfoView.ViewModel(infoData: InfoData(type: .abilities,
+                                    infos:[Info(name: "B", url: "url2"),
                                            Info(name: "A", url: "url1"),
-                                           Info(name: "C", url: "url3")],
-                                    title: "title")
+                                           Info(name: "C", url: "url3")]))
     }
 
     override func tearDownWithError() throws {
@@ -23,7 +23,7 @@ final class InfoVMTests: XCTestCase {
     }
 
     func testNavigationTitle() throws {
-        XCTAssertEqual("Title", infoVM?.navigationTitle)
+        XCTAssertEqual(InfoData.DataType.abilities.title, infoVM?.navigationTitle)
     }
     
     func testInfoListSort() throws {
