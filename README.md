@@ -8,7 +8,7 @@ iOS App which shows searchable list of pokemons and show their details
 - Orientation: Portrait, Landscape 
 
 ### App created using :hammer_and_wrench:
-- Developed using `SwiftUI`,`Swift Concurrency`,`Xcode 15.4`,`XCTest`,`Git`
+- App developed using `SwiftUI` `Swift Concurrency` `Xcode 15.4` `XCTest` `Git`
 - [PokeAPI](https://pokeapi.co) is used to fetch all the data and images
 - Dependency Manager: **SwiftPM**
 - Third Party Frameworks: **Alamofire, NukeUI**
