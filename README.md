@@ -13,7 +13,7 @@ iOS App which shows searchable list of pokemons and show their details
 - Dependency Manager: **SwiftPM**
 - Third Party Frameworks: **Alamofire, NukeUI**
 - Architecture: **MVVM**
-- Testing Methodologies: **Unit Test, TDD**
+- Testing Methodologies: **Unit Test, TDD, Dependency Injection, Mocking**
 
 ### Features 🎛️
 - [x] A searchable list of Pokemon with their names and sprites.
