@@ -6,7 +6,7 @@
 import Foundation
 
 // MARK: - PokemonDetails
-/// `PokemonDetails` is return by **poke api** (endpoint: pokemon/{id or name})
+/// `PokemonDetails` is returned by **poke api** (endpoint: pokemon/{id or name})
 /// It contains all the details about the pokemon
 struct PokemonDetails: Codable {
     let abilities: [Ability]?
