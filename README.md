@@ -11,7 +11,7 @@ iOS App which shows searchable list of pokemons and show their details
 - App developed using `SwiftUI` `Swift Concurrency` `Xcode 15.4` `XCTest` `Git`
 - [PokeAPI](https://pokeapi.co) is used to fetch all the data and images
 - Dependency Manager: **SwiftPM**
-- Third Party Frameworks: **Alamofire, NukeUI**
+- Third Party Frameworks: **Alamofire, NukeUI, OggDecoder**
 - Architecture: **MVVM**
 - Testing Methodologies: **Unit Test, TDD, Dependency Injection, Mocking**
 
