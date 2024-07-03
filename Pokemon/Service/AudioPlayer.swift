@@ -12,6 +12,8 @@ class AudioPlayer {
     private var player: AVAudioPlayer?
     
     func play(url: URL) throws {
+        try AVAudioSession.sharedInstance().setCategory(.playback)
+        try AVAudioSession.sharedInstance().setActive(true)
         player = try AVAudioPlayer(contentsOf: url)
         player?.play()
     }
