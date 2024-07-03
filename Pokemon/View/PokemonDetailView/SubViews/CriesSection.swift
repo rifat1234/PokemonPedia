@@ -13,8 +13,11 @@ extension PokemonDetailsView {
             static let sectionTitle = "Cries"
             static let latestLabel = "Latest"
             static let legacyLabel = "Legacy"
+            static let latestImage = "speaker.wave.3"
+            static let legacyImage = "speaker.wave.3"
             static let playButtonImage = "play"
             static let playButtonSize:CGFloat = 40
+            static let iconImageSize:CGFloat = PokemonDetailsView.Const.cellIconSize
         }
         
         let viewModel:ViewModel
@@ -34,10 +37,15 @@ extension PokemonDetailsView {
         var label:String {
             type == .latest ? CriesSection.Const.latestLabel: CriesSection.Const.legacyLabel
         }
+        var imageName:String {
+            type == .latest ? CriesSection.Const.latestImage: CriesSection.Const.legacyImage
+        }
         
         var body: some View {
             if (type == .latest ? viewModel.latestCry: viewModel.legacyCry) != nil {
                 HStack {
+                    Image(systemName: imageName)
+                        .frame(width: CriesSection.Const.iconImageSize)
                     Text(label)
                     Spacer()
                     Button {
