@@ -147,6 +147,7 @@
 		354C4B592C34AE1500143D90 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				3542BF432C346FF8003597DE /* Alert */,
 				354C4B5A2C34AF4A00143D90 /* OGGToWavConverter.swift */,
 				354C4B5D2C34B0FE00143D90 /* AudioPlayer.swift */,
 			);
@@ -250,7 +251,6 @@
 				35D295752C2F6FF5007301FC /* PokemonListVM.swift */,
 				3561A39F2C30610D00441896 /* PokemonDetailsVM.swift */,
 				35FFB07A2C30F90500449536 /* InfoVM.swift */,
-				3542BF432C346FF8003597DE /* Alert */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

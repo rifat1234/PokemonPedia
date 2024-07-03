@@ -59,6 +59,8 @@ extension PokemonListView {
             switch alertType {
             case .networkError(_):
                 await fetchAllPokemons()
+            default:
+                break
             }
         }
     }

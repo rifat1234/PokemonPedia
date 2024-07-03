@@ -44,19 +44,24 @@ struct PokemonDetailsView: View {
                 }
             }
         }
-        .alert(isPresented: $viewModel.showAlert, content: {
-            Alert(title: Text(viewModel.alertType.title),
-                message: Text(viewModel.alertType.message),
-                primaryButton:.default(Text(viewModel.alertType.primaryButtonText)){
-                    Task {
-                        await viewModel.alertPrimaryButtonAction(viewModel.alertType)
-                    }
-                },
-                  secondaryButton: .destructive(Text(viewModel.alertType.secondaryButtonText), action: {
+        .alert(
+            viewModel.alertType.title,
+            isPresented: $viewModel.showAlert
+        ) {
+            Button(viewModel.alertType.primaryButtonText) {
+                Task {
+                    await viewModel.alertPrimaryButtonAction(viewModel.alertType)
+                }
+            }
+            if let secondaryButtonLabel = viewModel.alertType.secondaryButtonText {
+                Button(secondaryButtonLabel) {
                     dismiss()
-                })
-            )
-        })
+                }
+            }
+            
+        } message: {
+            Text(viewModel.alertType.message)
+        }
         .navigationTitle(viewModel.navigationTitle)
         .navigationDestination(for: InfoData.self) { infoData in // Navigation from MoreInfoSection
             InfoDataView(viewModel: InfoDataView.ViewModel(infoData: infoData))

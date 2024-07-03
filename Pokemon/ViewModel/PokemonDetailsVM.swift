@@ -126,20 +126,22 @@ extension PokemonDetailsView {
             apiManager.downloadFile(url: cryURL) { [weak self] url in
                 guard let fileURL = url else {
                     debugPrint("Download failed")
-                    self?.showAlert(.networkError())
+                    self?.showAlert(.audioNetworkError)
                     return
                 }
                 
                 let converter = OGGToWavConverter()
                 guard let wavURL = converter.convertToWav(fileURL) else {
                     debugPrint("Convert to wav failed")
+                    self?.showAlert(.audioPlayingError)
                     return
                 }
                 
                 do {
                     try self?.audioPlayer.play(url: wavURL)
                 } catch {
-                    self?.showAlert(.networkError())
+                    debugPrint(error)
+                    self?.showAlert(.audioPlayingError)
                 }
             }
         }
@@ -158,6 +160,8 @@ extension PokemonDetailsView {
             switch alertType {
             case .networkError(_):
                 await fetchPokemonDetails()
+            default:
+                break
             }
         }
     }
