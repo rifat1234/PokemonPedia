@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350799882C4715FA003C7A21 /* Alertify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350799872C4715FA003C7A21 /* Alertify.swift */; };
+		350799892C4715FA003C7A21 /* Alertify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350799872C4715FA003C7A21 /* Alertify.swift */; };
 		3542BF452C347013003597DE /* AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542BF442C347013003597DE /* AlertHandler.swift */; };
 		3542BF462C347013003597DE /* AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3542BF442C347013003597DE /* AlertHandler.swift */; };
 		354C4B582C349F5100143D90 /* OggDecoder in Frameworks */ = {isa = PBXBuildFile; productRef = 354C4B572C349F5100143D90 /* OggDecoder */; };
@@ -78,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		350799872C4715FA003C7A21 /* Alertify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertify.swift; sourceTree = "<group>"; };
 		3542BF442C347013003597DE /* AlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHandler.swift; sourceTree = "<group>"; };
 		354C4B5A2C34AF4A00143D90 /* OGGToWavConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OGGToWavConverter.swift; sourceTree = "<group>"; };
 		354C4B5D2C34B0FE00143D90 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 			children = (
 				35C0BD052C31A6E9005ED91F /* AlertType.swift */,
 				3542BF442C347013003597DE /* AlertHandler.swift */,
+				350799872C4715FA003C7A21 /* Alertify.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -424,6 +428,7 @@
 				35FFB06C2C30BF9700449536 /* MoreInfoSection.swift in Sources */,
 				35D295872C2F7CE5007301FC /* APIManager.swift in Sources */,
 				354C4B5B2C34AF4A00143D90 /* OGGToWavConverter.swift in Sources */,
+				350799882C4715FA003C7A21 /* Alertify.swift in Sources */,
 				3561A3A02C30610D00441896 /* PokemonDetailsVM.swift in Sources */,
 				35D295692C2F6968007301FC /* Pokemons.swift in Sources */,
 				35FFB07B2C30F90500449536 /* InfoVM.swift in Sources */,
@@ -465,6 +470,7 @@
 				3561A3992C305A3D00441896 /* PokemonDetails.swift in Sources */,
 				35D2955C2C2F65A3007301FC /* PokemonTests.swift in Sources */,
 				3542BF462C347013003597DE /* AlertHandler.swift in Sources */,
+				350799892C4715FA003C7A21 /* Alertify.swift in Sources */,
 				35D2956A2C2F6968007301FC /* Pokemons.swift in Sources */,
 				3573195E2C31E71900ED6B25 /* AlertType.swift in Sources */,
 				35D295782C2F7787007301FC /* PokemonListVM.swift in Sources */,

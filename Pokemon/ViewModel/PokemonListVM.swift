@@ -42,13 +42,13 @@ extension PokemonListView {
                 viewState = .dataLoaded
             } catch let error {
                 debugPrint(error)
-                showAlert(.networkError(error))
+                showAlert(.pokemonListNetworkError(error))
             }
         }
         
         // MARK: - AlertHandler
         var showAlert:Bool = false
-        var alertType:AlertType = .networkError()
+        var alertType:AlertType = .pokemonListNetworkError()
         
         func showAlert(_ alertType: AlertType) {
             self.alertType = alertType
@@ -57,7 +57,7 @@ extension PokemonListView {
         
         func alertPrimaryButtonAction(_ alertType: AlertType) async {
             switch alertType {
-            case .networkError(_):
+            case .pokemonListNetworkError(_):
                 await fetchAllPokemons()
             default:
                 break

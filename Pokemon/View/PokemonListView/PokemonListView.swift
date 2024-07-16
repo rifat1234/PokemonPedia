@@ -41,15 +41,7 @@ struct PokemonListView: View {
             .navigationDestination(for: Pokemon.self){ pokemon in
                 PokemonDetailsView(viewModel: PokemonDetailsView.ViewModel(pokemon))
             }
-            .alert(isPresented: $viewModel.showAlert, content: { 
-                Alert(title: Text(viewModel.alertType.title),
-                      message: Text(viewModel.alertType.message),
-                      dismissButton: .default(Text(viewModel.alertType.primaryButtonText)){
-                        Task {
-                            await viewModel.alertPrimaryButtonAction(viewModel.alertType)
-                        }
-                })
-            })
+            .alertify(viewModel)
             .task {
                 await viewModel.fetchAllPokemons() // start fetching pokemons after view appears
             }

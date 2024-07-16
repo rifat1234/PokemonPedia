@@ -44,30 +44,18 @@ struct PokemonDetailsView: View {
                 }
             }
         }
-        .alert(
-            viewModel.alertType.title,
-            isPresented: $viewModel.showAlert
-        ) {
-            Button(viewModel.alertType.primaryButtonText) {
-                Task {
-                    await viewModel.alertPrimaryButtonAction(viewModel.alertType)
-                }
-            }
-            if let secondaryButtonLabel = viewModel.alertType.secondaryButtonText {
-                Button(secondaryButtonLabel) {
-                    dismiss()
-                }
-            }
-            
-        } message: {
-            Text(viewModel.alertType.message)
-        }
+        .alertify(viewModel)
         .navigationTitle(viewModel.navigationTitle)
         .navigationDestination(for: InfoData.self) { infoData in // Navigation from MoreInfoSection
             InfoDataView(viewModel: InfoDataView.ViewModel(infoData: infoData))
         }
         .task {
             await viewModel.fetchPokemonDetails() // start fetching pokemon details after view appears
+        }
+        .task(id: viewModel.dismissView) {
+            if viewModel.dismissView {
+                dismiss()
+            }
         }
     }
 }

@@ -21,6 +21,7 @@ extension PokemonDetailsView {
     @Observable class ViewModel: AlertHandler {
         //MARK: - public variables
         var viewState: ViewState = .dataLoading
+        var dismissView: Bool = false
         
         //MARK: - private variables
         private let apiManager: APIManagerProtocol
@@ -110,7 +111,7 @@ extension PokemonDetailsView {
                 viewState = .dataLoaded
             } catch {
                 debugPrint(error)
-                showAlert(.networkError(error))
+                showAlert(.pokemonDetailNetworkError(error))
             }
         }
         
@@ -148,7 +149,7 @@ extension PokemonDetailsView {
         
         
         // MARK: - AlertHandler
-        var alertType: AlertType = .networkError()
+        var alertType: AlertType = .pokemonDetailNetworkError()
         var showAlert: Bool = false
         
         func showAlert(_ alertType: AlertType) {
@@ -158,8 +159,17 @@ extension PokemonDetailsView {
         
         func alertPrimaryButtonAction(_ alertType: AlertType) async {
             switch alertType {
-            case .networkError(_):
+            case .pokemonDetailNetworkError:
                 await fetchPokemonDetails()
+            default:
+                break
+            }
+        }
+        
+        func alertSecondaryButtonAction(_ alertType: AlertType) async {
+            switch alertType {
+            case .pokemonDetailNetworkError:
+                dismissView = true
             default:
                 break
             }
