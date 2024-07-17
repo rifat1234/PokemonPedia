@@ -15,7 +15,8 @@ extension PokemonListView {
         case dataLoading,dataLoaded
     }
     
-    @Observable class ViewModel: AlertHandler {
+    @Observable 
+    class ViewModel: AlertHandler {
         let apiManager:APIManagerProtocol
         var searchText:String = ""
         var viewState:ViewState = .dataLoading

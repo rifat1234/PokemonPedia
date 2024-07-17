@@ -18,7 +18,8 @@ extension PokemonDetailsView {
         case latest,legacy
     }
     
-    @Observable class ViewModel: AlertHandler {
+    @Observable 
+    class ViewModel: AlertHandler {
         //MARK: - public variables
         var viewState: ViewState = .dataLoading
         var dismissView: Bool = false
