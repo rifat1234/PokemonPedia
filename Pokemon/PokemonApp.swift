@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct PokemonApp: App {
-    var viewModel = PokemonListView.ViewModel()
+    @State var viewModel = PokemonListView.ViewModel()
     
     var body: some Scene {
         WindowGroup {
