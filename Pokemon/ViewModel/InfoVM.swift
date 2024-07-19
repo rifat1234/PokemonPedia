@@ -9,7 +9,8 @@ import Foundation
 import Observation
 
 extension InfoDataView {
-    @Observable class ViewModel {
+    @Observable 
+    class ViewModel {
         private let infoData:InfoData
         
         var sortedInfo:[Info] {
