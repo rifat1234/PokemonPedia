@@ -12,4 +12,9 @@ struct SamplePokemonList {
         Pokemon(name: "pika", url: "url3")
     ]
     
+    static let list2 = [
+        Pokemon(name: "Bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/"),
+        Pokemon(name: "Ivysaur", url: "https://pokeapi.co/api/v2/pokemon/2/")
+    ]
+    
 }

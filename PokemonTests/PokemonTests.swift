@@ -33,6 +33,19 @@ final class PokemonTests: XCTestCase {
         }
     }
     
+    func testPokemonDetailsDecode() throws {
+        let json = SampleJSONs.bulbasaurDetails
+        let data = Data(json.utf8)
+        let decoder = JSONDecoder()
+
+        do {
+            let pokemonDetails = try decoder.decode(PokemonDetails.self, from: data)
+            XCTAssertNotNil(pokemonDetails)
+        } catch {
+            XCTAssertTrue(false, "Failed to decode JSON")
+        }
+    }
+    
     func testPokemonDashReplaceWithSpace() throws {
         let json = """
         {"name":"bulbasaur-pikachu","url":"https://pokeapi.co/api/v2/pokemon/1/"}

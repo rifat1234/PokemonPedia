@@ -102,6 +102,9 @@
 		F37C147B2CA21780007D9CC3 /* SamplePokemonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C147A2CA21779007D9CC3 /* SamplePokemonList.swift */; };
 		F37C147C2CA21780007D9CC3 /* SamplePokemonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C147A2CA21779007D9CC3 /* SamplePokemonList.swift */; };
 		F37C147D2CA21780007D9CC3 /* SamplePokemonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C147A2CA21779007D9CC3 /* SamplePokemonList.swift */; };
+		F37C147F2CA21D05007D9CC3 /* SampleJSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C147E2CA21CF8007D9CC3 /* SampleJSONs.swift */; };
+		F37C14802CA21D05007D9CC3 /* SampleJSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C147E2CA21CF8007D9CC3 /* SampleJSONs.swift */; };
+		F37C14812CA21D05007D9CC3 /* SampleJSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C147E2CA21CF8007D9CC3 /* SampleJSONs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +164,7 @@
 		F37C14722CA216E3007D9CC3 /* MockAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIManager.swift; sourceTree = "<group>"; };
 		F37C14762CA21716007D9CC3 /* APIManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerFactory.swift; sourceTree = "<group>"; };
 		F37C147A2CA21779007D9CC3 /* SamplePokemonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePokemonList.swift; sourceTree = "<group>"; };
+		F37C147E2CA21CF8007D9CC3 /* SampleJSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleJSONs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -324,6 +328,7 @@
 		35D295822C2F7981007301FC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F37C147E2CA21CF8007D9CC3 /* SampleJSONs.swift */,
 				F37C147A2CA21779007D9CC3 /* SamplePokemonList.swift */,
 				F37C14762CA21716007D9CC3 /* APIManagerFactory.swift */,
 				F37C14722CA216E3007D9CC3 /* MockAPIManager.swift */,
@@ -546,6 +551,7 @@
 				35FFB06E2C30C10D00449536 /* InfoDataView.swift in Sources */,
 				3561A3A32C3069A100441896 /* BasicSection.swift in Sources */,
 				35FFB0752C30DA1200449536 /* PokemonImage.swift in Sources */,
+				F37C14812CA21D05007D9CC3 /* SampleJSONs.swift in Sources */,
 				35D2956C2C2F6BE0007301FC /* PokemonCellView.swift in Sources */,
 				35C0BD062C31A6E9005ED91F /* AlertType.swift in Sources */,
 				354C4B612C34C1D500143D90 /* CriesSection.swift in Sources */,
@@ -576,6 +582,7 @@
 				F37C14752CA216ED007D9CC3 /* MockAPIManager.swift in Sources */,
 				3561A39E2C305E7300441896 /* PokemonDetailsView.swift in Sources */,
 				35FFB0762C30DCC500449536 /* PokemonImage.swift in Sources */,
+				F37C14802CA21D05007D9CC3 /* SampleJSONs.swift in Sources */,
 				3561A3992C305A3D00441896 /* PokemonDetails.swift in Sources */,
 				35D2955C2C2F65A3007301FC /* PokemonTests.swift in Sources */,
 				3542BF462C347013003597DE /* AlertHandler.swift in Sources */,
@@ -609,6 +616,7 @@
 				F37C14692CA1DADE007D9CC3 /* InfoData.swift in Sources */,
 				F37C146A2CA1DAF2007D9CC3 /* PokemonDetailsView.swift in Sources */,
 				F37C145E2CA1D96E007D9CC3 /* Alertify.swift in Sources */,
+				F37C147F2CA21D05007D9CC3 /* SampleJSONs.swift in Sources */,
 				F37C145F2CA1D96E007D9CC3 /* AlertType.swift in Sources */,
 				F37C14682CA1DAD9007D9CC3 /* Pokemons.swift in Sources */,
 				F37C14602CA1D96E007D9CC3 /* AlertHandler.swift in Sources */,
