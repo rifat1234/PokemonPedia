@@ -76,7 +76,7 @@ extension PokemonDetailsView {
         }
         
         //MARK: - init
-        init(_ pokemon: Pokemon, apiManager: APIManagerProtocol = APIManager()) {
+        init(_ pokemon: Pokemon, apiManager: APIManagerProtocol = APIManagerFactory.getAPIManager()) {
             self.apiManager = apiManager
             self.pokemon = pokemon
         }

@@ -44,9 +44,7 @@ final class PokemonUITests: XCTestCase {
         app.launch()
         
         let pokemonList = app.collectionViews[PokemonListView.Const.pokemonListAccessibilityID]
-        
         let pokemons = listNum.list.sorted { $0.name < $1.name }
-        
         XCTAssertTrue(pokemonList.cells.count == pokemons.count)
         
         for i in 0..<pokemons.count {
@@ -55,5 +53,19 @@ final class PokemonUITests: XCTestCase {
             XCTAssert(firstPokemon.waitForExistence(timeout: timeout))
         }
         
+    }
+    
+    @MainActor
+    func testPokemonDetailsFlow() throws {
+        let listNum = SamplePokemonList.list2
+        app.launchArguments.append(listNum.rawValue)
+        app.launch()
+        
+        let pokemonList = app.collectionViews[PokemonListView.Const.pokemonListAccessibilityID]
+        let cell = pokemonList.cells.element(boundBy: 0)
+        cell.tap()
+        
+        let pokemonTitle = app.staticTexts["Bulbasaur"]
+        XCTAssert(pokemonTitle.waitForExistence(timeout: timeout))
     }
 }

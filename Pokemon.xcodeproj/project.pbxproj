@@ -218,9 +218,9 @@
 		354C4B592C34AE1500143D90 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				F37C14822CA22A80007D9CC3 /* AppLaunchMode.swift */,
 				35D295822C2F7981007301FC /* Network */,
 				3542BF432C346FF8003597DE /* Alert */,
+				F37C14822CA22A80007D9CC3 /* AppLaunchMode.swift */,
 				354C4B5A2C34AF4A00143D90 /* OGGToWavConverter.swift */,
 				354C4B5D2C34B0FE00143D90 /* AudioPlayer.swift */,
 			);
@@ -389,9 +389,9 @@
 		F37C14862CA22B75007D9CC3 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				F37C14722CA216E3007D9CC3 /* MockAPIManager.swift */,
 				F37C147E2CA21CF8007D9CC3 /* SampleJSONs.swift */,
 				F37C147A2CA21779007D9CC3 /* SamplePokemonList.swift */,
-				F37C14722CA216E3007D9CC3 /* MockAPIManager.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";

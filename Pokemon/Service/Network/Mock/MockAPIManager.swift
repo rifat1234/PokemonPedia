@@ -18,7 +18,14 @@ struct MockAPIManager: APIManagerProtocol {
     }
     
     func fetchPokemonDetails(url: String) async throws -> PokemonDetails {
-        pokemonDetails
+        if url == "https://pokeapi.co/api/v2/pokemon/1/" {
+            let json = SampleJSONs.bulbasaurDetails
+            let data = Data(json.utf8)
+            let decoder = JSONDecoder()
+            return try decoder.decode(PokemonDetails.self, from: data)
+        }
+            
+        return pokemonDetails
     }
     
     func fetchAllPokemon() async throws -> [Pokemon] {
