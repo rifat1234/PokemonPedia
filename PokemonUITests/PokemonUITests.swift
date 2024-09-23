@@ -62,7 +62,31 @@ final class PokemonUITests: XCTestCase {
         app.launch()
         
         let pokemonList = app.collectionViews[PokemonListView.Const.pokemonListAccessibilityID]
+        XCTAssert(pokemonList.waitForExistence(timeout: timeout))
+        XCTAssert(pokemonList.cells.count == 2)
         let cell = pokemonList.cells.element(boundBy: 0)
+        cell.tap()
+        
+        let pokemonTitle = app.staticTexts["Bulbasaur"]
+        XCTAssert(pokemonTitle.waitForExistence(timeout: timeout))
+    }
+    
+    @MainActor
+    func testPokemonDetailsWithSearchBar() throws {
+        let listNum = SamplePokemonList.list2
+        app.launchArguments.append(listNum.rawValue)
+        app.launch()
+
+        let pokemonSearchBar = app.searchFields.firstMatch
+        XCTAssert(pokemonSearchBar.waitForExistence(timeout: timeout))
+        pokemonSearchBar.tap()
+        pokemonSearchBar.typeText("Bulbasaur")
+        
+        let pokemonList = app.collectionViews[PokemonListView.Const.pokemonListAccessibilityID]
+        XCTAssert(pokemonList.waitForExistence(timeout: timeout))
+        
+        XCTAssert(pokemonList.cells.count == 1)
+        let cell = pokemonList.cells.firstMatch
         cell.tap()
         
         let pokemonTitle = app.staticTexts["Bulbasaur"]
