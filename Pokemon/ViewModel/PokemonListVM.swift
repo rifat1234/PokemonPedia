@@ -32,7 +32,7 @@ extension PokemonListView {
             return allPokemons.filter{$0.name.lowercased().starts(with: searchText.lowercased())}
         }
         
-        init(apiManger:APIManagerProtocol = APIManager()){
+        init(apiManger:APIManagerProtocol = APIManagerFactory.getAPIManager()){
             self.apiManager = apiManger
         }
         

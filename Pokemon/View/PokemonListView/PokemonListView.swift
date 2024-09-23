@@ -9,9 +9,10 @@ import SwiftUI
 
 /// Show list of `Pokemon` model containing name and image with option to show more details about the pokemon
 struct PokemonListView: View {
-    private struct Const {
+    struct Const {
         static let navigationTitle = Text("Pokemon")
         static let searchBarPrompt = Text("Search")
+        static let pokemonListAccessibilityID = "PokemonListAccessibilityID"
     }
     
     @Bindable var viewModel:ViewModel
@@ -34,6 +35,7 @@ struct PokemonListView: View {
                             }
                         }
                     }
+                    .accessibilityIdentifier(Const.pokemonListAccessibilityID)
                 }
             }
             .searchable(text: $viewModel.searchText, prompt: Const.searchBarPrompt)
