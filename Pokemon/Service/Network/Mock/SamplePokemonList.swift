@@ -6,24 +6,6 @@
 //
 
 enum SamplePokemonList: String, CaseIterable {
-//    static func getList(_ list: SamplePokemonList?) -> [Pokemon] {
-//        switch list {
-//        case .list1:
-//            [
-//                Pokemon(name: "abc", url: "url2"),
-//                Pokemon(name: "aab", url: "url1"),
-//                Pokemon(name: "pika", url: "url3")
-//            ]
-//        case .list2:
-//            [
-//                Pokemon(name: "Bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/"),
-//                Pokemon(name: "Ivysaur", url: "https://pokeapi.co/api/v2/pokemon/2/")
-//            ]
-//        default:
-//            []
-//        }
-//    }
-    
     case list1 = "PokemonList1"
     case list2 = "PokemonList2"
     
