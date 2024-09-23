@@ -11,11 +11,7 @@ final class PokemonListVMTests: XCTestCase {
     var viewModel:PokemonListView.ViewModel!
 
     override func setUpWithError() throws {
-        let apiManager =  MockAPIManager(allPokemon: [
-            Pokemon(name: "abc", url: "url2"),
-            Pokemon(name: "aab", url: "url1"),
-            Pokemon(name: "pika", url: "url3")
-        ])
+        let apiManager =  MockAPIManager(.list1)
         
         viewModel = PokemonListView.ViewModel(apiManger: apiManager)
     }

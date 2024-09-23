@@ -21,7 +21,6 @@ final class PokemonUITests: XCTestCase {
         // UI tests must launch the application that they test.
         app = XCUIApplication()
         app.launchArguments = ["Testing"]
-        app.launch()
     }
 
     override func tearDownWithError() throws {
@@ -31,6 +30,7 @@ final class PokemonUITests: XCTestCase {
 
     @MainActor
     func testIfPokemonListExist() throws {
+        app.launch()
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let pokemonList = app.collectionViews[PokemonListView.Const.pokemonListAccessibilityID]
         XCTAssert(pokemonList.waitForExistence(timeout: timeout))
@@ -39,9 +39,13 @@ final class PokemonUITests: XCTestCase {
     @MainActor
     func testPokemonListCells() throws {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let listNum = SamplePokemonList.list1
+        app.launchArguments.append(listNum.rawValue)
+        app.launch()
+        
         let pokemonList = app.collectionViews[PokemonListView.Const.pokemonListAccessibilityID]
         
-        let pokemons = SamplePokemonList.list1.sorted{ $0.name < $1.name }
+        let pokemons = listNum.list.sorted { $0.name < $1.name }
         
         XCTAssertTrue(pokemonList.cells.count == pokemons.count)
         
@@ -51,15 +55,5 @@ final class PokemonUITests: XCTestCase {
             XCTAssert(firstPokemon.waitForExistence(timeout: timeout))
         }
         
-    }
-
-    @MainActor
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
     }
 }

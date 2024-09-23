@@ -12,7 +12,7 @@ final class PokemonDetailsVMTests: XCTestCase {
     var testPokemonDetails:PokemonDetails!
     
     override func setUpWithError() throws {
-        let apiManager =  MockAPIManager(allPokemon: [])
+        let apiManager =  MockAPIManager()
         testPokemonDetails = apiManager.pokemonDetails
         viewModel = PokemonDetailsView.ViewModel(Pokemon(name: "name", url: "url"), apiManager: apiManager)
     }
