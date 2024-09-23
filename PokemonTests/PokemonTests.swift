@@ -29,7 +29,7 @@ final class PokemonTests: XCTestCase {
             let testPokemon = Pokemon(name: "Bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")
             XCTAssertEqual(testPokemon, pokemon)
         } catch {
-            XCTAssertTrue(true, "Failed to decode JSON")
+            XCTAssertTrue(false, "Failed to decode JSON")
         }
     }
     
@@ -46,7 +46,7 @@ final class PokemonTests: XCTestCase {
             let testPokemon = Pokemon(name: "Bulbasaur Pikachu", url: "https://pokeapi.co/api/v2/pokemon/1/")
             XCTAssertEqual(testPokemon, pokemon)
         } catch {
-            XCTAssertTrue(true, "Failed to decode JSON")
+            XCTAssertTrue(false, "Failed to decode JSON")
         }
     }
     
@@ -72,7 +72,7 @@ final class PokemonTests: XCTestCase {
             ])
             XCTAssertEqual(testPokemons, pokemons)
         } catch {
-            XCTAssertTrue(true, "Failed to decode JSON")
+            XCTAssertTrue(false, "Failed to decode JSON")
         }
     }
 
