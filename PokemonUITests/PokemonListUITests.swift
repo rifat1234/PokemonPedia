@@ -7,32 +7,29 @@
 
 import XCTest
 
-final class PokemonUITests: XCTestCase {
+final class PokemonListUITests: XCTestCase {
     var app: XCUIApplication!
     let timeout: TimeInterval = 2
+    let pokemonName = "Bulbasaur"
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-        // UI tests must launch the application that they test.
         app = XCUIApplication()
         app.launchArguments = [AppLaunchMode.uiTesting.rawValue]
+        
+        XCUIDevice.shared.orientation = .portrait
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         app = nil
     }
 
     @MainActor
     func testIfPokemonListExist() throws {
         app.launch()
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
         let pokemonList = app.collectionViews[PokemonListView.Const.pokemonListAccessibilityID]
+        
+        // Check if pokemon list exist
         XCTAssert(pokemonList.waitForExistence(timeout: timeout))
     }
     
@@ -44,9 +41,12 @@ final class PokemonUITests: XCTestCase {
         app.launch()
         
         let pokemonList = app.collectionViews[PokemonListView.Const.pokemonListAccessibilityID]
+        // sort the pokemon list in alphabetical order
         let pokemons = listNum.list.sorted { $0.name < $1.name }
+        // check if all the cells are present
         XCTAssertTrue(pokemonList.cells.count == pokemons.count)
         
+        // check if all the cells are in correct alphabetical order
         for i in 0..<pokemons.count {
             let cell = pokemonList.cells.element(boundBy: i)
             let firstPokemon = cell.staticTexts[pokemons[i].name]
@@ -56,40 +56,27 @@ final class PokemonUITests: XCTestCase {
     }
     
     @MainActor
-    func testPokemonDetailsFlow() throws {
+    func testSearchOnPokemonList() throws {
         let listNum = SamplePokemonList.list2
         app.launchArguments.append(listNum.rawValue)
         app.launch()
         
-        let pokemonList = app.collectionViews[PokemonListView.Const.pokemonListAccessibilityID]
-        XCTAssert(pokemonList.waitForExistence(timeout: timeout))
-        XCTAssert(pokemonList.cells.count == 2)
-        let cell = pokemonList.cells.element(boundBy: 0)
-        cell.tap()
-        
-        let pokemonTitle = app.staticTexts["Bulbasaur"]
-        XCTAssert(pokemonTitle.waitForExistence(timeout: timeout))
-    }
-    
-    @MainActor
-    func testPokemonDetailsWithSearchBar() throws {
-        let listNum = SamplePokemonList.list2
-        app.launchArguments.append(listNum.rawValue)
-        app.launch()
-
+        // Find the searchbar
         let pokemonSearchBar = app.searchFields.firstMatch
+        // Check for the searchbar existance
         XCTAssert(pokemonSearchBar.waitForExistence(timeout: timeout))
         pokemonSearchBar.tap()
-        pokemonSearchBar.typeText("Bulbasaur")
+        pokemonSearchBar.typeText(pokemonName) // type pokemon name
         
         let pokemonList = app.collectionViews[PokemonListView.Const.pokemonListAccessibilityID]
+        // Check for pokemon list existance
         XCTAssert(pokemonList.waitForExistence(timeout: timeout))
-        
+        // Only one cell should be present after the search
         XCTAssert(pokemonList.cells.count == 1)
         let cell = pokemonList.cells.firstMatch
-        cell.tap()
-        
-        let pokemonTitle = app.staticTexts["Bulbasaur"]
-        XCTAssert(pokemonTitle.waitForExistence(timeout: timeout))
+        // Check if the right cell is presented
+        let firstPokemon = cell.staticTexts[pokemonName]
+        XCTAssert(firstPokemon.waitForExistence(timeout: timeout))
     }
+    
 }
