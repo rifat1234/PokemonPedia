@@ -12,7 +12,6 @@ final class PokemonListVMTests: XCTestCase {
 
     override func setUpWithError() throws {
         let apiManager =  MockAPIManager(.list1)
-        
         viewModel = PokemonListView.ViewModel(apiManger: apiManager)
     }
 

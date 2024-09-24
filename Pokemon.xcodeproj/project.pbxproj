@@ -108,6 +108,7 @@
 		F37C14832CA22A9E007D9CC3 /* AppLaunchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C14822CA22A80007D9CC3 /* AppLaunchMode.swift */; };
 		F37C14842CA22A9E007D9CC3 /* AppLaunchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C14822CA22A80007D9CC3 /* AppLaunchMode.swift */; };
 		F37C14852CA22A9E007D9CC3 /* AppLaunchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C14822CA22A80007D9CC3 /* AppLaunchMode.swift */; };
+		F37C14922CA35A3E007D9CC3 /* PokemonDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37C14912CA35A3E007D9CC3 /* PokemonDetailsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		F37C147A2CA21779007D9CC3 /* SamplePokemonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePokemonList.swift; sourceTree = "<group>"; };
 		F37C147E2CA21CF8007D9CC3 /* SampleJSONs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleJSONs.swift; sourceTree = "<group>"; };
 		F37C14822CA22A80007D9CC3 /* AppLaunchMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchMode.swift; sourceTree = "<group>"; };
+		F37C14912CA35A3E007D9CC3 /* PokemonDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -280,9 +282,10 @@
 			isa = PBXGroup;
 			children = (
 				35D2955B2C2F65A3007301FC /* PokemonTests.swift */,
+				F37C14912CA35A3E007D9CC3 /* PokemonDetailsTests.swift */,
 				35D2957A2C2F77A3007301FC /* PokemonListVMTests.swift */,
-				3573195F2C31E7E700ED6B25 /* InfoVMTests.swift */,
 				3561A39A2C305B1D00441896 /* PokemonDetailsVMTests.swift */,
+				3573195F2C31E7E700ED6B25 /* InfoVMTests.swift */,
 				357319632C31FA2600ED6B25 /* Mock */,
 			);
 			path = PokemonTests;
@@ -617,6 +620,7 @@
 				F37C14772CA2171B007D9CC3 /* APIManagerFactory.swift in Sources */,
 				35D295792C2F778D007301FC /* PokemonListView.swift in Sources */,
 				35D295852C2F79E4007301FC /* APIManagerProtocol.swift in Sources */,
+				F37C14922CA35A3E007D9CC3 /* PokemonDetailsTests.swift in Sources */,
 				35FFB0722C30CEEC00449536 /* MoreInfoSection.swift in Sources */,
 				3561A39B2C305B1D00441896 /* PokemonDetailsVMTests.swift in Sources */,
 				354C4B622C34C1D500143D90 /* CriesSection.swift in Sources */,
