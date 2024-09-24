@@ -18,10 +18,15 @@ extension PokemonDetailsView {
         case latest,legacy
     }
     
+    enum CriesState {
+        case play, processing
+    }
+    
     @Observable 
     class ViewModel: AlertHandler {
         //MARK: - public variables
         var viewState: ViewState = .dataLoading
+        var criesState: CriesState = .play
         var dismissView: Bool = false
         
         //MARK: - private variables
@@ -125,10 +130,13 @@ extension PokemonDetailsView {
                 return
             }
             
+            criesState = .processing
+            
             apiManager.downloadFile(url: cryURL) { [weak self] url in
                 guard let fileURL = url else {
                     debugPrint("Download failed")
                     self?.showAlert(.audioNetworkError)
+                    self?.criesState = .play
                     return
                 }
                 
@@ -136,6 +144,7 @@ extension PokemonDetailsView {
                 guard let wavURL = converter.convertToWav(fileURL) else {
                     debugPrint("Convert to wav failed")
                     self?.showAlert(.audioPlayingError)
+                    self?.criesState = .play
                     return
                 }
                 
@@ -145,6 +154,8 @@ extension PokemonDetailsView {
                     debugPrint(error)
                     self?.showAlert(.audioPlayingError)
                 }
+                
+                self?.criesState = .play
             }
         }
         

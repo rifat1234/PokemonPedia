@@ -51,8 +51,15 @@ extension PokemonDetailsView {
                     Button {
                         viewModel.playCries(type)
                     } label: {
-                        Image(systemName: CriesSection.Const.playButtonImage)
-                            .frame(width: CriesSection.Const.playButtonSize)
+                        switch viewModel.criesState {
+                        case .play:
+                            Image(systemName: CriesSection.Const.playButtonImage)
+                                .frame(width: CriesSection.Const.playButtonSize)
+                        case .processing:
+                            ProgressView()
+                                .controlSize(.small)
+                        }
+                        
                     }
                 }
             }
