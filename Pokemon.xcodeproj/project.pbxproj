@@ -306,12 +306,12 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		35D295892C2F8D02007301FC /* Subviews */ = {
+		35D295892C2F8D02007301FC /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
 				35FFB0742C30DA1200449536 /* PokemonImage.swift */,
 			);
-			path = Subviews;
+			path = CommonViews;
 			sourceTree = "<group>";
 		};
 		35FFB0672C30BEC400449536 /* View */ = {
@@ -368,7 +368,7 @@
 			children = (
 				F37C14882CA2C870007D9CC3 /* PokemonList */,
 				F37C14892CA2C877007D9CC3 /* PokemonDetails */,
-				35D295892C2F8D02007301FC /* Subviews */,
+				35D295892C2F8D02007301FC /* CommonViews */,
 			);
 			path = Features;
 			sourceTree = "<group>";
