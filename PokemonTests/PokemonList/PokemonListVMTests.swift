@@ -12,7 +12,7 @@ final class PokemonListVMTests: XCTestCase {
 
     override func setUpWithError() throws {
         let apiManager =  MockAPIManager(.list1)
-        viewModel = PokemonListView.ViewModel(apiManger: apiManager)
+        viewModel = PokemonListView.ViewModel(fetchPokemonListUseCase: FetchPokemonListUseCase(repository: apiManager))
     }
 
     override func tearDownWithError() throws {
@@ -32,15 +32,15 @@ final class PokemonListVMTests: XCTestCase {
     }
     
     func testFetchAllPokemonError() async throws {
-        viewModel = PokemonListView.ViewModel(apiManger: MockErrorAPIManager())
+        viewModel = PokemonListView.ViewModel(fetchPokemonListUseCase: FetchPokemonListUseCase(repository: MockErrorAPIManager()))
         await viewModel.fetchAllPokemons()
         XCTAssertTrue(viewModel.showAlert)
     }
 
     func testSearchResult() async throws {
-        await viewModel.fetchAllPokemons()
-        
         viewModel.searchText = "a"
+        await viewModel.fetchAllPokemons()
+
         let testResult1 = [
             Pokemon(name: "aab", url: "url1"),
             Pokemon(name: "abc", url: "url2"),
@@ -49,6 +49,8 @@ final class PokemonListVMTests: XCTestCase {
         XCTAssertEqual(testResult1, viewModel.searchedPokemons)
         
         viewModel.searchText = "aa"
+        await viewModel.fetchAllPokemons()
+        
         let testResult2 = [
             Pokemon(name: "aab", url: "url1")
         ]

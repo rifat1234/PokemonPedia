@@ -17,29 +17,22 @@ extension PokemonListView {
     
     @Observable 
     class ViewModel: AlertHandler {
-        let apiManager:APIManagerProtocol
         var searchText:String = ""
         var viewState:ViewState = .dataLoading
         
-        private var allPokemons:[Pokemon] = []
+        private let fetchPokemonListUseCase:FetchPokemonListUseCase
         
         /// In case of empty `searchText` return all pokemons else return all the pokemon starts with `searchText`
-        var searchedPokemons: [Pokemon] {
-            if searchText.isEmpty {
-                return allPokemons
-            }
-            
-            return allPokemons.filter{$0.name.lowercased().starts(with: searchText.lowercased())}
-        }
+        var searchedPokemons: [Pokemon] = []
         
-        init(apiManger:APIManagerProtocol = APIManagerFactory.getAPIManager()){
-            self.apiManager = apiManger
+        init(fetchPokemonListUseCase: FetchPokemonListUseCase = FetchPokemonListUseCase(repository: APIManagerFactory.getAPIManager())){
+            self.fetchPokemonListUseCase = fetchPokemonListUseCase
         }
         
         /// Fetch all pokemons from server and sort by name in alphabatical order
         func fetchAllPokemons() async {
             do {
-                self.allPokemons = try await apiManager.fetchAllPokemon().sorted{$0.name < $1.name}
+                self.searchedPokemons = try await fetchPokemonListUseCase.execute(searchTerm: searchText)
                 viewState = .dataLoaded
             } catch let error {
                 debugPrint(error)

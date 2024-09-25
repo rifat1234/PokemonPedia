@@ -44,9 +44,9 @@ struct PokemonListView: View {
                 PokemonDetailsView(viewModel: PokemonDetailsView.ViewModel(pokemon))
             }
             .alertify(viewModel)
-            .task {
-                await viewModel.fetchAllPokemons() // start fetching pokemons after view appears
-            }
+            .task(id: viewModel.searchText, {
+                await viewModel.fetchAllPokemons()
+            })
         }
     }
 }
