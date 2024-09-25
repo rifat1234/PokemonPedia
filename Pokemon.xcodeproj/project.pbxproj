@@ -112,6 +112,12 @@
 		F3E0083F2CA4C326007028EC /* FetchPokemonListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0083E2CA4C31D007028EC /* FetchPokemonListUseCase.swift */; };
 		F3E008402CA4C326007028EC /* FetchPokemonListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0083E2CA4C31D007028EC /* FetchPokemonListUseCase.swift */; };
 		F3E008412CA4C326007028EC /* FetchPokemonListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0083E2CA4C31D007028EC /* FetchPokemonListUseCase.swift */; };
+		F3E008432CA4CE43007028EC /* FetchPokemonDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E008422CA4CE38007028EC /* FetchPokemonDetailsUseCase.swift */; };
+		F3E008442CA4CE43007028EC /* FetchPokemonDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E008422CA4CE38007028EC /* FetchPokemonDetailsUseCase.swift */; };
+		F3E008452CA4CE43007028EC /* FetchPokemonDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E008422CA4CE38007028EC /* FetchPokemonDetailsUseCase.swift */; };
+		F3E008472CA4D1FC007028EC /* DownloadFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E008462CA4D1EA007028EC /* DownloadFileUseCase.swift */; };
+		F3E008482CA4D1FC007028EC /* DownloadFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E008462CA4D1EA007028EC /* DownloadFileUseCase.swift */; };
+		F3E008492CA4D1FC007028EC /* DownloadFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E008462CA4D1EA007028EC /* DownloadFileUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +180,8 @@
 		F37C14822CA22A80007D9CC3 /* AppLaunchMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchMode.swift; sourceTree = "<group>"; };
 		F37C14912CA35A3E007D9CC3 /* PokemonDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsTests.swift; sourceTree = "<group>"; };
 		F3E0083E2CA4C31D007028EC /* FetchPokemonListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonListUseCase.swift; sourceTree = "<group>"; };
+		F3E008422CA4CE38007028EC /* FetchPokemonDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonDetailsUseCase.swift; sourceTree = "<group>"; };
+		F3E008462CA4D1EA007028EC /* DownloadFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFileUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -244,7 +252,6 @@
 		35D2953B2C2F63C6007301FC = {
 			isa = PBXGroup;
 			children = (
-				F3E0083A2CA4BDFE007028EC /* Domain */,
 				35D295462C2F63C6007301FC /* Pokemon */,
 				35D2955A2C2F65A3007301FC /* PokemonTests */,
 				F37C14412CA1B44D007D9CC3 /* PokemonUITests */,
@@ -267,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				35D295472C2F63C6007301FC /* PokemonApp.swift */,
+				F3E0083A2CA4BDFE007028EC /* Domain */,
 				F37C14872CA2C867007D9CC3 /* Features */,
 				354C4B592C34AE1500143D90 /* Service */,
 				35D2954B2C2F63C9007301FC /* Assets.xcassets */,
@@ -464,6 +472,8 @@
 			isa = PBXGroup;
 			children = (
 				F3E0083E2CA4C31D007028EC /* FetchPokemonListUseCase.swift */,
+				F3E008422CA4CE38007028EC /* FetchPokemonDetailsUseCase.swift */,
+				F3E008462CA4D1EA007028EC /* DownloadFileUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -633,6 +643,7 @@
 				35D295762C2F6FF5007301FC /* PokemonListVM.swift in Sources */,
 				F37C14792CA2171B007D9CC3 /* APIManagerFactory.swift in Sources */,
 				35FFB06E2C30C10D00449536 /* InfoDataView.swift in Sources */,
+				F3E008472CA4D1FC007028EC /* DownloadFileUseCase.swift in Sources */,
 				3561A3A32C3069A100441896 /* BasicSection.swift in Sources */,
 				35FFB0752C30DA1200449536 /* PokemonImage.swift in Sources */,
 				F37C14812CA21D05007D9CC3 /* SampleJSONs.swift in Sources */,
@@ -642,6 +653,7 @@
 				354C4B612C34C1D500143D90 /* CriesSection.swift in Sources */,
 				35D295722C2F6F43007301FC /* PokemonListView.swift in Sources */,
 				35D295652C2F66D1007301FC /* Pokemon.swift in Sources */,
+				F3E008452CA4CE43007028EC /* FetchPokemonDetailsUseCase.swift in Sources */,
 				3561A39D2C305E7300441896 /* PokemonDetailsView.swift in Sources */,
 				35D2957E2C2F7841007301FC /* APIManagerProtocol.swift in Sources */,
 				3561A3982C305A3D00441896 /* PokemonDetails.swift in Sources */,
@@ -675,6 +687,8 @@
 				350799892C4715FA003C7A21 /* Alertify.swift in Sources */,
 				35D2956A2C2F6968007301FC /* Pokemons.swift in Sources */,
 				3573195E2C31E71900ED6B25 /* AlertType.swift in Sources */,
+				F3E008492CA4D1FC007028EC /* DownloadFileUseCase.swift in Sources */,
+				F3E008442CA4CE43007028EC /* FetchPokemonDetailsUseCase.swift in Sources */,
 				35D295782C2F7787007301FC /* PokemonListVM.swift in Sources */,
 				F37C14832CA22A9E007D9CC3 /* AppLaunchMode.swift in Sources */,
 				35D2957B2C2F77A3007301FC /* PokemonListVMTests.swift in Sources */,
@@ -708,6 +722,7 @@
 				F37C147F2CA21D05007D9CC3 /* SampleJSONs.swift in Sources */,
 				F37C145F2CA1D96E007D9CC3 /* AlertType.swift in Sources */,
 				F37C14682CA1DAD9007D9CC3 /* Pokemons.swift in Sources */,
+				F3E008482CA4D1FC007028EC /* DownloadFileUseCase.swift in Sources */,
 				F37C14602CA1D96E007D9CC3 /* AlertHandler.swift in Sources */,
 				F37C14842CA22A9E007D9CC3 /* AppLaunchMode.swift in Sources */,
 				F37C14592CA1D901007D9CC3 /* PokemonImage.swift in Sources */,
@@ -724,6 +739,7 @@
 				F37C145C2CA1D961007D9CC3 /* OGGToWavConverter.swift in Sources */,
 				F37C147D2CA21780007D9CC3 /* SamplePokemonList.swift in Sources */,
 				F37C14562CA1D8D1007D9CC3 /* PokemonListVM.swift in Sources */,
+				F3E008432CA4CE43007028EC /* FetchPokemonDetailsUseCase.swift in Sources */,
 				F37C14672CA1DAD4007D9CC3 /* PokemonDetails.swift in Sources */,
 				F37C146C2CA1DB2F007D9CC3 /* InfoVM.swift in Sources */,
 				F37C145D2CA1D965007D9CC3 /* AudioPlayer.swift in Sources */,

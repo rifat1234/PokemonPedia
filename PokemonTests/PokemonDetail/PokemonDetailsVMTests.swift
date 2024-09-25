@@ -14,7 +14,9 @@ final class PokemonDetailsVMTests: XCTestCase {
     override func setUpWithError() throws {
         let apiManager =  MockAPIManager()
         testPokemonDetails = apiManager.pokemonDetails
-        viewModel = PokemonDetailsView.ViewModel(Pokemon(name: "name", url: "url"), apiManager: apiManager)
+        viewModel = PokemonDetailsView.ViewModel(Pokemon(name: "name", url: "url"),
+                                                 fetchPokemonDetailsUseCase: FetchPokemonDetailsUseCase(repository: apiManager),
+                                                 downloadFileUseCase: DownloadFileUseCase(repository: apiManager))
     }
 
     override func tearDownWithError() throws {
@@ -29,7 +31,9 @@ final class PokemonDetailsVMTests: XCTestCase {
     }
     
     func testFetchPokemonDetailsError() async throws {
-        viewModel = PokemonDetailsView.ViewModel(Pokemon(name: "name", url: "url"), apiManager: MockErrorAPIManager())
+        viewModel = PokemonDetailsView.ViewModel(Pokemon(name: "name", url: "url"),
+                                                 fetchPokemonDetailsUseCase: FetchPokemonDetailsUseCase(repository: MockErrorAPIManager()),
+                                                 downloadFileUseCase: DownloadFileUseCase(repository: MockErrorAPIManager()))
         await viewModel.fetchPokemonDetails()
         XCTAssertTrue(viewModel.showAlert)
     }

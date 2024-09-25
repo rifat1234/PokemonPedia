@@ -30,7 +30,8 @@ extension PokemonDetailsView {
         var dismissView: Bool = false
         
         //MARK: - private variables
-        private let apiManager: APIManagerProtocol
+        private let fetchPokemonDetailsUseCase: FetchPokemonDetailsUseCase
+        private let downloadFileUseCase: DownloadFileUseCase
         private let pokemon: Pokemon
         private var pokemonDetails: PokemonDetails?
         private var audioPlayer = AudioPlayer()
@@ -81,9 +82,12 @@ extension PokemonDetailsView {
         }
         
         //MARK: - init
-        init(_ pokemon: Pokemon, apiManager: APIManagerProtocol = APIManagerFactory.getAPIManager()) {
-            self.apiManager = apiManager
+        init(_ pokemon: Pokemon,
+             fetchPokemonDetailsUseCase: FetchPokemonDetailsUseCase = FetchPokemonDetailsUseCase(repository: APIManagerFactory.getAPIManager()),
+             downloadFileUseCase: DownloadFileUseCase = DownloadFileUseCase(repository: APIManagerFactory.getAPIManager())) {
             self.pokemon = pokemon
+            self.fetchPokemonDetailsUseCase = fetchPokemonDetailsUseCase
+            self.downloadFileUseCase = downloadFileUseCase
         }
         
         //MARK: - public methods
@@ -113,7 +117,7 @@ extension PokemonDetailsView {
         /// fetch pokemon details from the server
         func fetchPokemonDetails() async {
             do {
-                self.pokemonDetails = try await self.apiManager.fetchPokemonDetails(url: pokemon.url)
+                self.pokemonDetails = try await self.fetchPokemonDetailsUseCase.execute(pokemon: pokemon)
                 viewState = .dataLoaded
             } catch {
                 debugPrint(error)
@@ -132,7 +136,7 @@ extension PokemonDetailsView {
             
             criesState = .processing
             
-            apiManager.downloadFile(url: cryURL) { [weak self] url in
+            downloadFileUseCase.execute(url: cryURL) { [weak self] url in
                 guard let fileURL = url else {
                     debugPrint("Download failed")
                     self?.showAlert(.audioNetworkError)
