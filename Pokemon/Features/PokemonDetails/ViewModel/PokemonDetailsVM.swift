@@ -32,11 +32,11 @@ extension PokemonDetailsView {
         
         //MARK: - private variables
         private let fetchPokemonDetailsUseCase: FetchPokemonDetailsUseCase
-        private let downloadFileUseCase: DownloadFileUseCase
         private let pokemon: Pokemon
         private var pokemonDetails: PokemonDetails?
-        private var audioPlayer: AudioPlayerDef
-        private var oggToWavConverter: OGGToWavConverterDef
+        private let fileDownloader: FileDownloaderDef
+        private let audioPlayer: AudioPlayerDef
+        private let oggToWavConverter: OGGToWavConverterDef
         
         //MARK: - computed variables
         var navigationTitle: String {
@@ -86,12 +86,12 @@ extension PokemonDetailsView {
         //MARK: - init
         init(_ pokemon: Pokemon,
              fetchPokemonDetailsUseCase: FetchPokemonDetailsUseCase = FetchPokemonDetailsUseCase(repository: PokemonRepoFactory.getAPIManager()),
-             downloadFileUseCase: DownloadFileUseCase = DownloadFileUseCase(repository: PokemonRepoFactory.getAPIManager()),
+             fileDownloader: FileDownloaderDef = FileDownloader(),
              audioPlayer: AudioPlayerDef = AudioPlayer(),
              oggToWavConverter: OGGToWavConverterDef = OGGToWavConverter()) {
             self.pokemon = pokemon
             self.fetchPokemonDetailsUseCase = fetchPokemonDetailsUseCase
-            self.downloadFileUseCase = downloadFileUseCase
+            self.fileDownloader = fileDownloader
             self.audioPlayer = audioPlayer
             self.oggToWavConverter = oggToWavConverter
         }
@@ -142,7 +142,7 @@ extension PokemonDetailsView {
             
             criesState = .processing
             
-            downloadFileUseCase.execute(url: cryURL) { [weak self] url in
+            fileDownloader.downloadFile(url: cryURL) { [weak self] url in
                 guard let fileURL = url else {
                     debugPrint("Download failed")
                     self?.showAlert(.audioNetworkError)

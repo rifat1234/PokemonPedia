@@ -61,6 +61,12 @@
 		F35AC6C42CA5E88500822091 /* OGGToWavConverterDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35AC6C32CA5E87B00822091 /* OGGToWavConverterDef.swift */; };
 		F35AC6C52CA5E88500822091 /* OGGToWavConverterDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35AC6C32CA5E87B00822091 /* OGGToWavConverterDef.swift */; };
 		F35AC6C62CA5E88500822091 /* OGGToWavConverterDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35AC6C32CA5E87B00822091 /* OGGToWavConverterDef.swift */; };
+		F35AC6CA2CA5FC9D00822091 /* FileDownloaderDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35AC6C92CA5FC9700822091 /* FileDownloaderDef.swift */; };
+		F35AC6CB2CA5FC9D00822091 /* FileDownloaderDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35AC6C92CA5FC9700822091 /* FileDownloaderDef.swift */; };
+		F35AC6CC2CA5FC9D00822091 /* FileDownloaderDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35AC6C92CA5FC9700822091 /* FileDownloaderDef.swift */; };
+		F35AC6CE2CA5FCD700822091 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35AC6CD2CA5FCD200822091 /* FileDownloader.swift */; };
+		F35AC6CF2CA5FCD700822091 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35AC6CD2CA5FCD200822091 /* FileDownloader.swift */; };
+		F35AC6D02CA5FCD700822091 /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35AC6CD2CA5FCD200822091 /* FileDownloader.swift */; };
 		F37C14542CA1D764007D9CC3 /* PokemonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D295712C2F6F43007301FC /* PokemonListView.swift */; };
 		F37C14552CA1D8CB007D9CC3 /* PokemonCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D2956B2C2F6BE0007301FC /* PokemonCellView.swift */; };
 		F37C14562CA1D8D1007D9CC3 /* PokemonListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D295752C2F6FF5007301FC /* PokemonListVM.swift */; };
@@ -151,6 +157,8 @@
 		35FFB07A2C30F90500449536 /* InfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVM.swift; sourceTree = "<group>"; };
 		F35AC6BE2CA5E83E00822091 /* AudioPlayerDef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerDef.swift; sourceTree = "<group>"; };
 		F35AC6C32CA5E87B00822091 /* OGGToWavConverterDef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OGGToWavConverterDef.swift; sourceTree = "<group>"; };
+		F35AC6C92CA5FC9700822091 /* FileDownloaderDef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloaderDef.swift; sourceTree = "<group>"; };
+		F35AC6CD2CA5FCD200822091 /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
 		F37C14402CA1B44D007D9CC3 /* PokemonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37C14722CA216E3007D9CC3 /* MockPokemonRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPokemonRepo.swift; sourceTree = "<group>"; };
 		F37C14762CA21716007D9CC3 /* PokemonRepoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepoFactory.swift; sourceTree = "<group>"; };
@@ -211,6 +219,7 @@
 		354C4B592C34AE1500143D90 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				F35AC6C82CA5FC8C00822091 /* FileDownloader */,
 				35D295822C2F7981007301FC /* Repositories */,
 				3542BF432C346FF8003597DE /* Alert */,
 				F35AC6C22CA5E86900822091 /* OGGToWavConverter */,
@@ -369,6 +378,15 @@
 				F37C147A2CA21779007D9CC3 /* SamplePokemonList.swift */,
 			);
 			path = Sample;
+			sourceTree = "<group>";
+		};
+		F35AC6C82CA5FC8C00822091 /* FileDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				F35AC6C92CA5FC9700822091 /* FileDownloaderDef.swift */,
+				F35AC6CD2CA5FCD200822091 /* FileDownloader.swift */,
+			);
+			path = FileDownloader;
 			sourceTree = "<group>";
 		};
 		F37C14862CA22B75007D9CC3 /* Mock */ = {
@@ -592,6 +610,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35AC6CE2CA5FCD700822091 /* FileDownloader.swift in Sources */,
 				35FFB06C2C30BF9700449536 /* MoreInfoSection.swift in Sources */,
 				F37C147B2CA21780007D9CC3 /* SamplePokemonList.swift in Sources */,
 				35D295872C2F7CE5007301FC /* RemotePokemonRepo.swift in Sources */,
@@ -600,6 +619,7 @@
 				F37C14732CA216ED007D9CC3 /* MockPokemonRepo.swift in Sources */,
 				3561A3A02C30610D00441896 /* PokemonDetailsVM.swift in Sources */,
 				35FFB07B2C30F90500449536 /* InfoVM.swift in Sources */,
+				F35AC6CC2CA5FC9D00822091 /* FileDownloaderDef.swift in Sources */,
 				354C4B5E2C34B0FE00143D90 /* AudioPlayer.swift in Sources */,
 				35D295482C2F63C6007301FC /* PokemonApp.swift in Sources */,
 				3542BF452C347013003597DE /* AlertHandler.swift in Sources */,
@@ -646,6 +666,7 @@
 				35D295782C2F7787007301FC /* PokemonListVM.swift in Sources */,
 				F37C14832CA22A9E007D9CC3 /* AppLaunchMode.swift in Sources */,
 				F35AC6BF2CA5E84300822091 /* AudioPlayerDef.swift in Sources */,
+				F35AC6CB2CA5FC9D00822091 /* FileDownloaderDef.swift in Sources */,
 				35D2957B2C2F77A3007301FC /* PokemonListVMTests.swift in Sources */,
 				3561A3A42C3069A100441896 /* BasicSection.swift in Sources */,
 				35D2957C2C2F77CB007301FC /* PokemonCellView.swift in Sources */,
@@ -655,6 +676,7 @@
 				3561A3A12C30610D00441896 /* PokemonDetailsVM.swift in Sources */,
 				35FFB07C2C30F90500449536 /* InfoVM.swift in Sources */,
 				35FFB0792C30E15E00449536 /* AppearanceSection.swift in Sources */,
+				F35AC6D02CA5FCD700822091 /* FileDownloader.swift in Sources */,
 				354C4B5F2C34B0FE00143D90 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,6 +690,7 @@
 				F37C146A2CA1DAF2007D9CC3 /* PokemonDetailsView.swift in Sources */,
 				F37C145E2CA1D96E007D9CC3 /* Alertify.swift in Sources */,
 				F37C147F2CA21D05007D9CC3 /* SampleJSONs.swift in Sources */,
+				F35AC6CF2CA5FCD700822091 /* FileDownloader.swift in Sources */,
 				F37C145F2CA1D96E007D9CC3 /* AlertType.swift in Sources */,
 				F37C14602CA1D96E007D9CC3 /* AlertHandler.swift in Sources */,
 				F35AC6C42CA5E88500822091 /* OGGToWavConverterDef.swift in Sources */,
@@ -680,6 +703,7 @@
 				F37C14782CA2171B007D9CC3 /* PokemonRepoFactory.swift in Sources */,
 				F37C14712CA1DB46007D9CC3 /* BasicSection.swift in Sources */,
 				F37C146B2CA1DAF7007D9CC3 /* InfoDataView.swift in Sources */,
+				F35AC6CA2CA5FC9D00822091 /* FileDownloaderDef.swift in Sources */,
 				F37C14552CA1D8CB007D9CC3 /* PokemonCellView.swift in Sources */,
 				F37C14542CA1D764007D9CC3 /* PokemonListView.swift in Sources */,
 				F37C14572CA1D8DA007D9CC3 /* PokemonDetailsVM.swift in Sources */,
