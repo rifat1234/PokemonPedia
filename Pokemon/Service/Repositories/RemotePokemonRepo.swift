@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import PokemonCore
 
-struct APIManager: APIManagerProtocol { 
+struct RemotePokemonRepo: PokemonRepository { 
     private struct Const {
         static let allListURL = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
     }

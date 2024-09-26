@@ -8,9 +8,9 @@
 import Foundation
 
 public class DownloadFileUseCase {
-    private let repository: APIManagerProtocol
+    private let repository: PokemonRepository
 
-    public init(repository: APIManagerProtocol) {
+    public init(repository: PokemonRepository) {
         self.repository = repository
     }
 

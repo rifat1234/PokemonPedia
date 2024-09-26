@@ -7,14 +7,14 @@
 
 import PokemonCore
 
-struct APIManagerFactory {
-    static func getAPIManager() -> APIManagerProtocol {
+struct PokemonRepoFactory {
+    static func getAPIManager() -> PokemonRepository {
         if CommandLine.arguments.contains(AppLaunchMode.uiTesting.rawValue) {
             let listNum: SamplePokemonList? = SamplePokemonList.allCases.filter{ CommandLine.arguments.contains($0.rawValue) }.first
             
-            return MockAPIManager(listNum)
+            return MockPokemonRepo(listNum)
         }
         
-        return APIManager()
+        return RemotePokemonRepo()
     }
 }

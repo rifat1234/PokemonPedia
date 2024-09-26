@@ -8,7 +8,7 @@
 import Foundation
 import PokemonCore
 
-struct MockAPIManager: APIManagerProtocol {
+struct MockAPIManager: PokemonRepository {
     let allPokemon:[Pokemon]
     
     let pokemonDetails = PokemonDetails(abilities: nil, baseExperience: 12, cries: nil, forms: nil, gameIndices: nil, height: 10, heldItems: nil, id: nil, isDefault: nil, locationAreaEncounters: nil, moves: nil, name: nil, order: nil, pastAbilities: nil, pastTypes: nil, species: nil, sprites: nil, stats: nil, types: nil, weight: 120)

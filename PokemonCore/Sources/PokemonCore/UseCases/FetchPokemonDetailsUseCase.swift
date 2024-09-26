@@ -6,9 +6,9 @@
 //
 
 public class FetchPokemonDetailsUseCase {
-    private let repository: APIManagerProtocol
+    private let repository: PokemonRepository
 
-    public init(repository: APIManagerProtocol) {
+    public init(repository: PokemonRepository) {
         self.repository = repository
     }
 

@@ -8,7 +8,7 @@
 import Foundation
 import PokemonCore
 
-struct MockErrorAPIManager: APIManagerProtocol {
+struct MockErrorAPIManager: PokemonRepository {
     enum MockError: Error{
         case mock
     }
