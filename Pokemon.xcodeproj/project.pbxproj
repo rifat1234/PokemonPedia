@@ -216,17 +216,17 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		354C4B592C34AE1500143D90 /* Service */ = {
+		354C4B592C34AE1500143D90 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F35AC6C82CA5FC8C00822091 /* FileDownloader */,
 				35D295822C2F7981007301FC /* Repositories */,
+				F35AC6C82CA5FC8C00822091 /* FileDownloader */,
 				3542BF432C346FF8003597DE /* Alert */,
 				F35AC6C22CA5E86900822091 /* OGGToWavConverter */,
 				F35AC6BD2CA5E83600822091 /* AudipPlayer */,
 				F37C14822CA22A80007D9CC3 /* AppLaunchMode.swift */,
 			);
-			path = Service;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		357319632C31FA2600ED6B25 /* Mock */ = {
@@ -264,7 +264,7 @@
 			children = (
 				35D295472C2F63C6007301FC /* PokemonApp.swift */,
 				F37C14872CA2C867007D9CC3 /* Features */,
-				354C4B592C34AE1500143D90 /* Service */,
+				354C4B592C34AE1500143D90 /* Services */,
 				35D2954B2C2F63C9007301FC /* Assets.xcassets */,
 				35D2954D2C2F63C9007301FC /* Preview Content */,
 			);
