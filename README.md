@@ -3,7 +3,7 @@ iOS App which shows searchable list of pokemons and show their details
 ## About the app
 ### What we support ✅
 - iOS 17.0+
-- Xcode 15.0+
+- Xcode 16.0+
 - Device: iPhone
 - Orientation: Portrait, Landscape 
 
@@ -12,8 +12,8 @@ iOS App which shows searchable list of pokemons and show their details
 - [PokeAPI](https://pokeapi.co) is used to fetch all the data and images
 - Dependency Manager: **SwiftPM**
 - Third Party Frameworks: **Alamofire, NukeUI, OggDecoder**
-- Architecture: **MVVM**
-- Testing Methodologies: **Unit Test, TDD, Dependency Injection, Mocking**
+- Architecture: **Clean Code Architecture using MVVM**
+- Testing Methodologies: **Unit Test, UI Test, TDD, Dependency Injection, Mocking**
 
 ### Features 🎛️
 - [x] A searchable list of Pokemon with their names and sprites.
