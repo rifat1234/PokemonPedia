@@ -8,7 +8,7 @@
 import Foundation
 
 struct MockErrorAPIManager: APIManagerProtocol {
-    private enum MockError: Error{
+    enum MockError: Error{
         case mock
     }
     

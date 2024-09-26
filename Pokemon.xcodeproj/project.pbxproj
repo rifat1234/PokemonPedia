@@ -118,6 +118,8 @@
 		F3E008472CA4D1FC007028EC /* DownloadFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E008462CA4D1EA007028EC /* DownloadFileUseCase.swift */; };
 		F3E008482CA4D1FC007028EC /* DownloadFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E008462CA4D1EA007028EC /* DownloadFileUseCase.swift */; };
 		F3E008492CA4D1FC007028EC /* DownloadFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E008462CA4D1EA007028EC /* DownloadFileUseCase.swift */; };
+		F3E0084B2CA4E24C007028EC /* FetchPokemonListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0084A2CA4E24C007028EC /* FetchPokemonListUseCaseTests.swift */; };
+		F3E0084E2CA4E7F4007028EC /* FetchPokemonDetailsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0084D2CA4E7F4007028EC /* FetchPokemonDetailsUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +184,8 @@
 		F3E0083E2CA4C31D007028EC /* FetchPokemonListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonListUseCase.swift; sourceTree = "<group>"; };
 		F3E008422CA4CE38007028EC /* FetchPokemonDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonDetailsUseCase.swift; sourceTree = "<group>"; };
 		F3E008462CA4D1EA007028EC /* DownloadFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFileUseCase.swift; sourceTree = "<group>"; };
+		F3E0084A2CA4E24C007028EC /* FetchPokemonListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonListUseCaseTests.swift; sourceTree = "<group>"; };
+		F3E0084D2CA4E7F4007028EC /* FetchPokemonDetailsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonDetailsUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -297,6 +301,7 @@
 				F37C14982CA36B70007D9CC3 /* PokemonList */,
 				F37C14972CA36B60007D9CC3 /* PokemonDetail */,
 				357319632C31FA2600ED6B25 /* Mock */,
+				F3E0084C2CA4E254007028EC /* UseCases */,
 			);
 			path = PokemonTests;
 			sourceTree = "<group>";
@@ -442,9 +447,9 @@
 		F3E0083A2CA4BDFE007028EC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				F3E0083D2CA4BEC6007028EC /* UseCases */,
-				F3E0083C2CA4BE6B007028EC /* Repositories */,
 				F3E0083B2CA4BE04007028EC /* Entity */,
+				F3E0083C2CA4BE6B007028EC /* Repositories */,
+				F3E0083D2CA4BEC6007028EC /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -474,6 +479,15 @@
 				F3E0083E2CA4C31D007028EC /* FetchPokemonListUseCase.swift */,
 				F3E008422CA4CE38007028EC /* FetchPokemonDetailsUseCase.swift */,
 				F3E008462CA4D1EA007028EC /* DownloadFileUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		F3E0084C2CA4E254007028EC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				F3E0084A2CA4E24C007028EC /* FetchPokemonListUseCaseTests.swift */,
+				F3E0084D2CA4E7F4007028EC /* FetchPokemonDetailsUseCaseTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -671,6 +685,7 @@
 				35D295792C2F778D007301FC /* PokemonListView.swift in Sources */,
 				35D295852C2F79E4007301FC /* APIManagerProtocol.swift in Sources */,
 				F37C14922CA35A3E007D9CC3 /* PokemonDetailsTests.swift in Sources */,
+				F3E0084E2CA4E7F4007028EC /* FetchPokemonDetailsUseCaseTests.swift in Sources */,
 				35FFB0722C30CEEC00449536 /* MoreInfoSection.swift in Sources */,
 				3561A39B2C305B1D00441896 /* PokemonDetailsVMTests.swift in Sources */,
 				354C4B622C34C1D500143D90 /* CriesSection.swift in Sources */,
@@ -688,6 +703,7 @@
 				35D2956A2C2F6968007301FC /* Pokemons.swift in Sources */,
 				3573195E2C31E71900ED6B25 /* AlertType.swift in Sources */,
 				F3E008492CA4D1FC007028EC /* DownloadFileUseCase.swift in Sources */,
+				F3E0084B2CA4E24C007028EC /* FetchPokemonListUseCaseTests.swift in Sources */,
 				F3E008442CA4CE43007028EC /* FetchPokemonDetailsUseCase.swift in Sources */,
 				35D295782C2F7787007301FC /* PokemonListVM.swift in Sources */,
 				F37C14832CA22A9E007D9CC3 /* AppLaunchMode.swift in Sources */,
