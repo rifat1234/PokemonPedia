@@ -7,6 +7,7 @@
 
 import Foundation
 import Observation
+import PokemonCore
 
 extension InfoDataView {
     @Observable 

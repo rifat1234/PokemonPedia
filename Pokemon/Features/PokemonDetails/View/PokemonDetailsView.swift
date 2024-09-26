@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PokemonCore
 
 /// Show details of a Pokemon with an option to show even more information about the pokemon
 struct PokemonDetailsView: View {
@@ -60,6 +61,6 @@ struct PokemonDetailsView: View {
     }
 }
 
-#Preview {
-    PokemonDetailsView(viewModel: PokemonDetailsView.ViewModel(Pokemon(name: "Bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")))
-}
+//#Preview {
+//    PokemonDetailsView(viewModel: PokemonDetailsView.ViewModel(Pokemon(name: "Bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")))
+//}

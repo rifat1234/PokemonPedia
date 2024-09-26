@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import PokemonCore
 
 final class FetchPokemonDetailsUseCaseTests: XCTestCase {
     var useCase:FetchPokemonDetailsUseCase!

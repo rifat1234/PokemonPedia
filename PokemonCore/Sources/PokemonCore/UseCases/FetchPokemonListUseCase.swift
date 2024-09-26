@@ -9,7 +9,7 @@ public class FetchPokemonListUseCase {
     private let repository: APIManagerProtocol
     private var cachedPokemons:[Pokemon]? = nil
 
-    init(repository: APIManagerProtocol) {
+    public init(repository: APIManagerProtocol) {
         self.repository = repository
     }
 

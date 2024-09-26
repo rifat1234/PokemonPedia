@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PokemonCore
 
 /// Show list of `Pokemon` model containing name and image with option to show more details about the pokemon
 struct PokemonListView: View {

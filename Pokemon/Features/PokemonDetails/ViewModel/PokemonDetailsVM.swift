@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Observation
+import PokemonCore
 
 extension PokemonDetailsView {
     /// Help `PokemonDetailsView` to determine which view to show

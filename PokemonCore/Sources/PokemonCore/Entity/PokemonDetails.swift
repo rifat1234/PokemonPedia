@@ -44,6 +44,29 @@ public struct PokemonDetails: Codable {
         case pastTypes = "past_types"
         case species, stats, types, weight, sprites
     }
+    
+    public init(abilities: [Ability]?, baseExperience: Int?, cries: Cries?, forms: [Info]?, gameIndices: [GameIndex]?, height: Int?, heldItems: [HeldItem]?, id: Int?, isDefault: Bool?, locationAreaEncounters: String?, moves: [Move]?, name: String?, order: Int?, pastAbilities: [JSONAny]?, pastTypes: [JSONAny]?, species: Info?, sprites: Sprites?, stats: [Stat]?, types: [TypeElement]?, weight: Int?) {
+        self.abilities = abilities
+        self.baseExperience = baseExperience
+        self.cries = cries
+        self.forms = forms
+        self.gameIndices = gameIndices
+        self.height = height
+        self.heldItems = heldItems
+        self.id = id
+        self.isDefault = isDefault
+        self.locationAreaEncounters = locationAreaEncounters
+        self.moves = moves
+        self.name = name
+        self.order = order
+        self.pastAbilities = pastAbilities
+        self.pastTypes = pastTypes
+        self.species = species
+        self.sprites = sprites
+        self.stats = stats
+        self.types = types
+        self.weight = weight
+    }
 }
 
 // MARK: - Ability
@@ -374,8 +397,8 @@ public struct Stat: Codable, Hashable {
 
 // MARK: - TypeElement
 public struct TypeElement: Codable, Hashable {
-    let slot: Int?
-    let type: Info?
+    public let slot: Int?
+    public let type: Info?
 }
 
 // MARK: - Encode/decode helpers
@@ -409,7 +432,7 @@ public class JSONNull: Codable, Hashable {
     }
 }
 
-public class JSONCodingKey: CodingKey {
+public final class JSONCodingKey: CodingKey {
     public let key: String
 
     public required init?(intValue: Int) {

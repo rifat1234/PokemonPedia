@@ -37,6 +37,11 @@ public struct InfoData: Hashable {
         }
     }
     
+    public init(type: DataType, infos: [Info]) {
+        self.type = type
+        self.infos = infos
+    }
+    
     public let type:DataType
     public let infos:[Info]
     public var title:String {

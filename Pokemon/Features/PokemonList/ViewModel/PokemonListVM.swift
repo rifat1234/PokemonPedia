@@ -8,6 +8,7 @@
 import Foundation
 import Observation
 import SwiftUI
+import PokemonCore
 
 extension PokemonListView {
     /// Help `PokemonListView` to determine which view to show

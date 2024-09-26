@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import PokemonCore
 
 final class PokemonListVMTests: XCTestCase {
     var viewModel:PokemonListView.ViewModel!

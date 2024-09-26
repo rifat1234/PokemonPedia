@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import PokemonCore
 
 extension PokemonDetailsView {
     /// `MoreInfoSection` gives user option to know about pokemon features like ability, moves, held items and so on

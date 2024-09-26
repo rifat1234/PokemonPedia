@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PokemonCore
 
 extension PokemonListView {
     struct PokemonCellView: View {

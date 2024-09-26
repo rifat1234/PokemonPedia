@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import PokemonCore
 
 struct APIManager: APIManagerProtocol { 
     private struct Const {

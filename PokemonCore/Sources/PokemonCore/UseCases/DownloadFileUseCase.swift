@@ -10,7 +10,7 @@ import Foundation
 public class DownloadFileUseCase {
     private let repository: APIManagerProtocol
 
-    init(repository: APIManagerProtocol) {
+    public init(repository: APIManagerProtocol) {
         self.repository = repository
     }
 

@@ -13,6 +13,13 @@ public struct Pokemons: Codable, Equatable {
         lhs.count == rhs.count && lhs.next == rhs.next && lhs.previous == rhs.previous && lhs.results == rhs.results
     }
     
+    public init(count: Int, next: String?, previous: String?, results: [Pokemon]) {
+        self.count = count
+        self.next = next
+        self.previous = previous
+        self.results = results
+    }
+    
     public let count:Int
     public let next:String?
     public let previous:String?

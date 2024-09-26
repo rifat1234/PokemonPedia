@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import PokemonCore
 
 final class InfoVMTests: XCTestCase {
     var infoVM:InfoDataView.ViewModel?

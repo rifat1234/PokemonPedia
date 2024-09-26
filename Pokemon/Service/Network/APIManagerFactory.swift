@@ -5,6 +5,8 @@
 //  Created by Rifat Monzur on 23/9/24.
 //
 
+import PokemonCore
+
 struct APIManagerFactory {
     static func getAPIManager() -> APIManagerProtocol {
         if CommandLine.arguments.contains(AppLaunchMode.uiTesting.rawValue) {
