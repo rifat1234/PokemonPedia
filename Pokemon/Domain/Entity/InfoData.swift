@@ -9,9 +9,9 @@ import Foundation
 
 /// `InfoData` model is used by `InfoView` to show data
 /// Since many `PokemonDetails` contains similar type of data containing `Info` array, we can reuse  `InfoView`,  to show them all using `InfoData`
-struct InfoData: Hashable {
+public struct InfoData: Hashable {
     /// `DataType` address which type of `Infos` array it has.
-    enum DataType: Hashable {
+    public enum DataType: Hashable {
         case abilities
         case moves
         case heldItems
@@ -19,7 +19,7 @@ struct InfoData: Hashable {
         case types
         case gameIndices
 
-        var title:String {
+        public var title:String {
             switch self {
             case .abilities:
                 "Abilities"
@@ -37,9 +37,9 @@ struct InfoData: Hashable {
         }
     }
     
-    let type:DataType
-    let infos:[Info]
-    var title:String {
+    public let type:DataType
+    public let infos:[Info]
+    public var title:String {
         type.title
     }
 }

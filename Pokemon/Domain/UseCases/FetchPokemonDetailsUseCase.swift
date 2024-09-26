@@ -12,7 +12,7 @@ public class FetchPokemonDetailsUseCase {
         self.repository = repository
     }
 
-    func execute(pokemon: Pokemon) async throws -> PokemonDetails {
+    public func execute(pokemon: Pokemon) async throws -> PokemonDetails {
         return try await repository.fetchPokemonDetails(url: pokemon.url)
     }
 }

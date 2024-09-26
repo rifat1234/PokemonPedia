@@ -8,26 +8,26 @@ import Foundation
 // MARK: - PokemonDetails
 /// `PokemonDetails` is returned by **poke api** (endpoint: pokemon/{id or name})
 /// It contains all the details about the pokemon
-struct PokemonDetails: Codable {
-    let abilities: [Ability]?
-    let baseExperience: Int?
-    let cries: Cries?
-    let forms: [Info]?
-    let gameIndices: [GameIndex]?
-    let height: Int?
-    let heldItems: [HeldItem]?
-    let id: Int?
-    let isDefault: Bool?
-    let locationAreaEncounters: String?
-    let moves: [Move]?
-    let name: String?
-    let order: Int?
-    let pastAbilities, pastTypes: [JSONAny]?
-    let species: Info?
-    let sprites: Sprites?
-    let stats: [Stat]?
-    let types: [TypeElement]?
-    let weight: Int?
+public struct PokemonDetails: Codable {
+    public let abilities: [Ability]?
+    public let baseExperience: Int?
+    public let cries: Cries?
+    public let forms: [Info]?
+    public let gameIndices: [GameIndex]?
+    public let height: Int?
+    public let heldItems: [HeldItem]?
+    public let id: Int?
+    public let isDefault: Bool?
+    public let locationAreaEncounters: String?
+    public let moves: [Move]?
+    public let name: String?
+    public let order: Int?
+    public let pastAbilities, pastTypes: [JSONAny]?
+    public let species: Info?
+    public let sprites: Sprites?
+    public let stats: [Stat]?
+    public let types: [TypeElement]?
+    public let weight: Int?
 
     enum CodingKeys: String, CodingKey {
         case abilities
@@ -47,10 +47,10 @@ struct PokemonDetails: Codable {
 }
 
 // MARK: - Ability
-struct Ability: Codable, Hashable {
-    let ability: Info?
-    let isHidden: Bool?
-    let slot: Int?
+public struct Ability: Codable, Hashable {
+    public let ability: Info?
+    public let isHidden: Bool?
+    public let slot: Int?
 
     enum CodingKeys: String, CodingKey {
         case ability
@@ -60,16 +60,16 @@ struct Ability: Codable, Hashable {
 }
 
 // MARK: - Species
-struct Info: Codable, Hashable {
-    let name: String?
-    let url: String?
+public struct Info: Codable, Hashable {
+    public let name: String?
+    public let url: String?
     
-    init(name: String, url: String?) {
+    public init(name: String, url: String?) {
         self.name = name
         self.url = url
     }
     
-    init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name).capitalized.replacingOccurrences(of: "-", with: " ")
         self.url = try container.decode(String.self, forKey: .url)
@@ -77,14 +77,14 @@ struct Info: Codable, Hashable {
 }
 
 // MARK: - Cries
-struct Cries: Codable {
-    let latest, legacy: String?
+public struct Cries: Codable {
+    public let latest, legacy: String?
 }
 
 // MARK: - GameIndex
-struct GameIndex: Codable, Hashable {
-    let gameIndex: Int?
-    let version: Info?
+public struct GameIndex: Codable, Hashable {
+    public let gameIndex: Int?
+    public let version: Info?
 
     enum CodingKeys: String, CodingKey {
         case gameIndex = "game_index"
@@ -93,9 +93,9 @@ struct GameIndex: Codable, Hashable {
 }
 
 // MARK: - HeldItem
-struct HeldItem: Codable, Hashable {
-    let item: Info?
-    let versionDetails: [VersionDetail]?
+public struct HeldItem: Codable, Hashable {
+    public let item: Info?
+    public let versionDetails: [VersionDetail]?
 
     enum CodingKeys: String, CodingKey {
         case item
@@ -104,19 +104,19 @@ struct HeldItem: Codable, Hashable {
 }
 
 // MARK: - VersionDetail
-struct VersionDetail: Codable, Hashable {
-    let rarity: Int?
-    let version: Info?
+public struct VersionDetail: Codable, Hashable {
+    public let rarity: Int?
+    public let version: Info?
 }
 
 // MARK: - Move
-struct Move: Codable, Hashable{
-    static func == (lhs: Move, rhs: Move) -> Bool {
+public struct Move: Codable, Hashable{
+    public static func == (lhs: Move, rhs: Move) -> Bool {
         lhs.move?.name == rhs.move?.name
     }
     
-    let move: Info?
-    let versionGroupDetails: [VersionGroupDetail]?
+    public let move: Info?
+    public let versionGroupDetails: [VersionGroupDetail]?
 
     enum CodingKeys: String, CodingKey {
         case move
@@ -125,9 +125,9 @@ struct Move: Codable, Hashable{
 }
 
 // MARK: - VersionGroupDetail
-struct VersionGroupDetail: Codable, Hashable {
-    let levelLearnedAt: Int?
-    let moveLearnMethod, versionGroup: Info?
+public struct VersionGroupDetail: Codable, Hashable {
+    public let levelLearnedAt: Int?
+    public let moveLearnMethod, versionGroup: Info?
 
     enum CodingKeys: String, CodingKey {
         case levelLearnedAt = "level_learned_at"
@@ -137,8 +137,8 @@ struct VersionGroupDetail: Codable, Hashable {
 }
 
 // MARK: - GenerationV
-struct GenerationV: Codable {
-    let blackWhite: Sprites?
+public struct GenerationV: Codable {
+    public let blackWhite: Sprites?
 
     enum CodingKeys: String, CodingKey {
         case blackWhite = "black-white"
@@ -146,8 +146,8 @@ struct GenerationV: Codable {
 }
 
 // MARK: - GenerationIv
-struct GenerationIv: Codable {
-    let diamondPearl, heartgoldSoulsilver, platinum: Sprites?
+public struct GenerationIv: Codable {
+    public let diamondPearl, heartgoldSoulsilver, platinum: Sprites?
 
     enum CodingKeys: String, CodingKey {
         case diamondPearl = "diamond-pearl"
@@ -157,15 +157,15 @@ struct GenerationIv: Codable {
 }
 
 // MARK: - Versions
-struct Versions: Codable {
-    let generationI: GenerationI?
-    let generationIi: GenerationIi?
-    let generationIii: GenerationIii?
-    let generationIv: GenerationIv?
-    let generationV: GenerationV?
-    let generationVi: [String: Home]?
-    let generationVii: GenerationVii?
-    let generationViii: GenerationViii?
+public struct Versions: Codable {
+    public let generationI: GenerationI?
+    public let generationIi: GenerationIi?
+    public let generationIii: GenerationIii?
+    public let generationIv: GenerationIv?
+    public let generationV: GenerationV?
+    public let generationVi: [String: Home]?
+    public let generationVii: GenerationVii?
+    public let generationViii: GenerationViii?
 
     enum CodingKeys: String, CodingKey {
         case generationI = "generation-i"
@@ -180,11 +180,11 @@ struct Versions: Codable {
 }
 
 // MARK: - Other
-struct Other: Codable {
-    let dreamWorld: DreamWorld?
-    let home: Home?
-    let officialArtwork: OfficialArtwork?
-    let showdown: Sprites?
+public struct Other: Codable {
+    public let dreamWorld: DreamWorld?
+    public let home: Home?
+    public let officialArtwork: OfficialArtwork?
+    public let showdown: Sprites?
 
     enum CodingKeys: String, CodingKey {
         case dreamWorld = "dream_world"
@@ -195,15 +195,15 @@ struct Other: Codable {
 }
 
 // MARK: - Sprites
-class Sprites: Codable {
-    let backDefault: String?
-    let backFemale: String?
-    let backShiny: String?
-    let backShinyFemale: String?
-    let frontDefault: String?
-    let frontFemale: String?
-    let frontShiny: String?
-    let frontShinyFemale: String?
+public class Sprites: Codable {
+    public let backDefault: String?
+    public let backFemale: String?
+    public let backShiny: String?
+    public let backShinyFemale: String?
+    public let frontDefault: String?
+    public let frontFemale: String?
+    public let frontShiny: String?
+    public let frontShinyFemale: String?
 //    let other: Other?
 //    let versions: Versions?
 //    let animated: Sprites?
@@ -236,8 +236,8 @@ class Sprites: Codable {
 }
 
 // MARK: - GenerationI
-struct GenerationI: Codable {
-    let redBlue, yellow: RedBlue?
+public struct GenerationI: Codable {
+    public let redBlue, yellow: RedBlue?
 
     enum CodingKeys: String, CodingKey {
         case redBlue = "red-blue"
@@ -246,9 +246,9 @@ struct GenerationI: Codable {
 }
 
 // MARK: - RedBlue
-struct RedBlue: Codable {
-    let backDefault, backGray, backTransparent, frontDefault: String?
-    let frontGray, frontTransparent: String?
+public struct RedBlue: Codable {
+    public let backDefault, backGray, backTransparent, frontDefault: String?
+    public let frontGray, frontTransparent: String?
 
     enum CodingKeys: String, CodingKey {
         case backDefault = "back_default"
@@ -261,15 +261,15 @@ struct RedBlue: Codable {
 }
 
 // MARK: - GenerationIi
-struct GenerationIi: Codable {
-    let crystal: Crystal?
-    let gold, silver: Gold?
+public struct GenerationIi: Codable {
+    public let crystal: Crystal?
+    public let gold, silver: Gold?
 }
 
 // MARK: - Crystal
-struct Crystal: Codable {
-    let backDefault, backShiny, backShinyTransparent, backTransparent: String?
-    let frontDefault, frontShiny, frontShinyTransparent, frontTransparent: String?
+public struct Crystal: Codable {
+    public let backDefault, backShiny, backShinyTransparent, backTransparent: String?
+    public let frontDefault, frontShiny, frontShinyTransparent, frontTransparent: String?
 
     enum CodingKeys: String, CodingKey {
         case backDefault = "back_default"
@@ -284,9 +284,9 @@ struct Crystal: Codable {
 }
 
 // MARK: - Gold
-struct Gold: Codable {
-    let backDefault, backShiny, frontDefault, frontShiny: String?
-    let frontTransparent: String?
+public struct Gold: Codable {
+    public let backDefault, backShiny, frontDefault, frontShiny: String?
+    public let frontTransparent: String?
 
     enum CodingKeys: String, CodingKey {
         case backDefault = "back_default"
@@ -298,9 +298,9 @@ struct Gold: Codable {
 }
 
 // MARK: - GenerationIii
-struct GenerationIii: Codable {
-    let emerald: OfficialArtwork?
-    let fireredLeafgreen, rubySapphire: Gold?
+public struct GenerationIii: Codable {
+    public let emerald: OfficialArtwork?
+    public let fireredLeafgreen, rubySapphire: Gold?
 
     enum CodingKeys: String, CodingKey {
         case emerald
@@ -310,8 +310,8 @@ struct GenerationIii: Codable {
 }
 
 // MARK: - OfficialArtwork
-struct OfficialArtwork: Codable {
-    let frontDefault, frontShiny: String?
+public struct OfficialArtwork: Codable {
+    public let frontDefault, frontShiny: String?
 
     enum CodingKeys: String, CodingKey {
         case frontDefault = "front_default"
@@ -320,11 +320,11 @@ struct OfficialArtwork: Codable {
 }
 
 // MARK: - Home
-struct Home: Codable {
-    let frontDefault: String?
-    let frontFemale: JSONNull?
-    let frontShiny: String?
-    let frontShinyFemale: JSONNull?
+public struct Home: Codable {
+    public let frontDefault: String?
+    public let frontFemale: JSONNull?
+    public let frontShiny: String?
+    public let frontShinyFemale: JSONNull?
 
     enum CodingKeys: String, CodingKey {
         case frontDefault = "front_default"
@@ -335,9 +335,9 @@ struct Home: Codable {
 }
 
 // MARK: - GenerationVii
-struct GenerationVii: Codable {
-    let icons: DreamWorld?
-    let ultraSunUltraMoon: Home?
+public struct GenerationVii: Codable {
+    public let icons: DreamWorld?
+    public let ultraSunUltraMoon: Home?
 
     enum CodingKeys: String, CodingKey {
         case icons
@@ -346,9 +346,9 @@ struct GenerationVii: Codable {
 }
 
 // MARK: - DreamWorld
-struct DreamWorld: Codable {
-    let frontDefault: String?
-    let frontFemale: JSONNull?
+public struct DreamWorld: Codable {
+    public let frontDefault: String?
+    public let frontFemale: JSONNull?
 
     enum CodingKeys: String, CodingKey {
         case frontDefault = "front_default"
@@ -357,14 +357,14 @@ struct DreamWorld: Codable {
 }
 
 // MARK: - GenerationViii
-struct GenerationViii: Codable {
-    let icons: DreamWorld?
+public struct GenerationViii: Codable {
+    public let icons: DreamWorld?
 }
 
 // MARK: - Stat
-struct Stat: Codable, Hashable {
-    let baseStat, effort: Int?
-    let stat: Info?
+public struct Stat: Codable, Hashable {
+    public let baseStat, effort: Int?
+    public let stat: Info?
 
     enum CodingKeys: String, CodingKey {
         case baseStat = "base_stat"
@@ -373,14 +373,14 @@ struct Stat: Codable, Hashable {
 }
 
 // MARK: - TypeElement
-struct TypeElement: Codable, Hashable {
+public struct TypeElement: Codable, Hashable {
     let slot: Int?
     let type: Info?
 }
 
 // MARK: - Encode/decode helpers
 
-class JSONNull: Codable, Hashable {
+public class JSONNull: Codable, Hashable {
 
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
             return true
@@ -409,41 +409,41 @@ class JSONNull: Codable, Hashable {
     }
 }
 
-class JSONCodingKey: CodingKey {
-    let key: String
+public class JSONCodingKey: CodingKey {
+    public let key: String
 
-    required init?(intValue: Int) {
+    public required init?(intValue: Int) {
             return nil
     }
 
-    required init?(stringValue: String) {
+    public required init?(stringValue: String) {
             key = stringValue
     }
 
-    var intValue: Int? {
+    public var intValue: Int? {
             return nil
     }
 
-    var stringValue: String {
+    public var stringValue: String {
             return key
     }
 }
 
-class JSONAny: Codable {
+public class JSONAny: Codable {
 
-    let value: Any
+    public let value: Any
 
-    static func decodingError(forCodingPath codingPath: [CodingKey]) -> DecodingError {
+    public static func decodingError(forCodingPath codingPath: [CodingKey]) -> DecodingError {
             let context = DecodingError.Context(codingPath: codingPath, debugDescription: "Cannot decode JSONAny")
             return DecodingError.typeMismatch(JSONAny.self, context)
     }
 
-    static func encodingError(forValue value: Any, codingPath: [CodingKey]) -> EncodingError {
+    public static func encodingError(forValue value: Any, codingPath: [CodingKey]) -> EncodingError {
             let context = EncodingError.Context(codingPath: codingPath, debugDescription: "Cannot encode JSONAny")
             return EncodingError.invalidValue(value, context)
     }
 
-    static func decode(from container: SingleValueDecodingContainer) throws -> Any {
+    public static func decode(from container: SingleValueDecodingContainer) throws -> Any {
             if let value = try? container.decode(Bool.self) {
                     return value
             }
@@ -462,7 +462,7 @@ class JSONAny: Codable {
             throw decodingError(forCodingPath: container.codingPath)
     }
 
-    static func decode(from container: inout UnkeyedDecodingContainer) throws -> Any {
+    public static func decode(from container: inout UnkeyedDecodingContainer) throws -> Any {
             if let value = try? container.decode(Bool.self) {
                     return value
             }
@@ -489,7 +489,7 @@ class JSONAny: Codable {
             throw decodingError(forCodingPath: container.codingPath)
     }
 
-    static func decode(from container: inout KeyedDecodingContainer<JSONCodingKey>, forKey key: JSONCodingKey) throws -> Any {
+    public static func decode(from container: inout KeyedDecodingContainer<JSONCodingKey>, forKey key: JSONCodingKey) throws -> Any {
             if let value = try? container.decode(Bool.self, forKey: key) {
                     return value
             }
@@ -516,7 +516,7 @@ class JSONAny: Codable {
             throw decodingError(forCodingPath: container.codingPath)
     }
 
-    static func decodeArray(from container: inout UnkeyedDecodingContainer) throws -> [Any] {
+    public static func decodeArray(from container: inout UnkeyedDecodingContainer) throws -> [Any] {
             var arr: [Any] = []
             while !container.isAtEnd {
                     let value = try decode(from: &container)
@@ -525,7 +525,7 @@ class JSONAny: Codable {
             return arr
     }
 
-    static func decodeDictionary(from container: inout KeyedDecodingContainer<JSONCodingKey>) throws -> [String: Any] {
+    public static func decodeDictionary(from container: inout KeyedDecodingContainer<JSONCodingKey>) throws -> [String: Any] {
             var dict = [String: Any]()
             for key in container.allKeys {
                     let value = try decode(from: &container, forKey: key)
@@ -534,7 +534,7 @@ class JSONAny: Codable {
             return dict
     }
 
-    static func encode(to container: inout UnkeyedEncodingContainer, array: [Any]) throws {
+    public static func encode(to container: inout UnkeyedEncodingContainer, array: [Any]) throws {
             for value in array {
                     if let value = value as? Bool {
                             try container.encode(value)
@@ -558,7 +558,7 @@ class JSONAny: Codable {
             }
     }
 
-    static func encode(to container: inout KeyedEncodingContainer<JSONCodingKey>, dictionary: [String: Any]) throws {
+    public static func encode(to container: inout KeyedEncodingContainer<JSONCodingKey>, dictionary: [String: Any]) throws {
             for (key, value) in dictionary {
                     let key = JSONCodingKey(stringValue: key)!
                     if let value = value as? Bool {
@@ -583,7 +583,7 @@ class JSONAny: Codable {
             }
     }
 
-    static func encode(to container: inout SingleValueEncodingContainer, value: Any) throws {
+    public static func encode(to container: inout SingleValueEncodingContainer, value: Any) throws {
             if let value = value as? Bool {
                     try container.encode(value)
             } else if let value = value as? Int64 {

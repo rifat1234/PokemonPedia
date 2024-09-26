@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol APIManagerProtocol {
+public protocol APIManagerProtocol {
     func fetchAllPokemon() async throws ->[Pokemon]
     func fetchPokemonDetails(url:String) async throws -> PokemonDetails
     func downloadFile(url: String, completion: ((URL?) -> ())?) 

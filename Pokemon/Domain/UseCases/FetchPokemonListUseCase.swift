@@ -14,7 +14,7 @@ public class FetchPokemonListUseCase {
     }
 
     /// In case of empty `searchTerm` return all pokemons else return all the pokemon starts with `searchTerm`
-    func execute(searchTerm: String? = nil) async throws -> [Pokemon] {
+    public func execute(searchTerm: String? = nil) async throws -> [Pokemon] {
         if let cachedPokemons = cachedPokemons {
             return filterPokemons(cachedPokemons, with: searchTerm)
         }

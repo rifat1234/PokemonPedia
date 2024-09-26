@@ -14,7 +14,7 @@ public class DownloadFileUseCase {
         self.repository = repository
     }
 
-    func execute(url: String, completion: ((URL?) -> ())?) {
+    public func execute(url: String, completion: ((URL?) -> ())?) {
         return repository.downloadFile(url: url, completion: completion)
     }
 }

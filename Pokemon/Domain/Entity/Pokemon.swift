@@ -9,16 +9,16 @@ import Foundation
 
 /// `Pokemon` model contains pokemon name, detail's url and imageURL
 /// It can be used to show basic info of pokemon with image
-struct Pokemon: Codable, Equatable, Hashable, Identifiable {
-    let name:String
-    let url:String
-    let imageURL:String
+public struct Pokemon: Codable, Equatable, Hashable, Identifiable {
+    public let name:String
+    public let url:String
+    public let imageURL:String
     
-    var id: String {
+    public var id: String {
         name
     }
     
-    init(name: String, url: String) {
+    public init(name: String, url: String) {
         self.name = name
         self.url = url
         self.imageURL = Pokemon.getImageURL(from: url)
@@ -27,7 +27,7 @@ struct Pokemon: Codable, Equatable, Hashable, Identifiable {
     /// During decoding we are changing `name` format from lower case to **capitalized** and also  replacing **'-'** with **single space**
     /// Example: from "aggron-mega" to "Aggron Mega"
     /// - Parameter decoder: decoder is used to decode from json to struct values
-    init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name).capitalized.replacingOccurrences(of: "-", with: " ")
         self.url = try container.decode(String.self, forKey: .url)
