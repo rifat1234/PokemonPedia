@@ -85,7 +85,7 @@ extension PokemonDetailsView {
         
         //MARK: - init
         init(_ pokemon: Pokemon,
-             fetchPokemonDetailsUseCase: FetchPokemonDetailsUseCase = FetchPokemonDetailsUseCase(repository: PokemonRepoFactory.getAPIManager()),
+             fetchPokemonDetailsUseCase: FetchPokemonDetailsUseCase = FetchPokemonDetailsUseCase(repository: PokemonRepoFactory.create()),
              fileDownloader: FileDownloaderDef = FileDownloader(),
              audioPlayer: AudioPlayerDef = AudioPlayer(),
              oggToWavConverter: OGGToWavConverterDef = OGGToWavConverter()) {

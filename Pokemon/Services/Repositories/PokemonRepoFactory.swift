@@ -8,7 +8,7 @@
 import PokemonCore
 
 struct PokemonRepoFactory {
-    static func getAPIManager() -> PokemonRepository {
+    static func create() -> PokemonRepository {
         if CommandLine.arguments.contains(AppLaunchMode.uiTesting.rawValue) {
             let listNum: SamplePokemonList? = SamplePokemonList.allCases.filter{ CommandLine.arguments.contains($0.rawValue) }.first
             

@@ -26,7 +26,7 @@ extension PokemonListView {
         /// In case of empty `searchText` return all pokemons else return all the pokemon starts with `searchText`
         var searchedPokemons: [Pokemon] = []
         
-        init(fetchPokemonListUseCase: FetchPokemonListUseCase = FetchPokemonListUseCase(repository: PokemonRepoFactory.getAPIManager())){
+        init(fetchPokemonListUseCase: FetchPokemonListUseCase = FetchPokemonListUseCase(repository: PokemonRepoFactory.create())){
             self.fetchPokemonListUseCase = fetchPokemonListUseCase
         }
         
