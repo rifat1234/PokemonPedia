@@ -8,7 +8,7 @@
 import Foundation
 import AVFAudio
 
-class AudioPlayer {
+class AudioPlayer: AudioPlayerDef {
     private var player: AVAudioPlayer?
     
     func play(url: URL) throws {

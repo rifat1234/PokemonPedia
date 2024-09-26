@@ -35,7 +35,8 @@ extension PokemonDetailsView {
         private let downloadFileUseCase: DownloadFileUseCase
         private let pokemon: Pokemon
         private var pokemonDetails: PokemonDetails?
-        private var audioPlayer = AudioPlayer()
+        private var audioPlayer: AudioPlayerDef
+        private var oggToWavConverter: OGGToWavConverterDef
         
         //MARK: - computed variables
         var navigationTitle: String {
@@ -85,10 +86,14 @@ extension PokemonDetailsView {
         //MARK: - init
         init(_ pokemon: Pokemon,
              fetchPokemonDetailsUseCase: FetchPokemonDetailsUseCase = FetchPokemonDetailsUseCase(repository: APIManagerFactory.getAPIManager()),
-             downloadFileUseCase: DownloadFileUseCase = DownloadFileUseCase(repository: APIManagerFactory.getAPIManager())) {
+             downloadFileUseCase: DownloadFileUseCase = DownloadFileUseCase(repository: APIManagerFactory.getAPIManager()),
+             audioPlayer: AudioPlayerDef = AudioPlayer(),
+             oggToWavConverter: OGGToWavConverterDef = OGGToWavConverter()) {
             self.pokemon = pokemon
             self.fetchPokemonDetailsUseCase = fetchPokemonDetailsUseCase
             self.downloadFileUseCase = downloadFileUseCase
+            self.audioPlayer = audioPlayer
+            self.oggToWavConverter = oggToWavConverter
         }
         
         //MARK: - public methods
@@ -145,8 +150,7 @@ extension PokemonDetailsView {
                     return
                 }
                 
-                let converter = OGGToWavConverter()
-                guard let wavURL = converter.convertToWav(fileURL) else {
+                guard let wavURL = self?.oggToWavConverter.convert(fileURL) else {
                     debugPrint("Convert to wav failed")
                     self?.showAlert(.audioPlayingError)
                     self?.criesState = .play

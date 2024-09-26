@@ -8,10 +8,10 @@
 import Foundation
 import OggDecoder
 
-struct OGGToWavConverter {
+struct OGGToWavConverter: OGGToWavConverterDef {
     private let decoder = OGGDecoder()
     
-    func convertToWav(_ url: URL)->URL? {
+    func convert(_ url: URL)->URL? {
         decoder.decode(url)
     }
 }
