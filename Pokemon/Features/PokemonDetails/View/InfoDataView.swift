@@ -21,8 +21,8 @@ struct InfoDataView: View {
     }
 }
 
-//#Preview {
-//    InfoDataView(viewModel: InfoDataView.ViewModel( infoData:InfoData(type:.forms, infos:[Info(name: "Rifat", url: nil),
-//                     Info(name: "Adnan", url: nil),
-//                     Info(name: "Saad", url: nil)])))
-//}
+#Preview {
+    InfoDataView(viewModel: InfoDataView.ViewModel( infoData:InfoData(type:.forms, infos:[Info(name: "Rifat", url: nil),
+                     Info(name: "Adnan", url: nil),
+                     Info(name: "Saad", url: nil)])))
+}
