@@ -5,7 +5,11 @@
 //  Created by Rifat Monzur on 25/9/24.
 //
 
-public class FetchPokemonListUseCase {
+public protocol FetchPokemonListUseCaseDef {
+    func execute(searchTerm: String?) async throws -> [Pokemon]
+}
+
+public class FetchPokemonListUseCase: FetchPokemonListUseCaseDef {
     private let repository: PokemonRepository
     private var cachedPokemons:[Pokemon]? = nil
 

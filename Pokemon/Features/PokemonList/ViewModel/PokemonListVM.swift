@@ -21,7 +21,7 @@ extension PokemonListView {
         var searchText:String = ""
         var viewState:ViewState = .dataLoading
         
-        private let fetchPokemonListUseCase:FetchPokemonListUseCase
+        private let fetchPokemonListUseCase:FetchPokemonListUseCaseDef
         
         /// In case of empty `searchText` return all pokemons else return all the pokemon starts with `searchText`
         var searchedPokemons: [Pokemon] = []

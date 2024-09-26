@@ -31,9 +31,9 @@ extension PokemonDetailsView {
         var dismissView: Bool = false
         
         //MARK: - private variables
-        private let fetchPokemonDetailsUseCase: FetchPokemonDetailsUseCase
         private let pokemon: Pokemon
         private var pokemonDetails: PokemonDetails?
+        private let fetchPokemonDetailsUseCase: FetchPokemonDetailsUseCaseDef
         private let fileDownloader: FileDownloaderDef
         private let audioPlayer: AudioPlayerDef
         private let oggToWavConverter: OGGToWavConverterDef
